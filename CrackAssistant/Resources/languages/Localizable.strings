@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  CrackAssistant
+
+  Created by yuan fang on 14-4-14.
+
+*/
+
+/*   共通提示文字   */
+"alertMessageNetworkUnavailable" = "请确认网络连接";
