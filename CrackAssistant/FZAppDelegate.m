@@ -6,9 +6,9 @@
 //
 //
 
-#import "fzAppDelegate.h"
+#import "FZAppDelegate.h"
 
-@implementation fzAppDelegate
+@implementation FZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

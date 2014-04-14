@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface fzAppDelegate : UIResponder <UIApplicationDelegate>
+@interface FZAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
