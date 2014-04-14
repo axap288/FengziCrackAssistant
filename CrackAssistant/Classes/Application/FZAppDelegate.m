@@ -7,13 +7,40 @@
 //
 
 #import "FZAppDelegate.h"
+#import "FZMainViewController.h"
+#import "FZCrackViewController.h"
+#import "FZdownloadViewController.h"
+#import "FZSearchViewController.h"
+#import "FZmoreViewController.h"
 
 @implementation FZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //首页
+    FZMainViewController *mainvc = [[FZMainViewController alloc] init];
+    mainvc.title = @"首页";
+    //破解
+    FZCrackViewController *crackvc = [[FZCrackViewController alloc] init];
+    crackvc.title = @"破解";
+    //下载
+    FZdownloadViewController *dlvc = [[FZdownloadViewController alloc] init];
+    dlvc.title = @"下载";
+    //搜索
+    FZSearchViewController *searchvc = [[FZSearchViewController alloc] init];
+    searchvc.title = @"搜索";
+    //更多
+    FZmoreViewController *morevc = [[FZmoreViewController alloc] init];
+    morevc.title = @"更多";
+    
+    
+    NSArray *viewcontrollers = [NSArray arrayWithObjects:mainvc,crackvc,dlvc,searchvc,morevc,nil];
+    
+    UITabBarController *tabbar = [[UITabBarController alloc] init];
+    [tabbar setViewControllers:viewcontrollers animated:YES];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    self.window.rootViewController = tabbar;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
