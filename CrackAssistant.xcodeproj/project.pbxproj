@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F729A1C18FD3B6A00BDE86F /* FZCrackListViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */; };
+		1F729A1F18FD5A7500BDE86F /* FZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */; };
 		1F80566D18F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80566F18F5326A00BF39A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566E18F5326A00BF39A7 /* CoreGraphics.framework */; };
 		1F80567118F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
@@ -67,6 +69,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F729A1A18FD3B6A00BDE86F /* FZCrackListViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZCrackListViewViewController.h; sourceTree = "<group>"; };
+		1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZCrackListViewViewController.m; sourceTree = "<group>"; };
+		1F729A1D18FD5A7500BDE86F /* FZDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZDownloadManager.h; sourceTree = "<group>"; };
+		1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZDownloadManager.m; sourceTree = "<group>"; };
 		1F80566918F5326A00BF39A7 /* CrackAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrackAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F80566C18F5326A00BF39A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1F80566E18F5326A00BF39A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -379,6 +385,8 @@
 			isa = PBXGroup;
 			children = (
 				4E677A5218FC196400E238A4 /* FZServer */,
+				1F729A1D18FD5A7500BDE86F /* FZDownloadManager.h */,
+				1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */,
 			);
 			path = Uitils;
 			sourceTree = "<group>";
@@ -409,6 +417,8 @@
 				4E677A9618FC25CA00E238A4 /* FZmoreViewController.m */,
 				4E677A9718FC25CA00E238A4 /* FZSearchViewController.h */,
 				4E677A9818FC25CA00E238A4 /* FZSearchViewController.m */,
+				1F729A1A18FD3B6A00BDE86F /* FZCrackListViewViewController.h */,
+				1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -559,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E677A6918FC196400E238A4 /* SDWebImageDecoder.m in Sources */,
+				1F729A1F18FD5A7500BDE86F /* FZDownloadManager.m in Sources */,
 				4E677A6B18FC196400E238A4 /* SDWebImageManager.m in Sources */,
 				4E677A6018FC196400E238A4 /* ASIFormDataRequest.m in Sources */,
 				4E677A8B18FC20C700E238A4 /* FZBaseViewController.m in Sources */,
@@ -579,6 +590,7 @@
 				4E677A9D18FC25CA00E238A4 /* FZSearchViewController.m in Sources */,
 				4E677A6318FC196400E238A4 /* ASINetworkQueue.m in Sources */,
 				4E677A7318FC196400E238A4 /* FZNetWorkReachability.m in Sources */,
+				1F729A1C18FD3B6A00BDE86F /* FZCrackListViewViewController.m in Sources */,
 				4E677A5F18FC196400E238A4 /* ASIDownloadCache.m in Sources */,
 				4E677A6218FC196400E238A4 /* ASIInputStream.m in Sources */,
 				4E677A5D18FC196400E238A4 /* ASIDataCompressor.m in Sources */,
