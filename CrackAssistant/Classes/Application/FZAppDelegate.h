@@ -11,6 +11,7 @@
 @interface FZAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UITabBarController *tabbarContorller;
 
 
 @end
