@@ -20,6 +20,7 @@
     //首页
     FZMainViewController *mainvc = [[FZMainViewController alloc] init];
     mainvc.title = @"首页";
+    UINavigationController *mainNavCtrl = [[UINavigationController alloc] initWithRootViewController:mainvc];
     //破解
     FZCrackViewController *crackvc = [[FZCrackViewController alloc] init];
     crackvc.title = @"破解";
@@ -36,7 +37,7 @@
     
     // UITabBarController初始化
     self.tabBarController = [[FZTabBarController alloc] init];
-    self.tabBarController.viewControllers = @[mainvc, crackvc, dlvc, searchvc, morevc];
+    self.tabBarController.viewControllers = @[mainNavCtrl, crackvc, dlvc, searchvc, morevc];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.tabBarController;

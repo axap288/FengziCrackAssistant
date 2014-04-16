@@ -9,24 +9,16 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FZTabBarController : UITabBarController {
-    
-	NSMutableArray *buttons;
-	UIImageView *slideBg;
-    UIScrollView *backScrollView;
-    int currentSelectedIndex;
-    int lastSelected;
-    BOOL initFlg;
-}
+@interface FZTabBarController : UITabBarController
 
 @property (nonatomic, assign) int currentSelectedIndex;
 @property (nonatomic, assign) int lastSelected;
 @property (nonatomic, assign) BOOL initFlg;
 @property (nonatomic, retain) NSMutableArray *buttons;
-@property (nonatomic, retain) UIScrollView *backScrollView;
+@property (nonatomic, retain) UIImageView *tabBarBackGroundView;
 
-//- (void)hideRealTabBar;
 - (void)customTabBar;
 - (void)selectedTab:(UIButton *)button;
-
+- (void)hiddenTabbar;
+- (void)showTabbar;
 @end
