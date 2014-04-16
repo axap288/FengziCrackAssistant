@@ -611,6 +611,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "疯子";
 				TargetAttributes = {
+					1F80566818F5326A00BF39A7 = {
+						DevelopmentTeam = H4TG7H4M52;
+					};
 					1F80568318F5326A00BF39A7 = {
 						TestTargetID = 1F80566818F5326A00BF39A7;
 					};
@@ -814,11 +817,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -828,11 +834,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

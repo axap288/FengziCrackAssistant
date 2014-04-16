@@ -29,7 +29,7 @@
 {
     self = [super init];
     if (self) {
-        _maxDownLoad = 2;//默认只有一个下载
+        _maxDownLoad = 1;//默认只有一个下载
         _waitDownloadQueue = [NSMutableArray array];
         _overDownloadQueue = [NSMutableArray array];
         _suspendDownloadQueue = [NSMutableArray array];
@@ -100,11 +100,6 @@
 -(void)createDownloadHttpRequest:(FZGameFile *)model
 {
     NSURL *downloadURL = [NSURL URLWithString:model.downloadUrl];
-    //进度条
-//    UIProgressView *progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
-//    progressView.progress=0.0f;
-    
-//    model.progressView = progressView;
     
     //添加一个下载请求到队列
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:downloadURL];
@@ -140,6 +135,7 @@
             model.state = over;
             [_overDownloadQueue addObject:model];
             [_downloadingQueue removeObject:model];
+            model = nil;
             *stop = YES;
         }
     }];
@@ -153,6 +149,9 @@
             [_downloadingQueue addObject:model];
         }
     }
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil];
+
 }
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
