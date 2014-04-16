@@ -34,13 +34,12 @@
     morevc.title = @"更多";
     
     
-    NSArray *viewcontrollers = [NSArray arrayWithObjects:mainvc,crackvc,dlvc,searchvc,morevc,nil];
-    
-    UITabBarController *tabbar = [[UITabBarController alloc] init];
-    [tabbar setViewControllers:viewcontrollers animated:YES];
+    // UITabBarController初始化
+    self.tabBarController = [[FZTabBarController alloc] init];
+    self.tabBarController.viewControllers = @[mainvc, crackvc, dlvc, searchvc, morevc];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = tabbar;
+    self.window.rootViewController = self.tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
