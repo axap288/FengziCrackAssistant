@@ -22,8 +22,10 @@
 }
 
 - (void)customTabBar{
-    
-    // self.tabBar.hidden = YES;
+
+    if (isIOS7) {
+        self.tabBar.hidden = YES;
+    }
     
     // TabBar自定义视图
 	self.tabBarBackGroundView = [[UIImageView alloc] initWithFrame:self.tabBar.frame];
@@ -65,8 +67,13 @@
 	}
     
 	// 添加背景视图
-    // [self.view addSubview:self.tabBarBackGroundView];
-    [self.tabBar insertSubview:self.tabBarBackGroundView atIndex:0];
+    if (isIOS7) {
+        [self.view addSubview:self.tabBarBackGroundView];
+    } else {
+        [self.view insertSubview:self.tabBarBackGroundView atIndex:0];
+        [self.view sendSubviewToBack:self.tabBar];
+    }
+    // [self.tabBar insertSubview:self.tabBarBackGroundView atIndex:0];
     self.currentSelectedIndex = 1;
 	[self selectedTab:[self.buttons objectAtIndex:0]];
 }
@@ -147,14 +154,35 @@
     self.selectedIndex = self.currentSelectedIndex;
 }
 
-- (void)hiddenTabbar
+- (void)showTabBar:(BOOL)show withAnimation:(BOOL)animated
 {
-    self.tabBarBackGroundView.hidden = YES;
-}
-
-- (void)showTabbar
-{
-    self.tabBarBackGroundView.hidden = NO;
+    if (show) {
+        if (isIOS7 && self.tabIsHidden) {
+            [UIView animateWithDuration:0.3f
+                             animations:^{
+                                 CGRect oldFrame = self.tabBarBackGroundView.frame;
+                                 self.tabBarBackGroundView.frame = CGRectMake(oldFrame.origin.x,
+                                                                              oldFrame.origin.y - 49,
+                                                                              oldFrame.size.width,
+                                                                              oldFrame.size.height);
+                             } completion:^(BOOL finished) {
+                                 self.tabIsHidden = NO;
+                             }];
+        }
+    } else {
+        if (isIOS7 && !self.tabIsHidden) {
+            [UIView animateWithDuration:0.3f
+                             animations:^{
+                                 CGRect oldFrame = self.tabBarBackGroundView.frame;
+                                 self.tabBarBackGroundView.frame = CGRectMake(oldFrame.origin.x,
+                                                                              oldFrame.origin.y + 49,
+                                                                              oldFrame.size.width,
+                                                                              oldFrame.size.height);
+                             } completion:^(BOOL finished) {
+                                 self.tabIsHidden = YES;
+                             }];
+        }
+    }
 }
 
 @end

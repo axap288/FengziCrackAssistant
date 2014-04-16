@@ -44,7 +44,7 @@
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:fc];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = navigation;
+    self.window.rootViewController = self.tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

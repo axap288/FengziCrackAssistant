@@ -10,4 +10,6 @@
 
 @interface FZBaseViewController : UIViewController
 
+- (void)showTabBar:(BOOL)show withAnimation:(BOOL)animated;
+
 @end
