@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FZDownloadListCell.h"
+#import "FZDownloadManager.h"
+#import "FZGameFile.h"
 
-@interface FZdownloadViewController : UIViewController
+@interface FZdownloadViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

@@ -9,42 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequest.h"
 #import "ASINetworkQueue.h"
+#import "FZGameFile.h"
 
-//下载状态
-typedef enum _downloadState{
-    downloading=0,
-    waitting =1,
-    suspend = 2,
-    over=3
-}downloadState;
+#define RefreshDownloadNotification @"RefreshDownloadNotification"
 
-/**
- *  FZGameModel
- */
-@interface  FZGameModel : NSObject
-
-@property (strong,nonatomic) NSString *iD;
-@property (strong,nonatomic) NSString *name;
-@property (strong,nonatomic) NSString *fileName;
-@property (strong,nonatomic) NSString *downloadUrl;
-@property (strong,nonatomic) UIImage *thumbnail;
-@property (assign) downloadState state;
-
-@end
-
-/**
- *  FZDownloadDelegate
- */
-@protocol FZDownloadDelegate <NSObject>
-
-
-@end
-
-@interface FZDownloadManager : NSObject <ASIHTTPRequestDelegate>
+@interface FZDownloadManager : NSObject <ASIHTTPRequestDelegate,ASIProgressDelegate>
 
 @property(assign) NSUInteger maxDownLoad;//最大下载数
-@property(strong,nonatomic) NSMutableArray *downloadlist;//下载列表
-@property(assign) id<FZDownloadDelegate> delegate;
+@property(strong,nonatomic) NSMutableArray *waitDownloadQueue;//等待下载列表
+@property(strong,nonatomic) NSMutableArray *overDownloadQueue;//下载完成集合
+@property(strong,nonatomic) NSMutableArray *suspendDownloadQueue;//暂停
+@property(strong,nonatomic) NSMutableArray *downloadingQueue;//下载中
 
 
 +(FZDownloadManager *)getShareInstance;
@@ -54,19 +29,19 @@ typedef enum _downloadState{
  *
  *  @param model
  */
--(void)addDownloadToList:(FZGameModel *)model;
+-(void)addDownloadToList:(id)model;
 /**
  *  停止某个下载
  *
  *  @param id
  */
--(void)stopDownloadWithGameId:(NSString *)id;
+-(void)stopDownloadWithGameId:(NSString *)mid;
 /**
  *  重启某个暂停的下载
  *
  *  @param id
  */
--(void)restartDownloadWithGameId:(NSString *)id;
+-(void)restartDownloadWithGameId:(NSString *)mid;
 
 
 @end

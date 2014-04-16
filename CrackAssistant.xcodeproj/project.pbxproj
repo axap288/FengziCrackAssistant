@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F623FEA18FE792A00D87F16 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F623FE818FE792A00D87F16 /* SVProgressHUD.m */; };
+		1F623FED18FE873100D87F16 /* FZCommonUitils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F623FEC18FE873100D87F16 /* FZCommonUitils.m */; };
 		1F729A1C18FD3B6A00BDE86F /* FZCrackListViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */; };
 		1F729A1F18FD5A7500BDE86F /* FZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */; };
+		1F7FFF5918FE29A700A3C5EE /* FZGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FFF5818FE29A700A3C5EE /* FZGame.m */; };
+		1F7FFF5E18FE513D00A3C5EE /* downloadListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F7FFF5D18FE513D00A3C5EE /* downloadListCell.xib */; };
+		1F7FFF6118FE528C00A3C5EE /* FZGameFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FFF6018FE528C00A3C5EE /* FZGameFile.m */; };
+		1F7FFF6418FE570400A3C5EE /* FZDownloadListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FFF6318FE570400A3C5EE /* FZDownloadListCell.m */; };
 		1F80566D18F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80566F18F5326A00BF39A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566E18F5326A00BF39A7 /* CoreGraphics.framework */; };
 		1F80567118F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
@@ -46,7 +52,6 @@
 		4E677A6D18FC196400E238A4 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A4A18FC196400E238A4 /* UIButton+WebCache.m */; };
 		4E677A6E18FC196400E238A4 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A4C18FC196400E238A4 /* UIImageView+WebCache.m */; };
 		4E677A6F18FC196400E238A4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4E677A4E18FC196400E238A4 /* SVProgressHUD.bundle */; };
-		4E677A7018FC196400E238A4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A5018FC196400E238A4 /* SVProgressHUD.m */; };
 		4E677A7118FC196400E238A4 /* FZBaseServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A5418FC196400E238A4 /* FZBaseServerRequest.m */; };
 		4E677A7218FC196400E238A4 /* FZInterfaceServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A5618FC196400E238A4 /* FZInterfaceServer.m */; };
 		4E677A7318FC196400E238A4 /* FZNetWorkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A5818FC196400E238A4 /* FZNetWorkReachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -76,10 +81,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F623FE818FE792A00D87F16 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		1F623FE918FE792A00D87F16 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		1F623FEB18FE873100D87F16 /* FZCommonUitils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZCommonUitils.h; sourceTree = "<group>"; };
+		1F623FEC18FE873100D87F16 /* FZCommonUitils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZCommonUitils.m; sourceTree = "<group>"; };
 		1F729A1A18FD3B6A00BDE86F /* FZCrackListViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZCrackListViewViewController.h; sourceTree = "<group>"; };
 		1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZCrackListViewViewController.m; sourceTree = "<group>"; };
 		1F729A1D18FD5A7500BDE86F /* FZDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZDownloadManager.h; sourceTree = "<group>"; };
 		1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZDownloadManager.m; sourceTree = "<group>"; };
+		1F7FFF5718FE29A700A3C5EE /* FZGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGame.h; sourceTree = "<group>"; };
+		1F7FFF5818FE29A700A3C5EE /* FZGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGame.m; sourceTree = "<group>"; };
+		1F7FFF5D18FE513D00A3C5EE /* downloadListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = downloadListCell.xib; sourceTree = "<group>"; };
+		1F7FFF5F18FE528C00A3C5EE /* FZGameFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameFile.h; sourceTree = "<group>"; };
+		1F7FFF6018FE528C00A3C5EE /* FZGameFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameFile.m; sourceTree = "<group>"; };
+		1F7FFF6218FE570400A3C5EE /* FZDownloadListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZDownloadListCell.h; sourceTree = "<group>"; };
+		1F7FFF6318FE570400A3C5EE /* FZDownloadListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZDownloadListCell.m; sourceTree = "<group>"; };
 		1F80566918F5326A00BF39A7 /* CrackAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrackAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F80566C18F5326A00BF39A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1F80566E18F5326A00BF39A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,8 +162,6 @@
 		4E677A4B18FC196400E238A4 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		4E677A4C18FC196400E238A4 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		4E677A4E18FC196400E238A4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		4E677A4F18FC196400E238A4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		4E677A5018FC196400E238A4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		4E677A5318FC196400E238A4 /* FZBaseServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZBaseServerRequest.h; sourceTree = "<group>"; };
 		4E677A5418FC196400E238A4 /* FZBaseServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZBaseServerRequest.m; sourceTree = "<group>"; };
 		4E677A5518FC196400E238A4 /* FZInterfaceServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZInterfaceServer.h; sourceTree = "<group>"; };
@@ -205,6 +219,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F7FFF5618FE298400A3C5EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F7FFF5718FE29A700A3C5EE /* FZGame.h */,
+				1F7FFF5818FE29A700A3C5EE /* FZGame.m */,
+				1F7FFF5F18FE528C00A3C5EE /* FZGameFile.h */,
+				1F7FFF6018FE528C00A3C5EE /* FZGameFile.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1F7FFF5C18FE513D00A3C5EE /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				1F7FFF5D18FE513D00A3C5EE /* downloadListCell.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
 		1F80566018F5326A00BF39A7 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +310,8 @@
 		4E677A1618FC196400E238A4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1F7FFF5C18FE513D00A3C5EE /* Xib */,
+				1F7FFF5618FE298400A3C5EE /* Model */,
 				4E677A1718FC196400E238A4 /* Application */,
 				4E677A1A18FC196400E238A4 /* Cells */,
 				4E677A1B18FC196400E238A4 /* Libs */,
@@ -303,6 +338,8 @@
 		4E677A1A18FC196400E238A4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1F7FFF6218FE570400A3C5EE /* FZDownloadListCell.h */,
+				1F7FFF6318FE570400A3C5EE /* FZDownloadListCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -402,9 +439,9 @@
 		4E677A4D18FC196400E238A4 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				1F623FE818FE792A00D87F16 /* SVProgressHUD.m */,
+				1F623FE918FE792A00D87F16 /* SVProgressHUD.h */,
 				4E677A4E18FC196400E238A4 /* SVProgressHUD.bundle */,
-				4E677A4F18FC196400E238A4 /* SVProgressHUD.h */,
-				4E677A5018FC196400E238A4 /* SVProgressHUD.m */,
 			);
 			path = SVProgressHUD;
 			sourceTree = "<group>";
@@ -416,6 +453,8 @@
 				4E677A5218FC196400E238A4 /* FZServer */,
 				1F729A1D18FD5A7500BDE86F /* FZDownloadManager.h */,
 				1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */,
+				1F623FEB18FE873100D87F16 /* FZCommonUitils.h */,
+				1F623FEC18FE873100D87F16 /* FZCommonUitils.m */,
 			);
 			path = Uitils;
 			sourceTree = "<group>";
@@ -584,6 +623,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7FFF5E18FE513D00A3C5EE /* downloadListCell.xib in Resources */,
 				4E5C4DAB18FD74E700667B23 /* fz_tabbar_download_bg@2x.png in Resources */,
 				4E677A6F18FC196400E238A4 /* SVProgressHUD.bundle in Resources */,
 				4E677A1518FC18E600E238A4 /* InfoPlist.strings in Resources */,
@@ -618,18 +658,23 @@
 				4E677A6B18FC196400E238A4 /* SDWebImageManager.m in Sources */,
 				4E677A6018FC196400E238A4 /* ASIFormDataRequest.m in Sources */,
 				4E677A8B18FC20C700E238A4 /* FZBaseViewController.m in Sources */,
+				1F623FEA18FE792A00D87F16 /* SVProgressHUD.m in Sources */,
+				1F623FED18FE873100D87F16 /* FZCommonUitils.m in Sources */,
 				4E677A6118FC196400E238A4 /* ASIHTTPRequest.m in Sources */,
 				4E677A9A18FC25CA00E238A4 /* FZdownloadViewController.m in Sources */,
 				4E677A6618FC196400E238A4 /* JSONKit.m in Sources */,
 				4E677A6A18FC196400E238A4 /* SDWebImageDownloader.m in Sources */,
 				4E677A5B18FC196400E238A4 /* FZAppDelegate.m in Sources */,
+				1F7FFF6118FE528C00A3C5EE /* FZGameFile.m in Sources */,
 				4E677A6D18FC196400E238A4 /* UIButton+WebCache.m in Sources */,
 				4E677A9918FC25CA00E238A4 /* FZCrackViewController.m in Sources */,
 				4E677A7218FC196400E238A4 /* FZInterfaceServer.m in Sources */,
+				1F7FFF5918FE29A700A3C5EE /* FZGame.m in Sources */,
 				4E677A6C18FC196400E238A4 /* SDWebImagePrefetcher.m in Sources */,
 				4E677A6418FC196400E238A4 /* Reachability.m in Sources */,
 				4E677A7118FC196400E238A4 /* FZBaseServerRequest.m in Sources */,
 				4E677A6E18FC196400E238A4 /* UIImageView+WebCache.m in Sources */,
+				1F7FFF6418FE570400A3C5EE /* FZDownloadListCell.m in Sources */,
 				4E677A5C18FC196400E238A4 /* ASIAuthenticationDialog.m in Sources */,
 				4E677A9C18FC25CA00E238A4 /* FZmoreViewController.m in Sources */,
 				4E677A9D18FC25CA00E238A4 /* FZSearchViewController.m in Sources */,
@@ -640,7 +685,6 @@
 				4E677A6218FC196400E238A4 /* ASIInputStream.m in Sources */,
 				4E677A5D18FC196400E238A4 /* ASIDataCompressor.m in Sources */,
 				4E677A6818FC196400E238A4 /* SDImageCache.m in Sources */,
-				4E677A7018FC196400E238A4 /* SVProgressHUD.m in Sources */,
 				4E5C4DA118FD65FA00667B23 /* FZTabBarController.m in Sources */,
 				4E677A8E18FC20FB00E238A4 /* FZBaseTableViewController.m in Sources */,
 				4E677A9B18FC25CA00E238A4 /* FZMainViewController.m in Sources */,

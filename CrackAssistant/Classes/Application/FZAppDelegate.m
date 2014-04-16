@@ -12,6 +12,7 @@
 #import "FZdownloadViewController.h"
 #import "FZSearchViewController.h"
 #import "FZmoreViewController.h"
+#import "FZCrackListViewViewController.h"
 
 @implementation FZAppDelegate
 
@@ -35,11 +36,14 @@
     
     
     // UITabBarController初始化
-    self.tabBarController = [[FZTabBarController alloc] init];
-    self.tabBarController.viewControllers = @[mainvc, crackvc, dlvc, searchvc, morevc];
+//    self.tabBarController = [[FZTabBarController alloc] init];
+//    self.tabBarController.viewControllers = @[mainvc, crackvc, dlvc, searchvc, morevc];
+    
+    FZCrackListViewViewController *fc =  [[FZCrackListViewViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:fc];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.tabBarController;
+    self.window.rootViewController = navigation;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

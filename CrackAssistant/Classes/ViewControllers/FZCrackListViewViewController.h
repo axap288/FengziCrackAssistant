@@ -8,6 +8,6 @@
 
 #import "FZBaseTableViewController.h"
 
-@interface FZCrackListViewViewController : FZBaseTableViewController
+@interface FZCrackListViewViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end
