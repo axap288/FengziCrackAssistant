@@ -18,6 +18,7 @@
 {
     FZDownloadManager *downloadManager;
     NSArray *downloadList;
+    NSArray *waitingList;
     UITableView *tableview;
 }
 
@@ -45,6 +46,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     downloadList = downloadManager.downloadingQueue;
+    waitingList = downloadManager.waitDownloadQueue;
     [tableview reloadData];
 }
 
@@ -59,13 +61,20 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [downloadList count];
+    NSInteger number = 0;
+    if (section == 0) {
+        number = [waitingList count];
+    }
+    if (section == 1) {
+        number = [downloadList count];
+    }
+    return number;
 }
 
 -(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,34 +82,92 @@
     return 57;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"等待队列";
+    }
+    if (section == 1) {
+        return @"下载队列";
+    }
+    return nil;
+}
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"Cell";
     FZDownloadListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        NSArray *nib =   [[NSBundle mainBundle] loadNibNamed:@"downloadListCell" owner:self options:nil];
-        cell = (FZDownloadListCell *)[nib objectAtIndex:0];
+
+    if (indexPath.section == 1) {
+        if (!cell) {
+            NSArray *nib =   [[NSBundle mainBundle] loadNibNamed:@"downloadListCell" owner:self options:nil];
+            cell = (FZDownloadListCell *)[nib objectAtIndex:0];
+            
+//            UIButton *controlbutton = cell.controlButton;
+//            [controlbutton setTitle:@"暂停" forState:UIControlStateNormal];
+//            [controlbutton addTarget:self action:@selector(stopDownloadAction:) forControlEvents:UIControlEventTouchUpInside];
+        }
         
-        UIButton *controlbutton = cell.controlButton;
-        [controlbutton setTitle:@"暂停" forState:UIControlStateNormal];
-        [controlbutton addTarget:self action:@selector(stopDownloadAction:) forControlEvents:UIControlEventTouchUpInside];
+        FZGameFile *gamefile = [downloadList objectAtIndex:indexPath.row];
+        cell.filename.text = gamefile.name;
+        cell.downladRate.text = [NSString stringWithFormat:@"%@/%@",[FZCommonUitils getFileSizeString:gamefile.receviedSize],[FZCommonUitils getFileSizeString:gamefile.fileSize]];
+        float filesize = [FZCommonUitils getFileSizeNumber:gamefile.fileSize];
+        float receivedSize = [FZCommonUitils getFileSizeNumber:gamefile.receviedSize];
+        [cell.downloadProgress setProgress:receivedSize/filesize];
     }
-    
-    FZGameFile *gamefile = [downloadList objectAtIndex:indexPath.row];
-    cell.filename.text = gamefile.name;
-    cell.downladRate.text = [NSString stringWithFormat:@"%@/%@",[FZCommonUitils getFileSizeString:gamefile.receviedSize],[FZCommonUitils getFileSizeString:gamefile.fileSize]];
-    float filesize = [FZCommonUitils getFileSizeNumber:gamefile.fileSize];
-    float receivedSize = [FZCommonUitils getFileSizeNumber:gamefile.receviedSize];
-    [cell.downloadProgress setProgress:receivedSize/filesize];
-    
+    if (indexPath.section == 0) {
+        if (!cell) {
+            NSArray *nib =   [[NSBundle mainBundle] loadNibNamed:@"downloadListCell" owner:self options:nil];
+            cell = (FZDownloadListCell *)[nib objectAtIndex:0];
+            
+//            UIButton *controlbutton = cell.controlButton;
+//            [controlbutton setTitle:@"暂停" forState:UIControlStateNormal];
+//            [controlbutton addTarget:self action:@selector(stopDownloadAction:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        FZGameFile *gamefile = [waitingList objectAtIndex:indexPath.row];
+        cell.filename.text = gamefile.name;
+        cell.downladRate.text = [NSString stringWithFormat:@"%@/%@",[FZCommonUitils getFileSizeString:gamefile.receviedSize],[FZCommonUitils getFileSizeString:gamefile.fileSize]];
+        float filesize = [FZCommonUitils getFileSizeNumber:gamefile.fileSize];
+        float receivedSize = [FZCommonUitils getFileSizeNumber:gamefile.receviedSize];
+        [cell.downloadProgress setProgress:receivedSize/filesize];
+    }
     return cell;
 }
 
 
--(void)stopDownloadAction:(NSIndexPath *)indexPath
+-(void)stopDownloadAction:(id)sender
 {
-//    NSLog(@"indexPath:%d",indexPath.row);
-    NSLog(@"stopDownAction");
+    UIButton *button = (UIButton *)sender;
+    FZDownloadListCell *cell = (FZDownloadListCell *)button.superview.superview;
+    NSIndexPath *indexPath = [tableview indexPathForCell:cell];
+    NSLog(@"index %d",indexPath.row);
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0)
+    {
+        FZGameFile *model = [waitingList objectAtIndex:indexPath.row];
+        if (model.state == suspend)
+        {
+            [downloadManager restartDownloadWithGameId:model.iD];
+        }
+    }
+    
+    if (indexPath.section == 1)
+    {
+        FZGameFile *model = [downloadList objectAtIndex:indexPath.row];
+        if(model.state == downloading)
+        {
+            [downloadManager stopDownloadWithGameId:model.iD];
+        }
+    }
+    
+
 }
 
 
