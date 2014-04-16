@@ -30,20 +30,35 @@
         array = [NSMutableArray array];
         //测试数据
         FZGameFile *m1 = [[FZGameFile alloc] init];
-        m1.name = @"flappy bird";
+        m1.name = @"91手机助手";
         m1.fileName = @"app1";
-        m1.downloadUrl = @"http://60.220.196.205/cdn.baidupcs.com/file/71067fbd9c8347f61a068c45eaab6dcb?xcode=7057de888f5b5e426fe7c8f796cc8fc9c1ff80696170e02a&fid=103343628-250528-3152335705&time=1397649235&sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-0GTwNkkF7fHzediuvqxosAGqFzU%3D&to=cb&fm=Q,B,T,nc&newver=1&expires=1397649835&rt=sh&r=642203731&logid=3914459495&sh=1&vuk=151445773&fn=Flappy%20Bird-v1.2-Locophone.ipa&wshc_tag=0&wsiphost=ipdbm";
+        m1.downloadUrl = @"http://bcs.91rb.com/rbreszy/msoft/91assistant_v3.2.8_2.ipa";
         m1.iD = [NSString stringWithFormat:@"%d",m1.hash];
         [array addObject:m1];
         
         FZGameFile *m2 = [[FZGameFile alloc] init];
-        m2.name = @"Doodle_Jump_Race";
-        m2.fileName = @"app2";
-        m2.downloadUrl = @"http://qd.baidupcs.com/file/dbc86f3ef444d4a4905f0279c89825b5?xcode=90416ca096d4d0a4106516e74abda0edcc49be0693571206&fid=103343628-250528-382013696562502&time=1397649394&sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-3alZ6hJ731ATmmDzy2Z%2F1oafvDw%3D&to=qb&fm=Q,B,T,nc&newver=1&expires=1397649994&rt=sh&r=907954548&logid=2486665437&sh=1&vuk=151445773&fn=Doodle_Jump_Race-v1.1.1-Orbicos.ipa";
+        m2.name = @"春雨医生";
+        m2.fileName = @"app3";
+        m2.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/2/ce1ba0b8b8254baca79ef6c7fb5e2bba/com.chunyu.SymptomChecker_4.7.10325_4.7.1_635320447319931250.ipa";
         m2.iD = [NSString stringWithFormat:@"%d",m2.hash];
         [array addObject:m2];
         
+        FZGameFile *m3 = [[FZGameFile alloc] init];
+        m3.name = @"旅游攻略";
+        m3.fileName = @"app4";
+        m3.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/11/f146984e29b44b9eadde85b23c348dbc/cn.mafengwo.www_6.0.1_6.0.1_635328241513209463.ipa";
+        m3.iD = [NSString stringWithFormat:@"%d",m3.hash];
+        [array addObject:m3];
+        
+        FZGameFile *m4 = [[FZGameFile alloc] init];
+        m4.name = @"天天酷跑";
+        m4.fileName = @"app5";
+        m4.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/3/14/8cfe010d07154991a3b36ead425be1ae/com.xiaor.KuPaTool_2.0.0_2.0.0_635304095451126072.ipa";
+        m4.iD = [NSString stringWithFormat:@"%d",m4.hash];
+        [array addObject:m4];
+        
         downloadManager = [FZDownloadManager getShareInstance];
+        [downloadManager setMaxDownLoad:3];
         }
     return self;
 }
@@ -94,7 +109,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FZGameFile *model = [array objectAtIndex:indexPath.row];
+    FZGameFile *model = [[array objectAtIndex:indexPath.row] copy];
     [downloadManager addDownloadToList:model];
 }
 

@@ -24,6 +24,5 @@ typedef enum {
 @property (strong,nonatomic) NSString *fileSize;   //文件实际大小
 @property (strong,nonatomic) NSString *receviedSize;//已下载的大小
 @property (assign) downloadState state;
-@property (strong,nonatomic) UIProgressView *progressView;//下载进度
 
 @end

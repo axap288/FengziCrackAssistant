@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FZGame : NSObject
+@interface FZGame : NSObject<NSCopying>
 
 @property (strong,nonatomic) NSString *iD;
 @property (strong,nonatomic) NSString *name;

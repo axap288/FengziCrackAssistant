@@ -80,10 +80,14 @@
     if (!cell) {
         NSArray *nib =   [[NSBundle mainBundle] loadNibNamed:@"downloadListCell" owner:self options:nil];
         cell = (FZDownloadListCell *)[nib objectAtIndex:0];
+        
+        UIButton *controlbutton = cell.controlButton;
+        [controlbutton setTitle:@"暂停" forState:UIControlStateNormal];
+        [controlbutton addTarget:self action:@selector(stopDownloadAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     FZGameFile *gamefile = [downloadList objectAtIndex:indexPath.row];
-    cell.filename.text = gamefile.fileName;
+    cell.filename.text = gamefile.name;
     cell.downladRate.text = [NSString stringWithFormat:@"%@/%@",[FZCommonUitils getFileSizeString:gamefile.receviedSize],[FZCommonUitils getFileSizeString:gamefile.fileSize]];
     float filesize = [FZCommonUitils getFileSizeNumber:gamefile.fileSize];
     float receivedSize = [FZCommonUitils getFileSizeNumber:gamefile.receviedSize];
@@ -92,12 +96,25 @@
     return cell;
 }
 
+
+-(void)stopDownloadAction:(NSIndexPath *)indexPath
+{
+//    NSLog(@"indexPath:%d",indexPath.row);
+    NSLog(@"stopDownAction");
+}
+
+
 #pragma mark -
 -(void)refreshTableView
 {
     //刷新表格
     downloadList = downloadManager.downloadingQueue;
     [tableview reloadData];
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
