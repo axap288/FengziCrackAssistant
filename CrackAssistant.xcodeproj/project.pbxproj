@@ -22,6 +22,7 @@
 		1F80568618F5326A00BF39A7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80568518F5326A00BF39A7 /* XCTest.framework */; };
 		1F80568718F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80568818F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
+		4E4FE7E118FE51D200957AE9 /* FZGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */; };
 		4E5C4DA118FD65FA00667B23 /* FZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA018FD65FA00667B23 /* FZTabBarController.m */; };
 		4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA318FD738000667B23 /* fz_tabbar_gray_bg@2x.png */; };
 		4E5C4DAA18FD74E700667B23 /* fz_tabbar_crack_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA518FD74E700667B23 /* fz_tabbar_crack_bg@2x.png */; };
@@ -103,6 +104,8 @@
 		1F80567E18F5326A00BF39A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CrackAssistant/Images.xcassets; sourceTree = "<group>"; };
 		1F80568418F5326A00BF39A7 /* CrackAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrackAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F80568518F5326A00BF39A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4E4FE7DF18FE51D200957AE9 /* FZGameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameDetailViewController.h; sourceTree = "<group>"; };
+		4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameDetailViewController.m; sourceTree = "<group>"; };
 		4E5C4D9F18FD65FA00667B23 /* FZTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZTabBarController.h; sourceTree = "<group>"; };
 		4E5C4DA018FD65FA00667B23 /* FZTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZTabBarController.m; sourceTree = "<group>"; };
 		4E5C4DA318FD738000667B23 /* fz_tabbar_gray_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_tabbar_gray_bg@2x.png"; sourceTree = "<group>"; };
@@ -594,6 +597,7 @@
 			attributes = {
 				CLASSPREFIX = FZ;
 				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "疯子";
 				TargetAttributes = {
 					1F80568318F5326A00BF39A7 = {
 						TestTargetID = 1F80566818F5326A00BF39A7;
@@ -657,6 +661,7 @@
 				1F729A1F18FD5A7500BDE86F /* FZDownloadManager.m in Sources */,
 				4E677A6B18FC196400E238A4 /* SDWebImageManager.m in Sources */,
 				4E677A6018FC196400E238A4 /* ASIFormDataRequest.m in Sources */,
+				4E4FE7E118FE51D200957AE9 /* FZGameDetailViewController.m in Sources */,
 				4E677A8B18FC20C700E238A4 /* FZBaseViewController.m in Sources */,
 				1F623FEA18FE792A00D87F16 /* SVProgressHUD.m in Sources */,
 				1F623FED18FE873100D87F16 /* FZCommonUitils.m in Sources */,
@@ -800,7 +805,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -814,7 +819,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -15,7 +15,6 @@
 
 @implementation FZTabBarController
 
-
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
@@ -24,8 +23,11 @@
 
 - (void)customTabBar{
     
+    // self.tabBar.hidden = YES;
+    
     // TabBar自定义视图
-	UIView *tabBarBackGroundView = [[UIView alloc] initWithFrame:self.tabBar.frame];
+	self.tabBarBackGroundView = [[UIImageView alloc] initWithFrame:self.tabBar.frame];
+    self.tabBarBackGroundView.userInteractionEnabled = YES;
     
 	//创建按钮
 	int viewCount = self.viewControllers.count > 5 ? 5 : self.viewControllers.count;
@@ -55,15 +57,16 @@
         [tabButton addTarget:self
                       action:@selector(selectedTab:)
             forControlEvents:UIControlEventTouchUpInside];
+        tabButton.userInteractionEnabled = YES;
         
         // 添加按钮
 		[self.buttons addObject:tabButton];
-		[tabBarBackGroundView addSubview:tabButton];
+		[self.tabBarBackGroundView addSubview:tabButton];
 	}
     
 	// 添加背景视图
-	[self.view insertSubview:tabBarBackGroundView atIndex:0];
-    [self.view sendSubviewToBack:self.tabBar];
+    // [self.view addSubview:self.tabBarBackGroundView];
+    [self.tabBar insertSubview:self.tabBarBackGroundView atIndex:0];
     self.currentSelectedIndex = 1;
 	[self selectedTab:[self.buttons objectAtIndex:0]];
 }
@@ -92,26 +95,36 @@
         case 0:
             [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_home_bg@2x.png"]
                                           forState:UIControlStateNormal];
+            [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_home_bg@2x.png"]
+                                          forState:UIControlStateHighlighted];
             [currentSelectedBtn setTitle:@"" forState:UIControlStateNormal];
             break;
         case 1:
             [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_crack_bg@2x.png"]
                                           forState:UIControlStateNormal];
+            [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_crack_bg@2x.png"]
+                                          forState:UIControlStateHighlighted];
             [currentSelectedBtn setTitle:@"" forState:UIControlStateNormal];
             break;
         case 2:
             [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_download_bg@2x.png"]
                                           forState:UIControlStateNormal];
+            [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_download_bg@2x.png"]
+                                          forState:UIControlStateHighlighted];
             [currentSelectedBtn setTitle:@"" forState:UIControlStateNormal];
             break;
         case 3:
             [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_search_bg@2x.png"]
                                           forState:UIControlStateNormal];
+            [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_search_bg@2x.png"]
+                                          forState:UIControlStateHighlighted];
             [currentSelectedBtn setTitle:@"" forState:UIControlStateNormal];
             break;
         case 4:
             [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_more_bg@2x.png"]
                                           forState:UIControlStateNormal];
+            [currentSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_more_bg@2x.png"]
+                                          forState:UIControlStateHighlighted];
             [currentSelectedBtn setTitle:@"" forState:UIControlStateNormal];
             break;
         default:
@@ -125,8 +138,23 @@
     [lastSelectedBtn setTitle:viewCtrl.tabBarItem.title forState:UIControlStateNormal];
     [lastSelectedBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [lastSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_gray_bg@2x.png"]
-                         forState:UIControlStateNormal];
+                               forState:UIControlStateNormal];
+    [lastSelectedBtn setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_gray_bg@2x.png"]
+                               forState:UIControlStateHighlighted];
     
 	[UIView commitAnimations];
+    
+    self.selectedIndex = self.currentSelectedIndex;
 }
+
+- (void)hiddenTabbar
+{
+    self.tabBarBackGroundView.hidden = YES;
+}
+
+- (void)showTabbar
+{
+    self.tabBarBackGroundView.hidden = NO;
+}
+
 @end

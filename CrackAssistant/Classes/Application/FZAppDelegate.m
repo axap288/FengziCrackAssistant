@@ -21,6 +21,7 @@
     //首页
     FZMainViewController *mainvc = [[FZMainViewController alloc] init];
     mainvc.title = @"首页";
+    UINavigationController *mainNavCtrl = [[UINavigationController alloc] initWithRootViewController:mainvc];
     //破解
     FZCrackViewController *crackvc = [[FZCrackViewController alloc] init];
     crackvc.title = @"破解";

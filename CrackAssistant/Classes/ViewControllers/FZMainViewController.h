@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FZBaseTableViewController.h"
 
-@interface FZMainViewController : UIViewController
+@interface FZMainViewController : FZBaseTableViewController
 
 @end
