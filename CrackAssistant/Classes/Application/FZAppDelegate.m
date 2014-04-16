@@ -37,8 +37,8 @@
     
     
     // UITabBarController初始化
-//    self.tabBarController = [[FZTabBarController alloc] init];
-//    self.tabBarController.viewControllers = @[mainvc, crackvc, dlvc, searchvc, morevc];
+    self.tabBarController = [[FZTabBarController alloc] init];
+    self.tabBarController.viewControllers = @[mainNavCtrl, crackvc, dlvc, searchvc, morevc];
     
     FZCrackListViewViewController *fc =  [[FZCrackListViewViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:fc];

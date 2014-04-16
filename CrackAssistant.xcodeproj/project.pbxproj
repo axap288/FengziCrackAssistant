@@ -490,6 +490,8 @@
 				4E677A9818FC25CA00E238A4 /* FZSearchViewController.m */,
 				1F729A1A18FD3B6A00BDE86F /* FZCrackListViewViewController.h */,
 				1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */,
+				4E4FE7DF18FE51D200957AE9 /* FZGameDetailViewController.h */,
+				4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
