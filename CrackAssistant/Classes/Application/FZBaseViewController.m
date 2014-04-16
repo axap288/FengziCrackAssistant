@@ -7,6 +7,8 @@
 //
 
 #import "FZBaseViewController.h"
+#import "FZCommonUitils.h"
+#import "FZAppDelegate.h"
 
 @interface FZBaseViewController ()
 
@@ -24,6 +26,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showTabBar:(BOOL)show withAnimation:(BOOL)animated
+{
+    FZAppDelegate *appDelegate = [FZCommonUitils getApplicationDelegate];
+    [appDelegate.tabBarController showTabBar:show withAnimation:animated];
 }
 
 @end

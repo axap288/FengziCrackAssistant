@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FZBaseViewController.h"
 
-@interface FZBaseTableViewController : UITableViewController
+@interface FZBaseTableViewController : FZBaseViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *baseTableView;
 
 @end

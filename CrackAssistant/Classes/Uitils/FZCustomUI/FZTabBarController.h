@@ -13,12 +13,12 @@
 
 @property (nonatomic, assign) int currentSelectedIndex;
 @property (nonatomic, assign) int lastSelected;
-@property (nonatomic, assign) BOOL initFlg;
+@property (nonatomic, assign) BOOL tabIsHidden;
 @property (nonatomic, retain) NSMutableArray *buttons;
 @property (nonatomic, retain) UIImageView *tabBarBackGroundView;
 
 - (void)customTabBar;
 - (void)selectedTab:(UIButton *)button;
-- (void)hiddenTabbar;
-- (void)showTabbar;
+- (void)showTabBar:(BOOL)show withAnimation:(BOOL)animated;
+
 @end

@@ -14,24 +14,18 @@
 
 @implementation FZBaseTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+                                                      style:UITableViewStylePlain];
+    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.baseTableView.backgroundColor = [UIColor clearColor];
+    self.baseTableView.showsVerticalScrollIndicator = NO;
+    self.baseTableView.dataSource = self;
+    self.baseTableView.delegate = self;
+    [self.view addSubview:self.baseTableView];
 }
 
 - (void)didReceiveMemoryWarning

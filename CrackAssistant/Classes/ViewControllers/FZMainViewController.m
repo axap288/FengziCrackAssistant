@@ -25,8 +25,13 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    FZAppDelegate *appDelegate = (FZAppDelegate *)[UIApplication sharedApplication].delegate;
-    [appDelegate.tabBarController showTabbar];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self showTabBar:YES withAnimation:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +51,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,11 +73,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FZGameDetailViewController *gameDetailCtrl = [[FZGameDetailViewController alloc] init];
-    gameDetailCtrl.hidesBottomBarWhenPushed = YES;
     
-    FZAppDelegate *appDelegate = (FZAppDelegate *)[UIApplication sharedApplication].delegate;
-    [appDelegate.tabBarController hiddenTabbar];
+    if (!isIOS7) {
+        gameDetailCtrl.hidesBottomBarWhenPushed = YES;
+    }
     
+    [self showTabBar:NO withAnimation:YES];
     [self.navigationController pushViewController:gameDetailCtrl animated:YES];
 }
 
