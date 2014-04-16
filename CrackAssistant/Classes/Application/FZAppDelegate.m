@@ -26,8 +26,10 @@
     FZCrackViewController *crackvc = [[FZCrackViewController alloc] init];
     crackvc.title = @"破解";
     //下载
-    FZdownloadViewController *dlvc = [[FZdownloadViewController alloc] init];
-    dlvc.title = @"下载";
+//    FZdownloadViewController *dlvc = [[FZdownloadViewController alloc] init];
+    FZCrackListViewViewController *fc =  [[FZCrackListViewViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:fc];
+    fc.title = @"下载";
     //搜索
     FZSearchViewController *searchvc = [[FZSearchViewController alloc] init];
     searchvc.title = @"搜索";
@@ -38,10 +40,9 @@
     
     // UITabBarController初始化
     self.tabBarController = [[FZTabBarController alloc] init];
-    self.tabBarController.viewControllers = @[mainNavCtrl, crackvc, dlvc, searchvc, morevc];
+    self.tabBarController.viewControllers = @[mainNavCtrl, crackvc, navigation, searchvc, morevc];
     
-    FZCrackListViewViewController *fc =  [[FZCrackListViewViewController alloc] initWithNibName:nil bundle:nil];
-    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:fc];
+   
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.tabBarController;
