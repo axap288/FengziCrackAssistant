@@ -506,6 +506,7 @@
 			attributes = {
 				CLASSPREFIX = FZ;
 				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "疯子";
 				TargetAttributes = {
 					1F80568318F5326A00BF39A7 = {
 						TestTargetID = 1F80566818F5326A00BF39A7;
