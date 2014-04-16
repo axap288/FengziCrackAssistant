@@ -9,7 +9,7 @@
 #import "FZCrackListViewViewController.h"
 #import "FZdownloadViewController.h"
 #import "FZDownloadManager.h"
-#import "FZGame.h"
+#import "FZGameFile.h"
 #import "FZdownloadViewController.h"
 
 @interface FZCrackListViewViewController ()
@@ -30,25 +30,18 @@
         array = [NSMutableArray array];
         //测试数据
         FZGameFile *m1 = [[FZGameFile alloc] init];
-        m1.name = @"app1";
+        m1.name = @"flappy bird";
         m1.fileName = @"app1";
-        m1.downloadUrl = @"http://www.fengzigame.com/uploadfile/ipa/%E5%8F%A3%E8%A2%8B%E4%BF%9D%E5%8D%AB-1.0.ipa";
+        m1.downloadUrl = @"http://60.220.196.205/cdn.baidupcs.com/file/71067fbd9c8347f61a068c45eaab6dcb?xcode=7057de888f5b5e426fe7c8f796cc8fc9c1ff80696170e02a&fid=103343628-250528-3152335705&time=1397649235&sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-0GTwNkkF7fHzediuvqxosAGqFzU%3D&to=cb&fm=Q,B,T,nc&newver=1&expires=1397649835&rt=sh&r=642203731&logid=3914459495&sh=1&vuk=151445773&fn=Flappy%20Bird-v1.2-Locophone.ipa&wshc_tag=0&wsiphost=ipdbm";
         m1.iD = [NSString stringWithFormat:@"%d",m1.hash];
         [array addObject:m1];
         
         FZGameFile *m2 = [[FZGameFile alloc] init];
-        m2.name = @"app2";
+        m2.name = @"Doodle_Jump_Race";
         m2.fileName = @"app2";
-        m2.downloadUrl = @"http://www.fengzigame.com/uploadfile/ipa/%E6%B0%B8%E6%81%92%E6%88%98%E5%A3%AB2.ipa";
+        m2.downloadUrl = @"http://qd.baidupcs.com/file/dbc86f3ef444d4a4905f0279c89825b5?xcode=90416ca096d4d0a4106516e74abda0edcc49be0693571206&fid=103343628-250528-382013696562502&time=1397649394&sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-3alZ6hJ731ATmmDzy2Z%2F1oafvDw%3D&to=qb&fm=Q,B,T,nc&newver=1&expires=1397649994&rt=sh&r=907954548&logid=2486665437&sh=1&vuk=151445773&fn=Doodle_Jump_Race-v1.1.1-Orbicos.ipa";
         m2.iD = [NSString stringWithFormat:@"%d",m2.hash];
         [array addObject:m2];
-        
-        FZGameFile *m3 = [[FZGameFile alloc] init];
-        m3.name = @"app3";
-        m3.downloadUrl = @"http://www.fengzigame.com/uploadfile/ipa/%E4%B8%93%E6%89%93%E8%84%B8%20%E5%85%8D%E8%B4%B9%20%E7%B2%BE%E7%AE%80%E7%89%88.ipa";
-        m3.fileName = @"app3";
-        m3.iD = [NSString stringWithFormat:@"%d",m3.hash];
-        [array addObject:m3];
         
         downloadManager = [FZDownloadManager getShareInstance];
         }
@@ -94,14 +87,14 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    FZGame *model = [array objectAtIndex:[indexPath row]];
+    FZGameFile *model = [array objectAtIndex:[indexPath row]];
     cell.textLabel.text = model.name;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FZGame *model = [array objectAtIndex:indexPath.row];
+    FZGameFile *model = [array objectAtIndex:indexPath.row];
     [downloadManager addDownloadToList:model];
 }
 

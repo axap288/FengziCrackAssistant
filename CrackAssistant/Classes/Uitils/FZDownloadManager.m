@@ -146,10 +146,12 @@
     
     //自动启动队列中等待的下载
     if ([queue requestsCount] < _maxDownLoad) {
-        FZGameFile *model = [_waitDownloadQueue firstObject];
-        [self createDownloadHttpRequest:model];
-        [_waitDownloadQueue removeObject:model];
-        [_downloadingQueue addObject:model];
+        if ([_waitDownloadQueue count] != 0) {
+            FZGameFile *model = [_waitDownloadQueue firstObject];
+            [self createDownloadHttpRequest:model];
+            [_waitDownloadQueue removeObject:model];
+            [_downloadingQueue addObject:model];
+        }
     }
 }
 - (void)requestFailed:(ASIHTTPRequest *)request
