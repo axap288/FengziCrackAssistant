@@ -19,6 +19,7 @@
     FZDownloadManager *downloadManager;
     NSArray *downloadList;
     NSArray *waitingList;
+    NSArray *suspendList;
     UITableView *tableview;
 }
 
@@ -47,6 +48,7 @@
 {
     downloadList = downloadManager.downloadingQueue;
     waitingList = downloadManager.waitDownloadQueue;
+    suspendList = downloadManager.suspendDownloadQueue;
     [tableview reloadData];
 }
 
@@ -61,7 +63,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -69,10 +71,13 @@
     // Return the number of rows in the section.
     NSInteger number = 0;
     if (section == 0) {
-        number = [waitingList count];
+        number = [downloadList count];
     }
     if (section == 1) {
-        number = [downloadList count];
+        number = [waitingList count];
+    }
+    if (section == 2) {
+        number = [suspendList count];
     }
     return number;
 }
@@ -85,10 +90,13 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return @"等待队列";
+        return @"下载队列";
     }
     if (section == 1) {
-        return @"下载队列";
+        return @"等待队列";
+    }
+    if (section == 2) {
+        return @"暂停队列";
     }
     return nil;
 }
@@ -101,7 +109,7 @@
     static NSString *CellIdentifier = @"Cell";
     FZDownloadListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
         if (!cell) {
             NSArray *nib =   [[NSBundle mainBundle] loadNibNamed:@"downloadListCell" owner:self options:nil];
             cell = (FZDownloadListCell *)[nib objectAtIndex:0];
@@ -118,7 +126,7 @@
         float receivedSize = [FZCommonUitils getFileSizeNumber:gamefile.receviedSize];
         [cell.downloadProgress setProgress:receivedSize/filesize];
     }
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         if (!cell) {
             NSArray *nib =   [[NSBundle mainBundle] loadNibNamed:@"downloadListCell" owner:self options:nil];
             cell = (FZDownloadListCell *)[nib objectAtIndex:0];
@@ -129,6 +137,25 @@
         }
         
         FZGameFile *gamefile = [waitingList objectAtIndex:indexPath.row];
+        cell.filename.text = gamefile.name;
+        /*
+        cell.downladRate.text = [NSString stringWithFormat:@"%@/%@",[FZCommonUitils getFileSizeString:gamefile.receviedSize],[FZCommonUitils getFileSizeString:gamefile.fileSize]];
+        float filesize = [FZCommonUitils getFileSizeNumber:gamefile.fileSize];
+        float receivedSize = [FZCommonUitils getFileSizeNumber:gamefile.receviedSize];
+        [cell.downloadProgress setProgress:receivedSize/filesize];
+         */
+    }
+    if (indexPath.section == 2) {
+        if (!cell) {
+            NSArray *nib =   [[NSBundle mainBundle] loadNibNamed:@"downloadListCell" owner:self options:nil];
+            cell = (FZDownloadListCell *)[nib objectAtIndex:0];
+            
+            //            UIButton *controlbutton = cell.controlButton;
+            //            [controlbutton setTitle:@"暂停" forState:UIControlStateNormal];
+            //            [controlbutton addTarget:self action:@selector(stopDownloadAction:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        FZGameFile *gamefile = [suspendList objectAtIndex:indexPath.row];
         cell.filename.text = gamefile.name;
         cell.downladRate.text = [NSString stringWithFormat:@"%@/%@",[FZCommonUitils getFileSizeString:gamefile.receviedSize],[FZCommonUitils getFileSizeString:gamefile.fileSize]];
         float filesize = [FZCommonUitils getFileSizeNumber:gamefile.fileSize];
@@ -151,20 +178,12 @@
 {
     if (indexPath.section == 0)
     {
-        FZGameFile *model = [waitingList objectAtIndex:indexPath.row];
-        if (model.state == suspend)
-        {
-            [downloadManager restartDownloadWithGameId:model.iD];
-        }
-    }
-    
-    if (indexPath.section == 1)
-    {
         FZGameFile *model = [downloadList objectAtIndex:indexPath.row];
-        if(model.state == downloading)
-        {
-            [downloadManager stopDownloadWithGameId:model.iD];
-        }
+        [downloadManager stopDownloadWithGameId:model.iD];
+    }
+    if (indexPath.section == 2) {
+        FZGameFile *model = [suspendList objectAtIndex:indexPath.row];
+        [downloadManager restartDownloadWithGameId:model.iD];
     }
     
 
@@ -176,6 +195,8 @@
 {
     //刷新表格
     downloadList = downloadManager.downloadingQueue;
+    waitingList = downloadManager.waitDownloadQueue;
+    suspendList = downloadManager.suspendDownloadQueue;
     [tableview reloadData];
 }
 
