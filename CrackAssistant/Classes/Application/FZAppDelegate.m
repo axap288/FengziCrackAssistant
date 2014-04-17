@@ -47,7 +47,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    if (isIOS7) {
+        [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(219, 83, 42)];
+        [[UINavigationBar appearance] setTintColor:[UIColor grayColor]];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                               UIColorFromRGB(255, 255, 255), NSForegroundColorAttributeName, nil]];
+    }
+    
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 

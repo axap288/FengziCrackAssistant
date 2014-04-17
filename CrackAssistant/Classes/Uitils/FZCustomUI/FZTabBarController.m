@@ -49,7 +49,7 @@
 		tabButton.frame = CGRectMake(i * buttonWidth, 0, buttonWidth, buttonHeight);
         tabButton.tag = i;
 		tabButton.backgroundColor = [UIColor orangeColor];
-        tabButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        tabButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [tabButton setTitle:viewCtrl.tabBarItem.title forState:UIControlStateNormal];
         [tabButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [tabButton setBackgroundImage:[UIImage imageNamed:@"fz_tabbar_gray_bg@2x.png"]

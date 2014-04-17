@@ -7,7 +7,8 @@
 //
 
 #import "FZBaseViewController.h"
+#import "FZBaseTableViewController.h"
 
-@interface FZGameDetailViewController : FZBaseViewController
+@interface FZGameDetailViewController : FZBaseTableViewController
 
 @end
