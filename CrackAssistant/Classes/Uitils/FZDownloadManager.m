@@ -8,6 +8,22 @@
 
 #import "FZDownloadManager.h"
 
+#define Archiverfilename @"DownloadManage.archive"
+
+
+
+@interface FZDownloadManager()
+
+/**
+ *  将三个主要的数组归档到文件
+ */
+-(void)writeQueuesToArchiveFile;
+/**
+ *  从归档文件中还原必要的数组
+ */
+-(void)readQueuesFromArchiveFile;
+
+@end
 
 @implementation FZDownloadManager
 {
@@ -32,10 +48,8 @@
     if (self) {
         _maxDownLoad = 1;//默认只有一个下载
         requestcount = 0;
-        _waitDownloadQueue = [NSMutableArray array];
-        _overDownloadQueue = [NSMutableArray array];
-        _downloadingQueue = [NSMutableArray array];
-        _suspendDownloadQueue = [NSMutableArray array];
+        
+        [self readQueuesFromArchiveFile];
         
         //设置目录
         NSString *downloadPath = [self getDownloadPath];
@@ -58,6 +72,9 @@
         [myqueue setShowAccurateProgress:YES];
         [myqueue go];
         queue = myqueue;
+        
+        //注册一个退出后台的通知，以便能及时保存数据
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackgroundHandle) name:UIApplicationDidEnterBackgroundNotification object:nil];
         
         [self startDonwloadTimer];
     }
@@ -225,7 +242,6 @@
         FZGameFile *model = obj;
         if ([model.iD isEqualToString:[userinfo objectForKey:@"id"]]) {
             NSLog(@"%@下载完毕", model.name);
-            model.state = over;
             [_overDownloadQueue addObject:model];
             [_downloadingQueue removeObject:model];
             requestcount --;
@@ -252,12 +268,13 @@
 {
     
     NSDictionary *userinfo =  request.userInfo;
+    NSLog(@"request.contentLength:%@",[NSString stringWithFormat:@"%lld",request.contentLength]);
      [self.downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
          FZGameFile *model = obj;
          if ([model.iD isEqualToString:[userinfo objectForKey:@"id"]]) {
-             if (!model.fileSize) {
+             if (!model.fileSize || [model.fileSize longLongValue] == 0) {
                  model.fileSize = [NSString stringWithFormat:@"%lld",request.contentLength];
-//                 NSLog(@"filesize:%@", model.fileSize);
+                 NSLog(@"filesize:%@", model.fileSize);
              }
              *stop = YES;
          }
@@ -277,6 +294,42 @@
             *stop = YES;
         }
     }];
+}
+
+-(void)writeQueuesToArchiveFile
+{
+    NSDictionary *temp = [NSDictionary dictionaryWithObjectsAndKeys:
+        _waitDownloadQueue,@"waitDownloadQueue",
+        _downloadingQueue,@"downloadingQueue",
+        _suspendDownloadQueue,@"suspendDownloadQueue",
+        _overDownloadQueue,@"overDownloadQueue",nil];
+    
+    NSString *archiveFilePath = [[self getDocumentPath] stringByAppendingPathComponent:Archiverfilename];
+    [NSKeyedArchiver archiveRootObject:temp toFile:archiveFilePath];
+}
+
+-(void)readQueuesFromArchiveFile
+{
+    NSString *archiveFilePath = [[self getDocumentPath] stringByAppendingPathComponent:Archiverfilename];
+    NSDictionary *temp = [NSKeyedUnarchiver unarchiveObjectWithFile: archiveFilePath];
+    if (temp) {
+        _waitDownloadQueue = [temp objectForKey:@"waitDownloadQueue"];
+        _downloadingQueue = [temp objectForKey:@"downloadingQueue"];
+        _suspendDownloadQueue = [temp objectForKey:@"suspendDownloadQueue"];
+        _overDownloadQueue = [temp objectForKey:@"overDownloadQueue"];
+    }else{
+        _waitDownloadQueue = [NSMutableArray array];
+        _overDownloadQueue = [NSMutableArray array];
+        _downloadingQueue = [NSMutableArray array];
+        _suspendDownloadQueue = [NSMutableArray array];
+    }
+
+}
+
+-(void)applicationDidEnterBackgroundHandle
+{
+    NSLog(@"ArchiveFile.....");
+    [self writeQueuesToArchiveFile];
 }
 
 
@@ -302,6 +355,7 @@
 {
     [queue setDelegate:nil];
     [queue cancelAllOperations];
+    [self writeQueuesToArchiveFile];
 }
 
 
