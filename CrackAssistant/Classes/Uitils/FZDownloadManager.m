@@ -9,7 +9,7 @@
 #import "FZDownloadManager.h"
 
 #define Archiverfilename @"DownloadManage.archive"
-
+#define request_key @"downurl"
 
 
 @interface FZDownloadManager()
@@ -19,7 +19,7 @@
  */
 -(void)writeQueuesToArchiveFile;
 /**
- *  从归档文件中还原必要的数组
+ *  从归档文件中还原
  */
 -(void)readQueuesFromArchiveFile;
 
@@ -74,8 +74,10 @@
         queue = myqueue;
         
         //注册一个退出后台的通知，以便能及时保存数据
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackgroundHandle) name:UIApplicationDidEnterBackgroundNotification object:nil];
-        
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackgroundHandle) name:UIApplicationDidEnterBackgroundNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackgroundHandle) name:UIApplicationWillTerminateNotification object:nil];
+
+
         [self startDonwloadTimer];
     }
     return self;
@@ -99,7 +101,7 @@
                 __block BOOL isAllow = YES;
                 [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                     FZGameFile *downloadingGamefile = obj;
-                    if ([waittingGamefile.iD isEqualToString:downloadingGamefile.iD]) {
+                    if ([waittingGamefile.downloadUrl isEqualToString:downloadingGamefile.downloadUrl]) {
                         NSLog(@"已存在相同下载");
                         isAllow = NO;
                         *stop = YES;
@@ -107,6 +109,7 @@
                 }];
                 
                 if (isAllow) {
+                    waittingGamefile.state = downloading;
                     [self createDownloadHttpRequest:waittingGamefile];
                     [_downloadingQueue addObject:waittingGamefile];
                     [temp addObject:waittingGamefile];
@@ -127,7 +130,7 @@
     request.delegate = self;
     request.downloadProgressDelegate = self;
     [request setShouldContinueWhenAppEntersBackground:YES];
-    [request setUserInfo:[NSDictionary dictionaryWithObject:model.iD forKey:@"id"]];
+    [request setUserInfo:[NSDictionary dictionaryWithObject:model.downloadUrl forKey:request_key]];
     [request setDownloadDestinationPath:[[self getDownloadPath] stringByAppendingPathComponent:model.fileName]];
     [request setTemporaryFileDownloadPath:[[self getTempFolderPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.temp",model.fileName]]];
     [request setAllowResumeForFileDownloads:YES];
@@ -139,13 +142,14 @@
 
 -(void)addDownloadToList:(FZGameFile *)model
 {
-    //如果暂停队列中直接有这个下载，则提到等待队列中即可,否则放到等待队列中
+    //如果暂停队列中直接有这个下载，则提到等待队列中即可
     __block BOOL isFindinsuspendDownloadQueue = NO;
     [_suspendDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *suspendmodel = obj;
-        if ([suspendmodel.iD isEqualToString:model.iD]) {
+        if ([suspendmodel.downloadUrl isEqualToString:model.downloadUrl]) {
             //断点续传时需要将receviedSize重置为0.否则计算错误
             suspendmodel.receviedSize = @"0";
+            suspendmodel.state = waitting;
             [_waitDownloadQueue addObject:suspendmodel];
             [_suspendDownloadQueue removeObject:suspendmodel];
             isFindinsuspendDownloadQueue = YES;
@@ -154,15 +158,16 @@
     }];
     
     if (!isFindinsuspendDownloadQueue) {
+        model.state = waitting;
         [_waitDownloadQueue addObject:model];
     }
 }
 
--(void)stopDownloadWithGameId:(NSString *)mid
+-(void)stopDownloadUseURL:(NSString *)URL
 {
     for (ASIHTTPRequest *request in [queue operations]) {
-        NSString *modelid = [request.userInfo objectForKey:@"id"];
-        if ([mid isEqualToString:modelid]) {//判断ID是否匹配
+        NSString *download_url = [request.userInfo objectForKey:request_key];
+        if ([download_url isEqualToString:URL]) {//判断ID是否匹配
             //暂停下载
             [request clearDelegatesAndCancel];
             requestcount --;
@@ -171,7 +176,8 @@
     //转移队列
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
-        if ([model.iD isEqualToString:mid]) {
+        if ([model.downloadUrl isEqualToString:URL]) {
+            model.state = suspend;
             [_suspendDownloadQueue addObject:model];
             [_downloadingQueue removeObject:model];
             *stop = YES;
@@ -180,13 +186,14 @@
     
 }
 
--(void)restartDownloadWithGameId:(NSString *)mid
+-(void)restartDownloadUseURL:(NSString *)URL
 {
     [_suspendDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
-        if ([model.iD isEqualToString:mid]) {
+        if ([model.downloadUrl isEqualToString:URL]) {
             //断点续传时需要将receviedSize重置为0.否则计算错误
             model.receviedSize = @"0";
+            model.state = waitting;
             [_waitDownloadQueue addObject:model];
             [_suspendDownloadQueue removeObject:model];
             *stop = YES;
@@ -194,23 +201,23 @@
     }];
 }
 
--(void)removeOneWaittingWithGameId:(NSString *)mid
+-(void)removeOneWaittingUseURL:(NSString *)URL
 {
     [_waitDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *waitmodel = obj;
-        if ([waitmodel.iD isEqualToString:mid]) {
+        if ([waitmodel.downloadUrl isEqualToString:URL]) {
             [_waitDownloadQueue removeObject:waitmodel];
             *stop = YES;
         }
     }];
 }
 
--(void)removeOneDownloadingWithGameId:(NSString *)mid
+-(void)removeOneDownloadingUseURL:(NSString *)URL
 {
     NSString *tempFilePath ;
     for (ASIHTTPRequest *request in [queue operations]) {
-        NSString *modelid = [request.userInfo objectForKey:@"id"];
-        if ([mid isEqualToString:modelid]) {//判断ID是否匹配
+        NSString *download_url = [request.userInfo objectForKey:request_key];
+        if ([download_url isEqualToString:URL]) {//判断ID是否匹配
             //暂停下载
             tempFilePath =  request.temporaryFileDownloadPath;
             [request clearDelegatesAndCancel];
@@ -220,7 +227,8 @@
     //转移队列
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
-        if ([model.iD isEqualToString:mid]) {
+        if ([model.downloadUrl isEqualToString:URL]) {
+            model.state = downloading;
             [_downloadingQueue removeObject:model];
             *stop = YES;
         }
@@ -240,8 +248,9 @@
     NSDictionary *userinfo =  request.userInfo;
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
-        if ([model.iD isEqualToString:[userinfo objectForKey:@"id"]]) {
+        if ([model.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
             NSLog(@"%@下载完毕", model.name);
+            model.state = over;
             [_overDownloadQueue addObject:model];
             [_downloadingQueue removeObject:model];
             requestcount --;
@@ -254,8 +263,9 @@
     NSDictionary *userinfo =  request.userInfo;
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
-        if ([model.iD isEqualToString:[userinfo objectForKey:@"id"]]) {
+        if ([model.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
             NSLog(@"%@下载失败", model.name);
+            model.state = suspend;
             [_suspendDownloadQueue addObject:model];
             [_downloadingQueue removeObject:model];
             requestcount --;
@@ -271,7 +281,7 @@
     NSLog(@"request.contentLength:%@",[NSString stringWithFormat:@"%lld",request.contentLength]);
      [self.downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
          FZGameFile *model = obj;
-         if ([model.iD isEqualToString:[userinfo objectForKey:@"id"]]) {
+         if ([model.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
              if (!model.fileSize || [model.fileSize longLongValue] == 0) {
                  model.fileSize = [NSString stringWithFormat:@"%lld",request.contentLength];
                  NSLog(@"filesize:%@", model.fileSize);
@@ -285,10 +295,9 @@
 -(void)request:(ASIHTTPRequest *)request didReceiveBytes:(long long)bytes
 {
     NSDictionary *userinfo =  request.userInfo;
-    NSString *gameid = [userinfo objectForKey:@"id"];
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *gamefile = obj;
-        if ([gamefile.iD isEqualToString:gameid]) {
+        if ([gamefile.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
             gamefile.receviedSize =  [NSString stringWithFormat:@"%lld",[gamefile.receviedSize longLongValue]+bytes];
 //            NSLog(@"total receviceSize:%@,revice%@",gamefile.receviedSize,[NSString stringWithFormat:@"%lld",bytes]);
             *stop = YES;
@@ -298,6 +307,12 @@
 
 -(void)writeQueuesToArchiveFile
 {
+    //先暂停所有正在下载的任务
+    [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        FZGameFile *gamefile = (FZGameFile *)obj;
+        [self stopDownloadUseURL:gamefile.downloadUrl];
+    }];
+    
     NSDictionary *temp = [NSDictionary dictionaryWithObjectsAndKeys:
         _waitDownloadQueue,@"waitDownloadQueue",
         _downloadingQueue,@"downloadingQueue",

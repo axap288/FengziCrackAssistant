@@ -10,6 +10,7 @@
 
 @interface FZDownloadListCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *statelabel;
 @property (weak, nonatomic) IBOutlet UIButton *controlButton;
 @property (weak, nonatomic) IBOutlet UIProgressView *downloadProgress;
 @property (weak, nonatomic) IBOutlet UILabel *downladRate;

@@ -17,7 +17,6 @@
     [aCoder encodeObject:self.downloadUrl forKey:@"downloadUrl"];
     [aCoder encodeObject:self.fileSize forKey:@"fileSize"];
     [aCoder encodeObject:self.receviedSize forKey:@"receviedSize"];
-    [aCoder encodeObject:self.iD forKey:@"iD"];
     [aCoder encodeObject:self.name forKey:@"name"];
 
 }
@@ -25,7 +24,6 @@
 {
     self = [super init];
     if (self) {
-        self.iD = [aDecoder decodeObjectForKey:@"iD"];
         self.name = [aDecoder decodeObjectForKey:@"name"];
         self.thumbnail = [aDecoder decodeObjectForKey:@"thumbnail"];
         self.fileName = [aDecoder decodeObjectForKey:@"fileName"];
@@ -39,7 +37,6 @@
 -(id)copyWithZone:(NSZone *)zone
 {
     FZGameFile *copy = [[[self class] allocWithZone:zone] init];
-    copy.iD = self.iD;
     copy.name = self.name;
     copy.thumbnail = self.thumbnail;
     copy.fileName = self.fileName;

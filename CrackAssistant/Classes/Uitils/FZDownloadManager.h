@@ -35,26 +35,26 @@
  *
  *  @param id
  */
--(void)stopDownloadWithGameId:(NSString *)mid;
+-(void)stopDownloadUseURL:(NSString *)URL;
 /**
  *  重启某个暂停的下载
  *
  *  @param id
  */
--(void)restartDownloadWithGameId:(NSString *)mid;
+-(void)restartDownloadUseURL:(NSString *)URL;
 
 /**
  *  删除一个正在下载的对象
  *
  *  @param mid
  */
--(void)removeOneDownloadingWithGameId:(NSString *)mid;
+-(void)removeOneDownloadingUseURL:(NSString *)URL;
 /**
  *  删除一个等待队列中的对象
  *
  *  @param mid 
  */
--(void)removeOneWaittingWithGameId:(NSString *)mid;
+-(void)removeOneWaittingUseURL:(NSString *)URL;
 
 
 

@@ -33,29 +33,31 @@
         m1.name = @"91手机助手";
         m1.fileName = @"app1";
         m1.downloadUrl = @"http://bcs.91rb.com/rbreszy/msoft/91assistant_v3.2.8_2.ipa";
-        m1.iD = [NSString stringWithFormat:@"%d",m1.hash];
         [array addObject:m1];
         
         FZGameFile *m2 = [[FZGameFile alloc] init];
         m2.name = @"春雨医生";
         m2.fileName = @"app3";
         m2.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/2/ce1ba0b8b8254baca79ef6c7fb5e2bba/com.chunyu.SymptomChecker_4.7.10325_4.7.1_635320447319931250.ipa";
-        m2.iD = [NSString stringWithFormat:@"%d",m2.hash];
         [array addObject:m2];
         
         FZGameFile *m3 = [[FZGameFile alloc] init];
         m3.name = @"旅游攻略";
         m3.fileName = @"app4";
         m3.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/11/f146984e29b44b9eadde85b23c348dbc/cn.mafengwo.www_6.0.1_6.0.1_635328241513209463.ipa";
-        m3.iD = [NSString stringWithFormat:@"%d",m3.hash];
         [array addObject:m3];
         
         FZGameFile *m4 = [[FZGameFile alloc] init];
         m4.name = @"天天酷跑";
         m4.fileName = @"app5";
         m4.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/3/14/8cfe010d07154991a3b36ead425be1ae/com.xiaor.KuPaTool_2.0.0_2.0.0_635304095451126072.ipa";
-        m4.iD = [NSString stringWithFormat:@"%d",m4.hash];
         [array addObject:m4];
+        
+        FZGameFile *m5 = [[FZGameFile alloc] init];
+        m5.name = @"美团商家";
+        m5.fileName = @"app6";
+        m5.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/18/4040196358234421bb30f3b01ace5bb8/com.meituan.imerchantbiz_2.1.0_2.1.0_635334388847033750.ipa";
+        [array addObject:m5];
         
         downloadManager = [FZDownloadManager getShareInstance];
 //        [downloadManager setMaxDownLoad:3];
