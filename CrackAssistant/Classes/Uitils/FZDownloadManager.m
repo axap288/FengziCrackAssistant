@@ -12,6 +12,7 @@
 @implementation FZDownloadManager
 {
     ASINetworkQueue *queue;
+    NSUInteger requestcount;
 }
 
 // 获取接口服务类单例
@@ -30,6 +31,7 @@
     self = [super init];
     if (self) {
         _maxDownLoad = 1;//默认只有一个下载
+        requestcount = 0;
         _waitDownloadQueue = [NSMutableArray array];
         _overDownloadQueue = [NSMutableArray array];
         _downloadingQueue = [NSMutableArray array];
@@ -57,7 +59,6 @@
         [myqueue go];
         queue = myqueue;
         
-//        [self performSelectorInBackground:@selector(startDonwloadTimer) withObject:nil];
         [self startDonwloadTimer];
     }
     return self;
@@ -65,7 +66,7 @@
 
 -(void)startDonwloadTimer
 {
-    NSTimer *timer1 = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(donwloadEngine) userInfo:nil repeats:YES];
+    NSTimer *timer1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(donwloadEngine) userInfo:nil repeats:YES];
     [timer1 fire];
 }
 
@@ -75,8 +76,7 @@
         //保存待移除元素的临时数组
         NSMutableArray *temp = [NSMutableArray array];
         [_waitDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            NSLog(@"request count:%d",[queue requestsCount]);
-            if ([queue requestsCount] < _maxDownLoad) {
+            if (requestcount < _maxDownLoad) {
                 FZGameFile *waittingGamefile = obj;
                 
                 __block BOOL isAllow = YES;
@@ -85,7 +85,7 @@
                     if ([waittingGamefile.iD isEqualToString:downloadingGamefile.iD]) {
                         NSLog(@"已存在相同下载");
                         isAllow = NO;
-//                        *stop = YES;
+                        *stop = YES;
                     }
                 }];
                 
@@ -105,7 +105,6 @@
 -(void)createDownloadHttpRequest:(FZGameFile *)model
 {
     NSURL *downloadURL = [NSURL URLWithString:model.downloadUrl];
-    
     //添加一个下载请求到队列
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:downloadURL];
     request.delegate = self;
@@ -118,13 +117,28 @@
     [request setNumberOfTimesToRetryOnTimeout:3];
     [request setTimeOutSeconds:60];
     [queue addOperation:request];
+    requestcount ++;
 }
-
-
 
 -(void)addDownloadToList:(FZGameFile *)model
 {
-    [_waitDownloadQueue addObject:model];
+    //如果暂停队列中直接有这个下载，则提到等待队列中即可,否则放到等待队列中
+    __block BOOL isFindinsuspendDownloadQueue = NO;
+    [_suspendDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        FZGameFile *suspendmodel = obj;
+        if ([suspendmodel.iD isEqualToString:model.iD]) {
+            //断点续传时需要将receviedSize重置为0.否则计算错误
+            suspendmodel.receviedSize = @"0";
+            [_waitDownloadQueue addObject:suspendmodel];
+            [_suspendDownloadQueue removeObject:suspendmodel];
+            isFindinsuspendDownloadQueue = YES;
+            *stop = YES;
+        }
+    }];
+    
+    if (!isFindinsuspendDownloadQueue) {
+        [_waitDownloadQueue addObject:model];
+    }
 }
 
 -(void)stopDownloadWithGameId:(NSString *)mid
@@ -134,6 +148,7 @@
         if ([mid isEqualToString:modelid]) {//判断ID是否匹配
             //暂停下载
             [request clearDelegatesAndCancel];
+            requestcount --;
         }
     }
     //转移队列
@@ -153,20 +168,53 @@
     [_suspendDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
         if ([model.iD isEqualToString:mid]) {
+            //断点续传时需要将receviedSize重置为0.否则计算错误
+            model.receviedSize = @"0";
             [_waitDownloadQueue addObject:model];
             [_suspendDownloadQueue removeObject:model];
             *stop = YES;
         }
     }];
-    
 }
 
-
-
--(void)dealloc
+-(void)removeOneWaittingWithGameId:(NSString *)mid
 {
-    [queue setDelegate:nil];
-    [queue cancelAllOperations];
+    [_waitDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        FZGameFile *waitmodel = obj;
+        if ([waitmodel.iD isEqualToString:mid]) {
+            [_waitDownloadQueue removeObject:waitmodel];
+            *stop = YES;
+        }
+    }];
+}
+
+-(void)removeOneDownloadingWithGameId:(NSString *)mid
+{
+    NSString *tempFilePath ;
+    for (ASIHTTPRequest *request in [queue operations]) {
+        NSString *modelid = [request.userInfo objectForKey:@"id"];
+        if ([mid isEqualToString:modelid]) {//判断ID是否匹配
+            //暂停下载
+            tempFilePath =  request.temporaryFileDownloadPath;
+            [request clearDelegatesAndCancel];
+            requestcount --;
+        }
+    }
+    //转移队列
+    [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        FZGameFile *model = obj;
+        if ([model.iD isEqualToString:mid]) {
+            [_downloadingQueue removeObject:model];
+            *stop = YES;
+        }
+    }];
+    
+    //删除临时文件
+    if (!tempFilePath) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:tempFilePath error:nil];
+    }
+    
 }
 
 #pragma mark ASIHTTPRequestDelegate
@@ -180,6 +228,7 @@
             model.state = over;
             [_overDownloadQueue addObject:model];
             [_downloadingQueue removeObject:model];
+            requestcount --;
             *stop = YES;
         }
     }];
@@ -193,6 +242,7 @@
             NSLog(@"%@下载失败", model.name);
             [_suspendDownloadQueue addObject:model];
             [_downloadingQueue removeObject:model];
+            requestcount --;
             *stop = YES;
         }
     }];
@@ -207,6 +257,7 @@
          if ([model.iD isEqualToString:[userinfo objectForKey:@"id"]]) {
              if (!model.fileSize) {
                  model.fileSize = [NSString stringWithFormat:@"%lld",request.contentLength];
+//                 NSLog(@"filesize:%@", model.fileSize);
              }
              *stop = YES;
          }
@@ -222,6 +273,7 @@
         FZGameFile *gamefile = obj;
         if ([gamefile.iD isEqualToString:gameid]) {
             gamefile.receviedSize =  [NSString stringWithFormat:@"%lld",[gamefile.receviedSize longLongValue]+bytes];
+//            NSLog(@"total receviceSize:%@,revice%@",gamefile.receviedSize,[NSString stringWithFormat:@"%lld",bytes]);
             *stop = YES;
         }
     }];
@@ -243,6 +295,13 @@
 -(NSString *)getTempFolderPath
 {
     return [[self getDocumentPath] stringByAppendingPathComponent:@"Temp"];
+}
+
+
+-(void)dealloc
+{
+    [queue setDelegate:nil];
+    [queue cancelAllOperations];
 }
 
 

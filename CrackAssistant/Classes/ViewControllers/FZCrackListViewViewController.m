@@ -58,7 +58,7 @@
         [array addObject:m4];
         
         downloadManager = [FZDownloadManager getShareInstance];
-        [downloadManager setMaxDownLoad:3];
+//        [downloadManager setMaxDownLoad:3];
         }
     return self;
 }
@@ -111,6 +111,8 @@
 {
     FZGameFile *model = [[array objectAtIndex:indexPath.row] copy];
     [downloadManager addDownloadToList:model];
+    [self pushdownloadList];
+    
 }
 
 -(void)pushdownloadList

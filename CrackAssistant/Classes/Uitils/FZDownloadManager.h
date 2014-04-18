@@ -43,5 +43,20 @@
  */
 -(void)restartDownloadWithGameId:(NSString *)mid;
 
+/**
+ *  删除一个正在下载的对象
+ *
+ *  @param mid
+ */
+-(void)removeOneDownloadingWithGameId:(NSString *)mid;
+/**
+ *  删除一个等待队列中的对象
+ *
+ *  @param mid 
+ */
+-(void)removeOneWaittingWithGameId:(NSString *)mid;
+
+
+
 
 @end

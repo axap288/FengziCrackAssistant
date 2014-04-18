@@ -12,6 +12,9 @@
 
 +(NSString *)getFileSizeString:(NSString *)size
 {
+    if ([size floatValue] == 0 || size == nil) {
+        return @"--";
+    }
     if([size floatValue]>=1024*1024)//大于1M，则转化成M单位的字符串
     {
         return [NSString stringWithFormat:@"%.2fM",[size floatValue]/1024/1024];
