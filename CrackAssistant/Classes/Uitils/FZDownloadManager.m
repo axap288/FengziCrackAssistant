@@ -91,40 +91,26 @@
 
 -(void)donwloadEngine
 {
-    if ([_waitDownloadQueue count] != 0) {
-        //保存待移除元素的临时数组
-        NSMutableArray *temp = [NSMutableArray array];
-        [_waitDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if (requestcount < _maxDownLoad) {
-                FZGameFile *waittingGamefile = obj;
-                
-                __block BOOL isAllow = YES;
-                [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    FZGameFile *downloadingGamefile = obj;
-                    if ([waittingGamefile.downloadUrl isEqualToString:downloadingGamefile.downloadUrl]) {
-                        NSLog(@"已存在相同下载");
-                        isAllow = NO;
-                        *stop = YES;
-                    }
-                }];
-                
-                if (isAllow) {
-                    waittingGamefile.state = downloading;
-                    [self createDownloadHttpRequest:waittingGamefile];
-                    [_downloadingQueue addObject:waittingGamefile];
-                    [temp addObject:waittingGamefile];
-                }
-  
-            }
-        }];
-        [_waitDownloadQueue removeObjectsInArray:temp];
+    if ([_downloadingQueue count] != 0) {
+         if (requestcount < _maxDownLoad) {
+             [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                  FZGameFile *object = obj;
+                 if(object.state == waitting){
+                     object.state = downloading;
+                     [NSThread detachNewThreadSelector:@selector(createDownloadHttpRequest:) toTarget:self withObject:object];
+//                     [self createDownloadHttpRequest:object];
+                     *stop = YES;
+                     [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
+                 }
+             }];
+         }
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil];
 }
 
 -(void)createDownloadHttpRequest:(FZGameFile *)model
 {
     NSURL *downloadURL = [NSURL URLWithString:model.downloadUrl];
+    
     //添加一个下载请求到队列
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:downloadURL];
     request.delegate = self;
@@ -142,6 +128,25 @@
 
 -(void)addDownloadToList:(FZGameFile *)model
 {
+    __block BOOL isFindInDownloadQueue = NO;
+    
+    [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+         FZGameFile *object = obj;
+         if ([object.downloadUrl isEqualToString:model.downloadUrl]) {
+             isFindInDownloadQueue = YES;
+             *stop = YES;
+         }
+    }];
+    
+    if (isFindInDownloadQueue) {
+        
+    }else{
+        model.state = waitting;
+        [_downloadingQueue addObject:model];
+    }
+    
+ 
+    /*
     //如果暂停队列中直接有这个下载，则提到等待队列中即可
     __block BOOL isFindinsuspendDownloadQueue = NO;
     [_suspendDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -161,6 +166,8 @@
         model.state = waitting;
         [_waitDownloadQueue addObject:model];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
+     */
 }
 
 -(void)stopDownloadUseURL:(NSString *)URL
@@ -173,29 +180,23 @@
             requestcount --;
         }
     }
-    //转移队列
+    
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
         if ([model.downloadUrl isEqualToString:URL]) {
             model.state = suspend;
-            [_suspendDownloadQueue addObject:model];
-            [_downloadingQueue removeObject:model];
             *stop = YES;
         }
     }];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
 }
 
 -(void)restartDownloadUseURL:(NSString *)URL
 {
-    [_suspendDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
         if ([model.downloadUrl isEqualToString:URL]) {
-            //断点续传时需要将receviedSize重置为0.否则计算错误
-            model.receviedSize = @"0";
             model.state = waitting;
-            [_waitDownloadQueue addObject:model];
-            [_suspendDownloadQueue removeObject:model];
             *stop = YES;
         }
     }];
@@ -203,13 +204,14 @@
 
 -(void)removeOneWaittingUseURL:(NSString *)URL
 {
-    [_waitDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *waitmodel = obj;
         if ([waitmodel.downloadUrl isEqualToString:URL]) {
-            [_waitDownloadQueue removeObject:waitmodel];
+            [_downloadingQueue removeObject:waitmodel];
             *stop = YES;
         }
     }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
 }
 
 -(void)removeOneDownloadingUseURL:(NSString *)URL
@@ -239,7 +241,7 @@
         NSFileManager *fileManager = [NSFileManager defaultManager];
         [fileManager removeItemAtPath:tempFilePath error:nil];
     }
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
 }
 
 #pragma mark ASIHTTPRequestDelegate
@@ -257,6 +259,7 @@
             *stop = YES;
         }
     }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
@@ -266,12 +269,11 @@
         if ([model.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
             NSLog(@"%@下载失败", model.name);
             model.state = suspend;
-            [_suspendDownloadQueue addObject:model];
-            [_downloadingQueue removeObject:model];
             requestcount --;
             *stop = YES;
         }
     }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
 }
 
 - (void)request:(ASIHTTPRequest *)request didReceiveResponseHeaders:(NSDictionary *)responseHeaders
@@ -285,25 +287,48 @@
              if (!model.fileSize || [model.fileSize longLongValue] == 0) {
                  model.fileSize = [NSString stringWithFormat:@"%lld",request.contentLength];
                  NSLog(@"filesize:%@", model.fileSize);
+             }else{
+                 model.receviedSize = @"0";
              }
              *stop = YES;
          }
      }];
+    
 }
 
 #pragma mark ASIProgressDelegate
+
 -(void)request:(ASIHTTPRequest *)request didReceiveBytes:(long long)bytes
 {
+    
     NSDictionary *userinfo =  request.userInfo;
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *gamefile = obj;
         if ([gamefile.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
             gamefile.receviedSize =  [NSString stringWithFormat:@"%lld",[gamefile.receviedSize longLongValue]+bytes];
 //            NSLog(@"total receviceSize:%@,revice%@",gamefile.receviedSize,[NSString stringWithFormat:@"%lld",bytes]);
-            *stop = YES;
+            
+            NSDictionary *userinfo = [NSDictionary dictionaryWithObject:gamefile forKey:@"refresObject"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:didReceiverefreshNotification object:nil userInfo:nil];
         }
     }];
 }
+
+-(void)request:(ASIHTTPRequest *)request incrementDownloadSizeBy:(long long)newLength
+{
+    /*
+    NSDictionary *userinfo =  request.userInfo;
+    [self.downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        FZGameFile *model = obj;
+        if ([model.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
+            model.fileSize = [NSString stringWithFormat:@"%lld",request.contentLength];
+            NSLog(@"filesize:%@",model.fileSize);
+            *stop = YES;
+        }
+    }];
+     */
+}
+
 
 -(void)writeQueuesToArchiveFile
 {
@@ -314,9 +339,7 @@
     }];
     
     NSDictionary *temp = [NSDictionary dictionaryWithObjectsAndKeys:
-        _waitDownloadQueue,@"waitDownloadQueue",
         _downloadingQueue,@"downloadingQueue",
-        _suspendDownloadQueue,@"suspendDownloadQueue",
         _overDownloadQueue,@"overDownloadQueue",nil];
     
     NSString *archiveFilePath = [[self getDocumentPath] stringByAppendingPathComponent:Archiverfilename];
@@ -328,15 +351,11 @@
     NSString *archiveFilePath = [[self getDocumentPath] stringByAppendingPathComponent:Archiverfilename];
     NSDictionary *temp = [NSKeyedUnarchiver unarchiveObjectWithFile: archiveFilePath];
     if (temp) {
-        _waitDownloadQueue = [temp objectForKey:@"waitDownloadQueue"];
         _downloadingQueue = [temp objectForKey:@"downloadingQueue"];
-        _suspendDownloadQueue = [temp objectForKey:@"suspendDownloadQueue"];
         _overDownloadQueue = [temp objectForKey:@"overDownloadQueue"];
     }else{
-        _waitDownloadQueue = [NSMutableArray array];
         _overDownloadQueue = [NSMutableArray array];
         _downloadingQueue = [NSMutableArray array];
-        _suspendDownloadQueue = [NSMutableArray array];
     }
 
 }

@@ -12,13 +12,14 @@
 #import "FZGameFile.h"
 
 #define RefreshDownloadNotification @"RefreshDownloadNotification"
+#define didReceiverefreshNotification @"didReceiverefreshNotification"
 
 @interface FZDownloadManager : NSObject <ASIHTTPRequestDelegate,ASIProgressDelegate>
 
 @property(assign) NSUInteger maxDownLoad;//最大下载数
-@property(strong,nonatomic) NSMutableArray *waitDownloadQueue;//等待下载列表
+//@property(strong,nonatomic) NSMutableArray *waitDownloadQueue;//等待下载列表
 @property(strong,nonatomic) NSMutableArray *overDownloadQueue;//下载完成集合
-@property(strong,nonatomic) NSMutableArray *suspendDownloadQueue;//暂停
+//@property(strong,nonatomic) NSMutableArray *suspendDownloadQueue;//暂停
 @property(strong,nonatomic) NSMutableArray *downloadingQueue;//下载中
 
 
