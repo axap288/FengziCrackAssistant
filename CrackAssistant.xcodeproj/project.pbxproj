@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2DF3B61903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3AE1903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png */; };
+		1F2DF3B71903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3AF1903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png */; };
+		1F2DF3B81903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3B01903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png */; };
+		1F2DF3B91903E1DC00E457B0 /* fz_crackview_cell_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3B11903E1DC00E457B0 /* fz_crackview_cell_close@2x.png */; };
+		1F2DF3BA1903E1DC00E457B0 /* fz_crackview_cell_open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3B21903E1DC00E457B0 /* fz_crackview_cell_open@2x.png */; };
+		1F2DF3BB1903E1DC00E457B0 /* fz_crackview_sectionview_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3B31903E1DC00E457B0 /* fz_crackview_sectionview_bg@2x.png */; };
+		1F2DF3BC1903E1DC00E457B0 /* fz_crackview_sectionview_logo1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3B41903E1DC00E457B0 /* fz_crackview_sectionview_logo1@2x.png */; };
+		1F2DF3BD1903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3B51903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png */; };
+		1F3AB668190416D8000C6FA6 /* thumbnail_demo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F3AB667190416D8000C6FA6 /* thumbnail_demo@2x.png */; };
 		1F623FEA18FE792A00D87F16 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F623FE818FE792A00D87F16 /* SVProgressHUD.m */; };
 		1F623FED18FE873100D87F16 /* FZCommonUitils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F623FEC18FE873100D87F16 /* FZCommonUitils.m */; };
 		1F729A1C18FD3B6A00BDE86F /* FZCrackListViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */; };
@@ -22,6 +31,7 @@
 		1F80568618F5326A00BF39A7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80568518F5326A00BF39A7 /* XCTest.framework */; };
 		1F80568718F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80568818F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
+		1FF6F39A1903FF6000C5E645 /* crackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF6F3991903FF6000C5E645 /* crackCell.xib */; };
 		4E4FE7E118FE51D200957AE9 /* FZGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */; };
 		4E5C4DA118FD65FA00667B23 /* FZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA018FD65FA00667B23 /* FZTabBarController.m */; };
 		4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA318FD738000667B23 /* fz_tabbar_gray_bg@2x.png */; };
@@ -82,6 +92,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F2DF3AE1903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_crack@2x.png"; sourceTree = "<group>"; };
+		1F2DF3AF1903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_start@2x.png"; sourceTree = "<group>"; };
+		1F2DF3B01903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_recover@2x.png"; sourceTree = "<group>"; };
+		1F2DF3B11903E1DC00E457B0 /* fz_crackview_cell_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_close@2x.png"; sourceTree = "<group>"; };
+		1F2DF3B21903E1DC00E457B0 /* fz_crackview_cell_open@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_open@2x.png"; sourceTree = "<group>"; };
+		1F2DF3B31903E1DC00E457B0 /* fz_crackview_sectionview_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_sectionview_bg@2x.png"; sourceTree = "<group>"; };
+		1F2DF3B41903E1DC00E457B0 /* fz_crackview_sectionview_logo1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_sectionview_logo1@2x.png"; sourceTree = "<group>"; };
+		1F2DF3B51903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_sectionview_logo2@2x.png"; sourceTree = "<group>"; };
+		1F3AB667190416D8000C6FA6 /* thumbnail_demo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail_demo@2x.png"; sourceTree = "<group>"; };
 		1F623FE818FE792A00D87F16 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		1F623FE918FE792A00D87F16 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		1F623FEB18FE873100D87F16 /* FZCommonUitils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZCommonUitils.h; sourceTree = "<group>"; };
@@ -104,6 +123,7 @@
 		1F80567E18F5326A00BF39A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CrackAssistant/Images.xcassets; sourceTree = "<group>"; };
 		1F80568418F5326A00BF39A7 /* CrackAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrackAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F80568518F5326A00BF39A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1FF6F3991903FF6000C5E645 /* crackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = crackCell.xib; sourceTree = "<group>"; };
 		4E2CBA9618FEC07500DF50C0 /* FZMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZMacro.h; sourceTree = "<group>"; };
 		4E4FE7DF18FE51D200957AE9 /* FZGameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameDetailViewController.h; sourceTree = "<group>"; };
 		4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameDetailViewController.m; sourceTree = "<group>"; };
@@ -223,6 +243,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F2DF3AD1903E1DC00E457B0 /* crackViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1F2DF3AE1903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png */,
+				1F2DF3AF1903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png */,
+				1F2DF3B01903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png */,
+				1F2DF3B11903E1DC00E457B0 /* fz_crackview_cell_close@2x.png */,
+				1F2DF3B21903E1DC00E457B0 /* fz_crackview_cell_open@2x.png */,
+				1F2DF3B31903E1DC00E457B0 /* fz_crackview_sectionview_bg@2x.png */,
+				1F2DF3B41903E1DC00E457B0 /* fz_crackview_sectionview_logo1@2x.png */,
+				1F2DF3B51903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png */,
+			);
+			path = crackViewController;
+			sourceTree = "<group>";
+		};
 		1F7FFF5618FE298400A3C5EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				1F7FFF5D18FE513D00A3C5EE /* downloadListCell.xib */,
+				1FF6F3991903FF6000C5E645 /* crackCell.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -527,6 +563,8 @@
 		4E677A7518FC19ED00E238A4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1F3AB667190416D8000C6FA6 /* thumbnail_demo@2x.png */,
+				1F2DF3AD1903E1DC00E457B0 /* crackViewController */,
 				4E5C4DA218FD738000667B23 /* tabbar */,
 			);
 			path = Images;
@@ -643,17 +681,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7FFF5E18FE513D00A3C5EE /* downloadListCell.xib in Resources */,
+				1F2DF3B81903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png in Resources */,
 				4E5C4DAB18FD74E700667B23 /* fz_tabbar_download_bg@2x.png in Resources */,
 				4E677A6F18FC196400E238A4 /* SVProgressHUD.bundle in Resources */,
+				1F2DF3BC1903E1DC00E457B0 /* fz_crackview_sectionview_logo1@2x.png in Resources */,
 				4E677A1518FC18E600E238A4 /* InfoPlist.strings in Resources */,
 				4E5C4DAE18FD74E700667B23 /* fz_tabbar_search_bg@2x.png in Resources */,
 				4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */,
+				1F2DF3BD1903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png in Resources */,
 				4E5C4DAD18FD74E700667B23 /* fz_tabbar_more_bg@2x.png in Resources */,
+				1F2DF3BA1903E1DC00E457B0 /* fz_crackview_cell_open@2x.png in Resources */,
 				4E677A7C18FC1A2700E238A4 /* Localizable.strings in Resources */,
 				4E5C4DAA18FD74E700667B23 /* fz_tabbar_crack_bg@2x.png in Resources */,
+				1F2DF3BB1903E1DC00E457B0 /* fz_crackview_sectionview_bg@2x.png in Resources */,
+				1F2DF3B71903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png in Resources */,
+				1F2DF3B61903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png in Resources */,
 				4E677A6718FC196400E238A4 /* README.md in Resources */,
+				1F3AB668190416D8000C6FA6 /* thumbnail_demo@2x.png in Resources */,
 				1F80567F18F5326A00BF39A7 /* Images.xcassets in Resources */,
+				1F2DF3B91903E1DC00E457B0 /* fz_crackview_cell_close@2x.png in Resources */,
 				4E5C4DAC18FD74E700667B23 /* fz_tabbar_home_bg@2x.png in Resources */,
+				1FF6F39A1903FF6000C5E645 /* crackCell.xib in Resources */,
 				4E677A6518FC196400E238A4 /* CHANGELOG.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -116,7 +116,7 @@
             [downloadRateLabel setFont:[UIFont systemFontOfSize:12]];
             [cell.contentView addSubview:downloadRateLabel];
             //当前状态文字
-            UILabel *downloadStateLabel = [[UILabel alloc] initWithFrame:CGRectMake(169.f, 45.f, 48.f, 21.f)];
+            UILabel *downloadStateLabel = [[UILabel alloc] initWithFrame:CGRectMake(169.f, 45.f, 60.f, 21.f)];
             [downloadStateLabel setTag:1103];
             [downloadStateLabel setTextColor:[UIColor lightGrayColor]];
             [downloadStateLabel setBackgroundColor:[UIColor clearColor]];
@@ -224,6 +224,9 @@
     UIButton *controlbutton = (UIButton *)[cell.contentView viewWithTag:1105];
     
     FZGameFile *gamefile = [downloadList objectAtIndex:indexPath.row];
+    float filesize = [FZCommonUitils getFileSizeNumber:gamefile.fileSize];
+    float receivedSize = [FZCommonUitils getFileSizeNumber:gamefile.receviedSize];
+    float lastReceivedSize = [FZCommonUitils getFileSizeNumber:gamefile.last_receviedSize];
     
     UILabel *indexlabel = [[UILabel alloc] init];//不显示，只作为传值使用
     indexlabel.tag = 4444;
@@ -234,7 +237,16 @@
     if (gamefile.state == downloading) {
         [controlbutton setTitle:@"暂停" forState:UIControlStateNormal];
         [controlbutton setBackgroundColor:[UIColor orangeColor]];
-        downloadStateLabel.text = @"正在下载";
+        //downloadStateLabel.text = @"正在下载";
+        
+        float lastTime = (filesize - receivedSize) / (receivedSize - lastReceivedSize);//计算剩余下载时间
+        NSString *timeIntervalStr = [NSString stringWithFormat:@"%02li:%02li:%02li",
+                                     lround(floor(lastTime / 3600.)) % 100,
+                                     lround(floor(lastTime / 60.)) % 60,
+                                     lround(floor(lastTime)) % 60];
+        downloadStateLabel.text = timeIntervalStr;
+
+        
     }
     if (gamefile.state == suspend) {
         [controlbutton setTitle:@"继续" forState:UIControlStateNormal];
@@ -250,8 +262,7 @@
     gameNameLabel.text = gamefile.name;
     downloadRateLabel.text = [NSString stringWithFormat:@"%@/%@",[FZCommonUitils getFileSizeString:gamefile.receviedSize],[FZCommonUitils getFileSizeString:gamefile.fileSize]];
     
-    float filesize = [FZCommonUitils getFileSizeNumber:gamefile.fileSize];
-    float receivedSize = [FZCommonUitils getFileSizeNumber:gamefile.receviedSize];
+   
     if (filesize == 0 || receivedSize == 0) {
         [downloadProcess setProgress:0];
     }else{

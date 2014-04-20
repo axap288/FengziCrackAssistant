@@ -289,6 +289,7 @@
                  NSLog(@"filesize:%@", model.fileSize);
              }else{
                  model.receviedSize = @"0";
+                 model.last_receviedSize = @"0";
              }
              *stop = YES;
          }
@@ -305,7 +306,9 @@
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *gamefile = obj;
         if ([gamefile.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
+            gamefile.last_receviedSize = gamefile.receviedSize;
             gamefile.receviedSize =  [NSString stringWithFormat:@"%lld",[gamefile.receviedSize longLongValue]+bytes];
+        
 //            NSLog(@"total receviceSize:%@,revice%@",gamefile.receviedSize,[NSString stringWithFormat:@"%lld",bytes]);
             
             NSDictionary *userinfo = [NSDictionary dictionaryWithObject:gamefile forKey:@"refresObject"];

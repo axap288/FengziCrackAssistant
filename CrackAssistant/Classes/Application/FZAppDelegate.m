@@ -23,13 +23,13 @@
     mainvc.title = @"首页";
     UINavigationController *mainNavCtrl = [[UINavigationController alloc] initWithRootViewController:mainvc];
     //破解
-    FZCrackViewController *crackvc = [[FZCrackViewController alloc] init];
+//    FZCrackViewController *crackvc = [[FZCrackViewController alloc] init];
+    FZCrackListViewViewController *crackvc =  [[FZCrackListViewViewController alloc] initWithNibName:nil bundle:nil];
     crackvc.title = @"破解";
     //下载
-//    FZdownloadViewController *dlvc = [[FZdownloadViewController alloc] init];
-    FZCrackListViewViewController *fc =  [[FZCrackListViewViewController alloc] initWithNibName:nil bundle:nil];
-    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:fc];
-    fc.title = @"下载";
+    FZdownloadViewController *downloadVc = [[FZdownloadViewController alloc] init];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:downloadVc];
+    downloadVc.title = @"下载";
     //搜索
     FZSearchViewController *searchvc = [[FZSearchViewController alloc] init];
     searchvc.title = @"搜索";
