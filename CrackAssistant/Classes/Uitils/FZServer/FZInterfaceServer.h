@@ -42,7 +42,7 @@ typedef void(^WSInterfaceFailureBlock)(NSString *errorMessage);
 */
 
 /**
- *  游戏存档列表接口
+ *  本地游戏存档列表接口
  *
  *  @param page
  *  @param successBlock

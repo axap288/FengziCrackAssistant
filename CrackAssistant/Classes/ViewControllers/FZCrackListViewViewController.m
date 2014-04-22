@@ -14,7 +14,7 @@
 #import "FZCommonUitils.h"
 #import "FZInterfaceServer.h"
 #import "JSONKit.h"
-#import "SDImageCache.h"
+#import "UIImageView+WebCache.h"
 
 
 
@@ -26,6 +26,8 @@
 #define Cell_button_crack_image [UIImage imageNamed:@"fz_crackview_cell_button_crack.png"]
 #define Cell_button_start_image [UIImage imageNamed:@"fz_crackview_cell_button_start.png"]
 #define Cell_button_recover_image [UIImage imageNamed:@"fz_crackview_cell_button_recover.png"]
+#define crackVerButton_bg_image [UIImage imageNamed:@"fz_crackview_button_bg_crackVer.png"]
+#define generalVerButton_bg_image [UIImage imageNamed:@"fz_crackview_button_bg_ generalVer.png"]
 
 
 @interface FZCrackListViewViewController ()
@@ -61,8 +63,8 @@
     
     self.view.backgroundColor = [UIColor orangeColor];
     
-    self.crackGamesArray = [self getRemoteCrackGames];
-    self.localGamesArray = [self findlocalGames];
+    [self getRemoteCrackGames];
+    [self findlocalGames];
     
     CGRect tableviewCgrect = self.view.frame;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
@@ -82,12 +84,12 @@
 }
 
 
--(NSMutableArray *)findlocalGames
+-(void)findlocalGames
 {
     NSArray *test = [NSArray arrayWithObjects:@"com.glu.ewarriors2",@"com.popcap.ios.chs.PVZ2",@"com.kiloo.subwaysurfers",nil];
     NSDictionary *dic = [NSDictionary dictionaryWithObject:test forKey:@"data"];
     
-    __block NSMutableArray *temp = [NSMutableArray array];
+     self.localGamesArray = [NSMutableArray array];
     
     //接口调用
     [interfaceServer loadUsefulGameSaveFile:dic withSuccessBlock:^(id responseObject) {
@@ -102,32 +104,30 @@
             fzGame.downloadNum = [content objectForKey:@"loadnum"];
             fzGame.thumbnail = [content objectForKey:@"thumb"];
             NSLog(@"%@",fzGame.name);
-            [temp addObject:fzGame];
+//            [temp addObject:fzGame];
+            [self.localGamesArray addObject:fzGame];
     }];
+    [self.tableview reloadData];
     } withFailureBlock:^(NSString *errorMessage) {
         NSLog(@"errorMessage:%@",errorMessage);
     }];
-    
-    return temp;
 }
 
--(NSMutableArray *)getRemoteCrackGames
+-(void)getRemoteCrackGames
 {
-    NSMutableArray *gameArray = [NSMutableArray array];
+    self.crackGamesArray = [NSMutableArray array];
     
     FZGameFile *m4 = [[FZGameFile alloc] init];
     m4.name = @"天天酷跑";
     m4.fileName = @"app5";
     m4.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/3/14/8cfe010d07154991a3b36ead425be1ae/com.xiaor.KuPaTool_2.0.0_2.0.0_635304095451126072.ipa";
-    [gameArray addObject:m4];
+    [self.crackGamesArray addObject:m4];
     
     FZGameFile *m5 = [[FZGameFile alloc] init];
     m5.name = @"美团商家";
     m5.fileName = @"app6";
     m5.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/18/4040196358234421bb30f3b01ace5bb8/com.meituan.imerchantbiz_2.1.0_2.1.0_635334388847033750.ipa";
-    [gameArray addObject:m5];
-    
-    return gameArray;
+    [self.crackGamesArray addObject:m5];
 }
 
 #pragma mark - Table view data source
@@ -250,7 +250,8 @@
 
                 FZGameFile *model = [self.localGamesArray objectAtIndex:[indexPath row]];
                 gameTitle.text = model.name;
-                thumbnailView.image = [UIImage imageNamed:@"thumbnail_demo.png"];
+//                thumbnailView.image = [UIImage image];
+                [thumbnailView setImageWithURL:[NSURL URLWithString:model.thumbnail] placeholderImage:[UIImage imageNamed:@"fz_placeholder.png"]];
                 scoreLabel.text = [NSString stringWithFormat:@"下载次数 %@",model.downloadNum];
                 detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@M |",model.version,@"64.67"];
                 
@@ -298,6 +299,7 @@
     
 }
 
+// 列表视图
 -(UIView *)makeContentCellView
 {
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 68)];
@@ -338,6 +340,7 @@
     return contentView;
 }
 
+//恢复、破解、打开 - 视图
 -(UIView *)makeOperationPanelView
 {
     UIView *opView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 68)];
@@ -382,7 +385,12 @@
     [opView addSubview:startButtonTitle];
     
     return opView;
+}
 
+//无限金币版、普通版 - 视图
+-(void)makeSelectVersionPanelView
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 68)];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -392,10 +400,8 @@
     [downloadManager addDownloadToList:model];
     [self pushdownloadList];
      */
-    
-    
 }
-
+//下拉弹出cell
 -(void)openPullDownCellAction:(id)sender
 {
     if (selectCellAtlocalGame) {
