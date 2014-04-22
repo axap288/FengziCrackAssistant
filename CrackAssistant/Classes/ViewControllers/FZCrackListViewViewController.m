@@ -12,6 +12,11 @@
 #import "FZGameFile.h"
 #import "FZdownloadViewController.h"
 #import "FZCommonUitils.h"
+#import "FZInterfaceServer.h"
+#import "JSONKit.h"
+#import "SDImageCache.h"
+
+
 
 #define SectionView_bg_image [UIImage imageNamed:@"fz_crackview_sectionview_bg.png"]
 #define SectionView_logo1_image [UIImage imageNamed:@"fz_crackview_sectionview_logo1.png"]
@@ -28,6 +33,7 @@
     FZDownloadManager *downloadManager;
     NSUInteger selectCellAtlocalGame;
     UIButton *selectButtonAtLocalGame;
+    FZInterfaceServer *interfaceServer;
 }
 @property (strong,nonatomic) UITableView *tableview;
 @property (strong,nonatomic) NSMutableArray *localGamesArray; //设备中的游戏列表
@@ -43,6 +49,8 @@
     if (self) {
         selectCellAtlocalGame = 0;
         downloadManager = [FZDownloadManager getShareInstance];
+        interfaceServer = [FZInterfaceServer getShareInstance];
+
 //        [downloadManager setMaxDownLoad:3];
         }
     return self;
@@ -50,6 +58,7 @@
 
 - (void)viewDidLoad
 {
+    
     self.view.backgroundColor = [UIColor orangeColor];
     
     self.crackGamesArray = [self getRemoteCrackGames];
@@ -75,50 +84,31 @@
 
 -(NSMutableArray *)findlocalGames
 {
-    NSMutableArray *localgameArray = [NSMutableArray array];
+    NSArray *test = [NSArray arrayWithObjects:@"com.glu.ewarriors2",@"com.popcap.ios.chs.PVZ2",@"com.kiloo.subwaysurfers",nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithObject:test forKey:@"data"];
     
-    //测试数据
-    FZGameFile *m1 = [[FZGameFile alloc] init];
-    m1.name = @"91手机助手";
-    m1.fileName = @"app1";
-    m1.downloadUrl = @"http://bcs.91rb.com/rbreszy/msoft/91assistant_v3.2.8_2.ipa";
-    [localgameArray addObject:m1];
+    __block NSMutableArray *temp = [NSMutableArray array];
     
-    FZGameFile *m2 = [[FZGameFile alloc] init];
-    m2.name = @"春雨医生";
-    m2.fileName = @"app3";
-    m2.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/2/ce1ba0b8b8254baca79ef6c7fb5e2bba/com.chunyu.SymptomChecker_4.7.10325_4.7.1_635320447319931250.ipa";
-    [localgameArray addObject:m2];
+    //接口调用
+    [interfaceServer loadUsefulGameSaveFile:dic withSuccessBlock:^(id responseObject) {
+        NSDictionary *responseDict = [responseObject objectFromJSONString];
+        NSArray *result = [responseDict allValues];
+        [result enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSDictionary *content = obj;
+            
+             FZGameFile *fzGame = [[FZGameFile alloc] init];
+            fzGame.name = [content objectForKey:@"title"];
+            fzGame.version = [content objectForKey:@"version"];
+            fzGame.downloadNum = [content objectForKey:@"loadnum"];
+            fzGame.thumbnail = [content objectForKey:@"thumb"];
+            NSLog(@"%@",fzGame.name);
+            [temp addObject:fzGame];
+    }];
+    } withFailureBlock:^(NSString *errorMessage) {
+        NSLog(@"errorMessage:%@",errorMessage);
+    }];
     
-    FZGameFile *m3 = [[FZGameFile alloc] init];
-    m3.name = @"旅游攻略";
-    m3.fileName = @"app4";
-    m3.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/11/f146984e29b44b9eadde85b23c348dbc/cn.mafengwo.www_6.0.1_6.0.1_635328241513209463.ipa";
-    [localgameArray addObject:m3];
-
-    FZGameFile *m4 = [[FZGameFile alloc] init];
-    m4.name = @"91手机助手";
-    m4.fileName = @"app1";
-    m4.downloadUrl = @"http://bcs.91rb.com/rbreszy/msoft/91assistant_v3.2.8_2.ipa";
-    [localgameArray addObject:m4];
-    
-    
-    FZGameFile *m5 = [[FZGameFile alloc] init];
-    m5.name = @"春雨医生";
-    m5.fileName = @"app3";
-    m5.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/2/ce1ba0b8b8254baca79ef6c7fb5e2bba/com.chunyu.SymptomChecker_4.7.10325_4.7.1_635320447319931250.ipa";
-    [localgameArray addObject:m5];
-    
-    
-    FZGameFile *m6 = [[FZGameFile alloc] init];
-    m6.name = @"旅游攻略";
-    m6.fileName = @"app4";
-    m6.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/11/f146984e29b44b9eadde85b23c348dbc/cn.mafengwo.www_6.0.1_6.0.1_635328241513209463.ipa";
-    [localgameArray addObject:m6];
-    
-    
-    return localgameArray;
-    
+    return temp;
 }
 
 -(NSMutableArray *)getRemoteCrackGames
@@ -172,7 +162,7 @@
         UIView  *localGamesSectionView = sectionView;
         
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 105, 25)];
-        //logo图
+        //图标
         UIImageView *logoview = [[UIImageView alloc] initWithImage:SectionView_logo1_image];
         logoview.frame = CGRectMake(0, 0, 25, 25);
         [titleView addSubview:logoview];
@@ -193,7 +183,7 @@
         
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 105, 25)];
         
-        //logo图
+        //图标
         UIImageView *logoview = [[UIImageView alloc] initWithImage:SectionView_logo2_image];
         logoview.frame = CGRectMake(0, 0, 25, 25);
         [titleView addSubview:logoview];
@@ -261,8 +251,8 @@
                 FZGameFile *model = [self.localGamesArray objectAtIndex:[indexPath row]];
                 gameTitle.text = model.name;
                 thumbnailView.image = [UIImage imageNamed:@"thumbnail_demo.png"];
-                scoreLabel.text = [NSString stringWithFormat:@"得分 %@分",@"2.3"];
-                detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@M |",@"1.00",@"64.67"];
+                scoreLabel.text = [NSString stringWithFormat:@"下载次数 %@",model.downloadNum];
+                detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@M |",model.version,@"64.67"];
                 
                 //此label仅作为传参数用
                 UILabel *parameter = [[UILabel alloc] init];

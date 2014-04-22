@@ -15,7 +15,7 @@
 #import "SVProgressHUD.h"
 // #import "WSDataBaseUtils.h"
 
-#define kServerPaht @"http://219.238.148.95:4231/"
+#define kServerPaht @"http://www.fengzigame.com/index.php"
 
 @interface FZInterfaceServer ()
 
@@ -99,7 +99,7 @@
     
     
     __block FZBaseServerRequest *request = [[FZBaseServerRequest alloc]
-                                            initWithUrl:[NSString stringWithFormat:@"%@%@", kServerPaht, uriString]];
+                                            initWithUrl:[NSString stringWithFormat:@"%@?%@", kServerPaht, uriString]];
     
     // 用Request的Hash值当KEY来存储该请求的BLock
     [_successBlockCacheDic setObject:successBlock forKey:[NSString stringWithFormat:@"%d", request.hash]];
@@ -175,6 +175,7 @@
  @param     password   用户密码
  @result    request的Hash值
  */
+/*
 - (NSString *)userLogin:(NSString *)userName
                userPass:(NSString *)password
        withSuccessBlock:(WSInterfaceSuccessBlock)successBlock
@@ -189,6 +190,23 @@
                         uriString:@"app/login.aspx"
                      successBlock:successBlock
                      failureBlock:failureBlock];
+}
+ */
+
+-(NSString *)loadUsefulGameSaveFile:(NSDictionary *)allLocalPackage
+                   withSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                   withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
+{
+    
+    NSString *jsonStr = [allLocalPackage JSONString];
+    NSLog(@"jsonStr:%@",jsonStr);
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionary];
+    [paraDic setObject:jsonStr forKey:@"data"];
+    
+    return [self sendBaseRequestWithPara:paraDic
+                               uriString:@"m=ios&c=index&a=ican"
+                            successBlock:successBlock
+                            failureBlock:failureBlock];
 }
 
 @end

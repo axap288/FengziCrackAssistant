@@ -34,9 +34,24 @@ typedef void(^WSInterfaceFailureBlock)(NSString *errorMessage);
  @param     password   用户密码
  @result    request的Hash值
  */
+/*
 - (NSString *)userLogin:(NSString *)userName
                userPass:(NSString *)password
        withSuccessBlock:(WSInterfaceSuccessBlock)successBlock
        withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
+*/
+
+/**
+ *  游戏存档列表接口
+ *
+ *  @param page
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadUsefulGameSaveFile:(NSDictionary *)allLocalPackage
+             withSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+             withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
 
 @end
