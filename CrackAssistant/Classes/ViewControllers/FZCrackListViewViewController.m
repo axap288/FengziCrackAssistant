@@ -53,8 +53,7 @@
         downloadManager = [FZDownloadManager getShareInstance];
         interfaceServer = [FZInterfaceServer getShareInstance];
 
-//        [downloadManager setMaxDownLoad:3];
-        }
+    }
     return self;
 }
 
@@ -309,7 +308,7 @@
     thumbnailView.tag = 2001;
     [contentView addSubview:thumbnailView];
     //标题
-    UILabel *gameTitle = [[UILabel alloc] initWithFrame:CGRectMake(77, 10, 172, 21)];
+    UILabel *gameTitle = [[UILabel alloc] initWithFrame:CGRectMake(77, 10, 190, 21)];
     gameTitle.backgroundColor = [UIColor clearColor];
     gameTitle.textColor = [UIColor darkGrayColor];
     gameTitle.font = [UIFont systemFontOfSize:15];
