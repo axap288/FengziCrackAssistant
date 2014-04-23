@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F29BA14190809B3008441A6 /* postinst in Resources */ = {isa = PBXBuildFile; fileRef = 1F29BA12190809B3008441A6 /* postinst */; };
 		1F2DF3B61903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3AE1903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png */; };
 		1F2DF3B71903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3AF1903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png */; };
 		1F2DF3B81903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3B01903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png */; };
@@ -20,25 +21,15 @@
 		1F729A1C18FD3B6A00BDE86F /* FZCrackListViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */; };
 		1F729A1F18FD5A7500BDE86F /* FZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */; };
 		1F7FFF5918FE29A700A3C5EE /* FZGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FFF5818FE29A700A3C5EE /* FZGame.m */; };
-		1F7FFF5E18FE513D00A3C5EE /* downloadListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F7FFF5D18FE513D00A3C5EE /* downloadListCell.xib */; };
 		1F7FFF6118FE528C00A3C5EE /* FZGameFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FFF6018FE528C00A3C5EE /* FZGameFile.m */; };
 		1F7FFF6418FE570400A3C5EE /* FZDownloadListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FFF6318FE570400A3C5EE /* FZDownloadListCell.m */; };
 		1F80566D18F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80566F18F5326A00BF39A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566E18F5326A00BF39A7 /* CoreGraphics.framework */; };
 		1F80567118F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
-		1F80567F18F5326A00BF39A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F80567E18F5326A00BF39A7 /* Images.xcassets */; };
 		1F80568618F5326A00BF39A7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80568518F5326A00BF39A7 /* XCTest.framework */; };
 		1F80568718F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80568818F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
 		1FCE70FB1906B355000206DB /* fz_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F31906B355000206DB /* fz_placeholder@2x.png */; };
-		1FCE70FC1906B355000206DB /* 关于按钮的效果图.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F41906B355000206DB /* 关于按钮的效果图.png */; };
-		1FCE70FD1906B355000206DB /* 破解_19.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F51906B355000206DB /* 破解_19.png */; };
-		1FCE70FE1906B355000206DB /* 破解_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F61906B355000206DB /* 破解_22.png */; };
-		1FCE70FF1906B355000206DB /* 破解_24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F71906B355000206DB /* 破解_24.png */; };
-		1FCE71001906B355000206DB /* 破解_26.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F81906B355000206DB /* 破解_26.png */; };
-		1FCE71011906B355000206DB /* 破解_28.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F91906B355000206DB /* 破解_28.png */; };
-		1FCE71021906B355000206DB /* 破解_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70FA1906B355000206DB /* 破解_30.png */; };
-		1FF6F39A1903FF6000C5E645 /* crackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF6F3991903FF6000C5E645 /* crackCell.xib */; };
 		4E4FE7E118FE51D200957AE9 /* FZGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */; };
 		4E5C4DA118FD65FA00667B23 /* FZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA018FD65FA00667B23 /* FZTabBarController.m */; };
 		4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA318FD738000667B23 /* fz_tabbar_gray_bg@2x.png */; };
@@ -59,9 +50,7 @@
 		4E677A6218FC196400E238A4 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A2D18FC196400E238A4 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4E677A6318FC196400E238A4 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A2F18FC196400E238A4 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4E677A6418FC196400E238A4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A3418FC196400E238A4 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4E677A6518FC196400E238A4 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E677A3618FC196400E238A4 /* CHANGELOG.md */; };
 		4E677A6618FC196400E238A4 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A3818FC196400E238A4 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4E677A6718FC196400E238A4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E677A3918FC196400E238A4 /* README.md */; };
 		4E677A6818FC196400E238A4 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A3C18FC196400E238A4 /* SDImageCache.m */; };
 		4E677A6918FC196400E238A4 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A4018FC196400E238A4 /* SDWebImageDecoder.m */; };
 		4E677A6A18FC196400E238A4 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A4218FC196400E238A4 /* SDWebImageDownloader.m */; };
@@ -99,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F29BA11190809B3008441A6 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		1F29BA12190809B3008441A6 /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = postinst; sourceTree = "<group>"; };
 		1F2DF3AE1903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_crack@2x.png"; sourceTree = "<group>"; };
 		1F2DF3AF1903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_start@2x.png"; sourceTree = "<group>"; };
 		1F2DF3B01903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_recover@2x.png"; sourceTree = "<group>"; };
@@ -257,6 +248,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F29BA0E190809B3008441A6 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				1F29BA0F190809B3008441A6 /* Applications */,
+				1F29BA10190809B3008441A6 /* DEBIAN */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		1F29BA0F190809B3008441A6 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		1F29BA10190809B3008441A6 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				1F29BA11190809B3008441A6 /* control */,
+				1F29BA12190809B3008441A6 /* postinst */,
+			);
+			path = DEBIAN;
+			sourceTree = "<group>";
+		};
 		1F2DF3AD1903E1DC00E457B0 /* crackViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +346,7 @@
 		1F80567218F5326A00BF39A7 /* CrackAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				1F29BA0E190809B3008441A6 /* Package */,
 				4E677A1618FC196400E238A4 /* Classes */,
 				1F80567318F5326A00BF39A7 /* Supporting Files */,
 				4E677A7418FC19ED00E238A4 /* Resources */,
@@ -640,6 +657,7 @@
 				1F80566518F5326A00BF39A7 /* Sources */,
 				1F80566618F5326A00BF39A7 /* Frameworks */,
 				1F80566718F5326A00BF39A7 /* Resources */,
+				1F29BA0D19080955008441A6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -678,9 +696,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "疯子";
 				TargetAttributes = {
-					1F80566818F5326A00BF39A7 = {
-						DevelopmentTeam = H4TG7H4M52;
-					};
 					1F80568318F5326A00BF39A7 = {
 						TestTargetID = 1F80566818F5326A00BF39A7;
 					};
@@ -709,36 +724,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FCE70FF1906B355000206DB /* 破解_24.png in Resources */,
-				1F7FFF5E18FE513D00A3C5EE /* downloadListCell.xib in Resources */,
 				1F2DF3B81903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png in Resources */,
 				4E5C4DAB18FD74E700667B23 /* fz_tabbar_download_bg@2x.png in Resources */,
-				1FCE71011906B355000206DB /* 破解_28.png in Resources */,
 				4E677A6F18FC196400E238A4 /* SVProgressHUD.bundle in Resources */,
 				1FCE70FB1906B355000206DB /* fz_placeholder@2x.png in Resources */,
 				1F2DF3BC1903E1DC00E457B0 /* fz_crackview_sectionview_logo1@2x.png in Resources */,
-				1FCE70FD1906B355000206DB /* 破解_19.png in Resources */,
 				4E677A1518FC18E600E238A4 /* InfoPlist.strings in Resources */,
 				4E5C4DAE18FD74E700667B23 /* fz_tabbar_search_bg@2x.png in Resources */,
 				4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */,
+				1F29BA14190809B3008441A6 /* postinst in Resources */,
 				1F2DF3BD1903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png in Resources */,
 				4E5C4DAD18FD74E700667B23 /* fz_tabbar_more_bg@2x.png in Resources */,
 				1F2DF3BA1903E1DC00E457B0 /* fz_crackview_cell_open@2x.png in Resources */,
-				1FCE71021906B355000206DB /* 破解_30.png in Resources */,
 				4E677A7C18FC1A2700E238A4 /* Localizable.strings in Resources */,
 				4E5C4DAA18FD74E700667B23 /* fz_tabbar_crack_bg@2x.png in Resources */,
 				1F2DF3BB1903E1DC00E457B0 /* fz_crackview_sectionview_bg@2x.png in Resources */,
 				1F2DF3B71903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png in Resources */,
 				1F2DF3B61903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png in Resources */,
-				1FCE71001906B355000206DB /* 破解_26.png in Resources */,
-				4E677A6718FC196400E238A4 /* README.md in Resources */,
-				1FCE70FE1906B355000206DB /* 破解_22.png in Resources */,
-				1F80567F18F5326A00BF39A7 /* Images.xcassets in Resources */,
 				1F2DF3B91903E1DC00E457B0 /* fz_crackview_cell_close@2x.png in Resources */,
 				4E5C4DAC18FD74E700667B23 /* fz_tabbar_home_bg@2x.png in Resources */,
-				1FCE70FC1906B355000206DB /* 关于按钮的效果图.png in Resources */,
-				1FF6F39A1903FF6000C5E645 /* crackCell.xib in Resources */,
-				4E677A6518FC196400E238A4 /* CHANGELOG.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +754,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F29BA0D19080955008441A6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F80566518F5326A00BF39A7 /* Sources */ = {
@@ -858,7 +878,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -890,7 +910,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -906,10 +926,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.1.3;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Debug;
 		};
@@ -923,10 +950,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.1.3;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Release;
 		};
