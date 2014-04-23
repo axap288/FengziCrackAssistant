@@ -287,7 +287,7 @@
             
             FZGameFile *model = [self.crackGamesArray objectAtIndex:[indexPath row]];
             gameTitle.text = model.name;
-            thumbnailView.image = [UIImage imageNamed:@"thumbnail_demo.png"];
+            thumbnailView.image = [UIImage imageNamed:@"fz_placeholder.png"];
             scoreLabel.text = [NSString stringWithFormat:@"得分 %@分",@"2.3"];
             detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@M |",@"1.00",@"64.67"];
         }
