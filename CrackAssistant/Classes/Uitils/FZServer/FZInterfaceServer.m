@@ -209,4 +209,28 @@
                             failureBlock:failureBlock];
 }
 
+-(NSString *)loadGamesListWithCatgoryId:(NSString *)cid withPage:(NSString *)pageNum
+                       withSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                       withFailureBlock:(WSInterfaceFailureBlock)failureBlock
+{
+    NSScanner *scan1 =  [NSScanner scannerWithString:cid];
+    NSScanner *scan2 = [NSScanner scannerWithString:pageNum];
+    int val;
+    if ([scan1 scanInt:&val] &&[scan1 isAtEnd]) {
+        
+    }
+    
+    if ([scan2 scanInt:&val] &&[scan2 isAtEnd]) {
+        
+    }
+    
+    
+    
+    NSString *parameterStr = [NSString stringWithFormat:@"m=ios&c=index&a=glists&catid=%@&page=%@",cid,pageNum];
+    return [self sendBaseRequestWithPara:[NSMutableDictionary dictionary]
+                               uriString:parameterStr
+                            successBlock:successBlock
+                            failureBlock:failureBlock];
+}
+
 @end

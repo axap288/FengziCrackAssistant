@@ -49,6 +49,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.localGamesArray = [NSMutableArray array];
+        self.crackGamesArray = [NSMutableArray array];
         selectCellAtlocalGame = 0;
         downloadManager = [FZDownloadManager getShareInstance];
         interfaceServer = [FZInterfaceServer getShareInstance];
@@ -88,7 +90,6 @@
     NSArray *test = [NSArray arrayWithObjects:@"com.glu.ewarriors2",@"com.popcap.ios.chs.PVZ2",@"com.kiloo.subwaysurfers",nil];
     NSDictionary *dic = [NSDictionary dictionaryWithObject:test forKey:@"data"];
     
-     self.localGamesArray = [NSMutableArray array];
     
     //接口调用
     [interfaceServer loadUsefulGameSaveFile:dic withSuccessBlock:^(id responseObject) {
@@ -114,19 +115,30 @@
 
 -(void)getRemoteCrackGames
 {
-    self.crackGamesArray = [NSMutableArray array];
+    NSString *cid = [NSString stringWithFormat:@"%d",20];
+    NSString *page = [NSString stringWithFormat:@"%d",1];
     
-    FZGameFile *m4 = [[FZGameFile alloc] init];
-    m4.name = @"天天酷跑";
-    m4.fileName = @"app5";
-    m4.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/3/14/8cfe010d07154991a3b36ead425be1ae/com.xiaor.KuPaTool_2.0.0_2.0.0_635304095451126072.ipa";
-    [self.crackGamesArray addObject:m4];
-    
-    FZGameFile *m5 = [[FZGameFile alloc] init];
-    m5.name = @"美团商家";
-    m5.fileName = @"app6";
-    m5.downloadUrl = @"http://bcs.91rb.com/rbreszy/iphone/soft/2014/4/18/4040196358234421bb30f3b01ace5bb8/com.meituan.imerchantbiz_2.1.0_2.1.0_635334388847033750.ipa";
-    [self.crackGamesArray addObject:m5];
+    [interfaceServer loadGamesListWithCatgoryId:cid withPage:page withSuccessBlock:^(id responseObject) {
+        
+        NSDictionary *responseDict = [responseObject objectFromJSONString];
+        NSArray *result = [responseDict allValues];
+          [result enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+              NSDictionary *content = obj;
+              
+              FZGameFile *fzGame = [[FZGameFile alloc] init];
+              fzGame.name = [content objectForKey:@"title"];
+              fzGame.version = [content objectForKey:@"version"];
+              fzGame.downloadNum = [content objectForKey:@"loadnum"];
+              fzGame.thumbnail = [content objectForKey:@"thumb"];
+              fzGame.fileSize = [content objectForKey:@"filesize"];
+              NSLog(@"%@",fzGame.name);
+              
+              [self.crackGamesArray addObject:fzGame];
+          }];
+        [self.tableview reloadData];
+    } withFailureBlock:^(NSString *errorMessage) {
+        NSLog(@"errorMessage:%@",errorMessage);
+    }];
 }
 
 #pragma mark - Table view data source
@@ -286,9 +298,9 @@
             
             FZGameFile *model = [self.crackGamesArray objectAtIndex:[indexPath row]];
             gameTitle.text = model.name;
-            thumbnailView.image = [UIImage imageNamed:@"fz_placeholder.png"];
+            [thumbnailView setImageWithURL:[NSURL URLWithString:model.thumbnail] placeholderImage:[UIImage imageNamed:@"fz_placeholder.png"]];
             scoreLabel.text = [NSString stringWithFormat:@"得分 %@分",@"2.3"];
-            detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@M |",@"1.00",@"64.67"];
+            detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@ |",model.version,model.fileSize];
         }
             break;
         default:

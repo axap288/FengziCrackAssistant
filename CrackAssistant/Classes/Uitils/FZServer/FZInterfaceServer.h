@@ -53,5 +53,20 @@ typedef void(^WSInterfaceFailureBlock)(NSString *errorMessage);
 -(NSString *)loadUsefulGameSaveFile:(NSDictionary *)allLocalPackage
              withSuccessBlock:(WSInterfaceSuccessBlock)successBlock
              withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
+/**
+ *  游戏栏目列表
+ *
+ *  @param cid          类别id
+ *  @param pageNum      页数
+ *  @param successBlock <#successBlock description#>
+ *  @param failureBlock <#failureBlock description#>
+ *
+ *  @return <#return value description#>
+ */
+-(NSString *)loadGamesListWithCatgoryId:(NSString *)cid withPage:(NSString *)pageNum
+                 withSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                 withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
+
+
 
 @end
