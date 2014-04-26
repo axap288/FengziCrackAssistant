@@ -18,7 +18,7 @@
  *
  *  @return
  */
-+(BOOL)installCrackSaveFile:(NSURL*)savefileUrl toAPP:(NSString *)appPackage;
++(BOOL)installCrackFile:(NSString *)savefileUrl toAPP:(NSString *)appPackage;
 /**
  *  安装本地已下载的APP
  *

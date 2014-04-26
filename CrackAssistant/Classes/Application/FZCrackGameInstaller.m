@@ -18,10 +18,12 @@
 
 @implementation FZCrackGameInstaller
 
-+(BOOL)installCrackSaveFile:(NSURL*)savefileUrl toAPP:(NSString *)appPackage
++(BOOL)installCrackFile:(NSString *)savefileUrl toAPP:(NSString *)appPackage
 {
     BOOL success = NO;
     
+    NSString* filePath = [FZCrackGameInstaller downloadFile:savefileUrl];
+    NSLog(@"savefilePath:%@",filePath);
     return success;
 }
 
@@ -39,8 +41,14 @@
     NSString *destinationPath = [tempDir stringByAppendingPathComponent:[fileURL lastPathComponent]];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:fileURL]];
     [request setDownloadDestinationPath:destinationPath];
+    [request startSynchronous];
+    if ([request isFinished]) {
+        NSLog(@"下载完成");
+    }
     return destinationPath;
 }
+
+
 
 
 @end
