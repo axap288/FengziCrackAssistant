@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F263A9A190B8EA100A4A15F /* FZCrackGameInstaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F263A99190B8EA100A4A15F /* FZCrackGameInstaller.m */; };
+		1F263AAA190B928000A4A15F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F263A9E190B928000A4A15F /* ioapi.c */; };
+		1F263AAB190B928000A4A15F /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F263AA0190B928000A4A15F /* mztools.c */; };
+		1F263AAC190B928000A4A15F /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F263AA2190B928000A4A15F /* unzip.c */; };
+		1F263AAD190B928000A4A15F /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F263AA4190B928000A4A15F /* zip.c */; };
+		1F263AAE190B928000A4A15F /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F263AA7190B928000A4A15F /* SSZipArchive.m */; };
+		1F263AAF190B928000A4A15F /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F263AA9190B928000A4A15F /* ZipArchive.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1F29BA14190809B3008441A6 /* postinst in Resources */ = {isa = PBXBuildFile; fileRef = 1F29BA12190809B3008441A6 /* postinst */; };
 		1F2DF3B61903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3AE1903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png */; };
 		1F2DF3B71903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DF3AF1903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png */; };
@@ -88,6 +95,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F263A98190B8EA100A4A15F /* FZCrackGameInstaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZCrackGameInstaller.h; sourceTree = "<group>"; };
+		1F263A99190B8EA100A4A15F /* FZCrackGameInstaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZCrackGameInstaller.m; sourceTree = "<group>"; };
+		1F263A9D190B928000A4A15F /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		1F263A9E190B928000A4A15F /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		1F263A9F190B928000A4A15F /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		1F263AA0190B928000A4A15F /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		1F263AA1190B928000A4A15F /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		1F263AA2190B928000A4A15F /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		1F263AA3190B928000A4A15F /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		1F263AA4190B928000A4A15F /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		1F263AA5190B928000A4A15F /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		1F263AA6190B928000A4A15F /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		1F263AA7190B928000A4A15F /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		1F263AA8190B928000A4A15F /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		1F263AA9190B928000A4A15F /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		1F29BA11190809B3008441A6 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		1F29BA12190809B3008441A6 /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = postinst; sourceTree = "<group>"; };
 		1F2DF3AE1903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_crack@2x.png"; sourceTree = "<group>"; };
@@ -248,6 +270,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F263A9B190B928000A4A15F /* SSZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				1F263A9C190B928000A4A15F /* minizip */,
+				1F263AA6190B928000A4A15F /* SSZipArchive.h */,
+				1F263AA7190B928000A4A15F /* SSZipArchive.m */,
+				1F263AA8190B928000A4A15F /* ZipArchive.h */,
+				1F263AA9190B928000A4A15F /* ZipArchive.mm */,
+			);
+			path = SSZipArchive;
+			sourceTree = "<group>";
+		};
+		1F263A9C190B928000A4A15F /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				1F263A9D190B928000A4A15F /* crypt.h */,
+				1F263A9E190B928000A4A15F /* ioapi.c */,
+				1F263A9F190B928000A4A15F /* ioapi.h */,
+				1F263AA0190B928000A4A15F /* mztools.c */,
+				1F263AA1190B928000A4A15F /* mztools.h */,
+				1F263AA2190B928000A4A15F /* unzip.c */,
+				1F263AA3190B928000A4A15F /* unzip.h */,
+				1F263AA4190B928000A4A15F /* zip.c */,
+				1F263AA5190B928000A4A15F /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
 		1F29BA0E190809B3008441A6 /* Package */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +475,8 @@
 				4E677A8A18FC20C700E238A4 /* FZBaseViewController.m */,
 				4E677A8C18FC20FB00E238A4 /* FZBaseTableViewController.h */,
 				4E677A8D18FC20FB00E238A4 /* FZBaseTableViewController.m */,
+				1F263A98190B8EA100A4A15F /* FZCrackGameInstaller.h */,
+				1F263A99190B8EA100A4A15F /* FZCrackGameInstaller.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -441,6 +493,7 @@
 		4E677A1B18FC196400E238A4 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				1F263A9B190B928000A4A15F /* SSZipArchive */,
 				4E677A1C18FC196400E238A4 /* ASIHTTPRequst */,
 				4E677A3518FC196400E238A4 /* JSONKit */,
 				4E677A3A18FC196400E238A4 /* SDWebImage */,
@@ -786,6 +839,7 @@
 				1F623FED18FE873100D87F16 /* FZCommonUitils.m in Sources */,
 				4E677A6118FC196400E238A4 /* ASIHTTPRequest.m in Sources */,
 				4E677A9A18FC25CA00E238A4 /* FZdownloadViewController.m in Sources */,
+				1F263AAD190B928000A4A15F /* zip.c in Sources */,
 				4E677A6618FC196400E238A4 /* JSONKit.m in Sources */,
 				4E677A6A18FC196400E238A4 /* SDWebImageDownloader.m in Sources */,
 				4E677A5B18FC196400E238A4 /* FZAppDelegate.m in Sources */,
@@ -797,6 +851,7 @@
 				4E677A6C18FC196400E238A4 /* SDWebImagePrefetcher.m in Sources */,
 				4E677A6418FC196400E238A4 /* Reachability.m in Sources */,
 				4E677A7118FC196400E238A4 /* FZBaseServerRequest.m in Sources */,
+				1F263A9A190B8EA100A4A15F /* FZCrackGameInstaller.m in Sources */,
 				4E677A6E18FC196400E238A4 /* UIImageView+WebCache.m in Sources */,
 				1F7FFF6418FE570400A3C5EE /* FZDownloadListCell.m in Sources */,
 				4E677A5C18FC196400E238A4 /* ASIAuthenticationDialog.m in Sources */,
@@ -806,13 +861,18 @@
 				4E677A7318FC196400E238A4 /* FZNetWorkReachability.m in Sources */,
 				1F729A1C18FD3B6A00BDE86F /* FZCrackListViewViewController.m in Sources */,
 				4E677A5F18FC196400E238A4 /* ASIDownloadCache.m in Sources */,
+				1F263AAE190B928000A4A15F /* SSZipArchive.m in Sources */,
 				4E677A6218FC196400E238A4 /* ASIInputStream.m in Sources */,
+				1F263AAF190B928000A4A15F /* ZipArchive.mm in Sources */,
 				4E677A5D18FC196400E238A4 /* ASIDataCompressor.m in Sources */,
 				4E677A6818FC196400E238A4 /* SDImageCache.m in Sources */,
+				1F263AAA190B928000A4A15F /* ioapi.c in Sources */,
 				4E5C4DA118FD65FA00667B23 /* FZTabBarController.m in Sources */,
+				1F263AAC190B928000A4A15F /* unzip.c in Sources */,
 				4E677A8E18FC20FB00E238A4 /* FZBaseTableViewController.m in Sources */,
 				4E677A9B18FC25CA00E238A4 /* FZMainViewController.m in Sources */,
 				4E677A1218FC18BB00E238A4 /* main.m in Sources */,
+				1F263AAB190B928000A4A15F /* mztools.c in Sources */,
 				4E677A5E18FC196400E238A4 /* ASIDataDecompressor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -926,7 +986,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -950,7 +1010,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
