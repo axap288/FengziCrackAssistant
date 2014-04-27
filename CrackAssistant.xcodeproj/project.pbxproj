@@ -37,6 +37,7 @@
 		1F80568718F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80568818F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
 		1FCE70FB1906B355000206DB /* fz_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F31906B355000206DB /* fz_placeholder@2x.png */; };
+		1FE95AF0190BBFC500880549 /* FZFileUitils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE95AEF190BBFC500880549 /* FZFileUitils.m */; };
 		4E4FE7E118FE51D200957AE9 /* FZGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */; };
 		4E5C4DA118FD65FA00667B23 /* FZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA018FD65FA00667B23 /* FZTabBarController.m */; };
 		4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA318FD738000667B23 /* fz_tabbar_gray_bg@2x.png */; };
@@ -150,6 +151,8 @@
 		1FCE70F81906B355000206DB /* 破解_26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_26.png"; sourceTree = "<group>"; };
 		1FCE70F91906B355000206DB /* 破解_28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_28.png"; sourceTree = "<group>"; };
 		1FCE70FA1906B355000206DB /* 破解_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_30.png"; sourceTree = "<group>"; };
+		1FE95AEE190BBFC500880549 /* FZFileUitils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZFileUitils.h; sourceTree = "<group>"; };
+		1FE95AEF190BBFC500880549 /* FZFileUitils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZFileUitils.m; sourceTree = "<group>"; };
 		1FF6F3991903FF6000C5E645 /* crackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = crackCell.xib; sourceTree = "<group>"; };
 		4E2CBA9618FEC07500DF50C0 /* FZMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZMacro.h; sourceTree = "<group>"; };
 		4E4FE7DF18FE51D200957AE9 /* FZGameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameDetailViewController.h; sourceTree = "<group>"; };
@@ -596,6 +599,8 @@
 		4E677A5118FC196400E238A4 /* Uitils */ = {
 			isa = PBXGroup;
 			children = (
+				1FE95AEE190BBFC500880549 /* FZFileUitils.h */,
+				1FE95AEF190BBFC500880549 /* FZFileUitils.m */,
 				4E2CBA9518FEC04E00DF50C0 /* FZMacro */,
 				4E677A9E18FC267800E238A4 /* FZCustomUI */,
 				4E677A5218FC196400E238A4 /* FZServer */,
@@ -873,6 +878,7 @@
 				4E677A9B18FC25CA00E238A4 /* FZMainViewController.m in Sources */,
 				4E677A1218FC18BB00E238A4 /* main.m in Sources */,
 				1F263AAB190B928000A4A15F /* mztools.c in Sources */,
+				1FE95AF0190BBFC500880549 /* FZFileUitils.m in Sources */,
 				4E677A5E18FC196400E238A4 /* ASIDataDecompressor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

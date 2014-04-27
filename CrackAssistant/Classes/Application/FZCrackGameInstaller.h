@@ -10,6 +10,11 @@
 
 @interface FZCrackGameInstaller : NSObject
 
+
+
++(FZCrackGameInstaller *)getShareInstance;
+
+
 /**
  *  将服务器的破解文件安装到目标APP中
  *
@@ -18,7 +23,7 @@
  *
  *  @return
  */
-+(BOOL)installCrackFile:(NSString *)savefileUrl toAPP:(NSString *)appPackage;
+-(BOOL)installCrackFile:(NSString *)savefileUrl toAPP:(NSString *)appPackage;
 /**
  *  安装本地已下载的APP
  *
@@ -26,7 +31,9 @@
  *
  *  @return <#return value description#>
  */
-+(BOOL)installCrackGameFile:(NSURL*)localGamefile;
+-(BOOL)installCrackGameFile:(NSURL*)localGamefile;
+
+
 
 
 @end

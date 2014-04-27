@@ -34,6 +34,7 @@
 @interface FZCrackListViewViewController ()
 {
     FZDownloadManager *downloadManager;
+    FZCrackGameInstaller *crackGameInstaller;
     NSUInteger selectCellAtlocalGame;
     UIButton *selectButtonAtLocalGame;
     FZInterfaceServer *interfaceServer;
@@ -53,6 +54,7 @@
         selectCellAtlocalGame = 0;
         downloadManager = [FZDownloadManager getShareInstance];
         interfaceServer = [FZInterfaceServer getShareInstance];
+        crackGameInstaller = [FZCrackGameInstaller getShareInstance];
 
     }
     return self;
@@ -448,7 +450,7 @@
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-    [FZCrackGameInstaller installCrackFile:gamefile.crackFileUrl toAPP:gamefile.packageName];
+//    [FZCrackGameInstaller installCrackFile:gamefile.crackFileUrl toAPP:gamefile.packageName];
 
 }
 //点击恢复按钮的操作
