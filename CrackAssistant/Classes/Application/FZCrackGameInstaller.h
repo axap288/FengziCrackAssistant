@@ -25,6 +25,14 @@
  */
 -(BOOL)installCrackFile:(NSString *)savefileUrl toAPP:(NSString *)appPackage;
 /**
+ *  恢复操作
+ *
+ *  @param appPackage
+ *
+ *  @return
+ */
+-(BOOL)recoverCrackWithPackageName:(NSString *)appPackage;
+/**
  *  安装本地已下载的APP
  *
  *  @param localGamefile <#localGamefile description#>
@@ -32,6 +40,21 @@
  *  @return <#return value description#>
  */
 -(BOOL)installCrackGameFile:(NSURL*)localGamefile;
+/**
+ * 判断是否破结果
+ *
+ *  @param appPackage 包名
+ *
+ *  @return YES:已破解
+ */
+-(BOOL)checkIsCrackWithPackageName:(NSString *)appPackage;
+/**
+ *  启动应用
+ *
+ *  @param packageName
+ */
+-(void)launchAppWithPackageName:(NSString *)packageName;
+
 
 
 

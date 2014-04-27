@@ -38,6 +38,7 @@
 		1F80568818F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
 		1FCE70FB1906B355000206DB /* fz_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F31906B355000206DB /* fz_placeholder@2x.png */; };
 		1FE95AF0190BBFC500880549 /* FZFileUitils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE95AEF190BBFC500880549 /* FZFileUitils.m */; };
+		1FFC7146190D7A62003A4C28 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC7145190D7A62003A4C28 /* Entitlements.plist */; };
 		4E4FE7E118FE51D200957AE9 /* FZGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */; };
 		4E5C4DA118FD65FA00667B23 /* FZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA018FD65FA00667B23 /* FZTabBarController.m */; };
 		4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA318FD738000667B23 /* fz_tabbar_gray_bg@2x.png */; };
@@ -154,6 +155,7 @@
 		1FE95AEE190BBFC500880549 /* FZFileUitils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZFileUitils.h; sourceTree = "<group>"; };
 		1FE95AEF190BBFC500880549 /* FZFileUitils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZFileUitils.m; sourceTree = "<group>"; };
 		1FF6F3991903FF6000C5E645 /* crackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = crackCell.xib; sourceTree = "<group>"; };
+		1FFC7145190D7A62003A4C28 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4E2CBA9618FEC07500DF50C0 /* FZMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZMacro.h; sourceTree = "<group>"; };
 		4E4FE7DF18FE51D200957AE9 /* FZGameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameDetailViewController.h; sourceTree = "<group>"; };
 		4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameDetailViewController.m; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		1F80566018F5326A00BF39A7 = {
 			isa = PBXGroup;
 			children = (
+				1FFC7145190D7A62003A4C28 /* Entitlements.plist */,
 				1F80567218F5326A00BF39A7 /* CrackAssistant */,
 				1F80567E18F5326A00BF39A7 /* Images.xcassets */,
 				1F80566B18F5326A00BF39A7 /* Frameworks */,
@@ -790,6 +793,7 @@
 				4E677A1518FC18E600E238A4 /* InfoPlist.strings in Resources */,
 				4E5C4DAE18FD74E700667B23 /* fz_tabbar_search_bg@2x.png in Resources */,
 				4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */,
+				1FFC7146190D7A62003A4C28 /* Entitlements.plist in Resources */,
 				1F29BA14190809B3008441A6 /* postinst in Resources */,
 				1F2DF3BD1903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png in Resources */,
 				4E5C4DAD18FD74E700667B23 /* fz_tabbar_more_bg@2x.png in Resources */,
@@ -987,6 +991,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1011,6 +1016,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -273,6 +273,17 @@
                 [contentView setHidden:YES];
                 [operationPanelView setHidden:NO];
                 
+//                UIButton *crackButton = (UIButton *)[operationPanelView viewWithTag:2008];
+                UIButton *recoverButton = (UIButton *)[operationPanelView viewWithTag:2007];
+                //判断按钮的可点击状态
+                NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
+                FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
+                BOOL isCrack = [crackGameInstaller checkIsCrackWithPackageName:gamefile.packageName];
+                if (isCrack) {
+                    recoverButton.enabled = YES;
+                }else{
+                    recoverButton.enabled = NO;
+                }
             }
 
         }
@@ -450,19 +461,25 @@
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-//    [FZCrackGameInstaller installCrackFile:gamefile.crackFileUrl toAPP:gamefile.packageName];
-
+    [crackGameInstaller installCrackFile:gamefile.crackFileUrl toAPP:gamefile.packageName];
 }
 //点击恢复按钮的操作
 -(void)clickRecoverButtonAction:(id)sender
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
-    NSLog(@"click clickRecoverButtonAction:%d",selectGameIndex);}
+    FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
+    BOOL success = [crackGameInstaller recoverCrackWithPackageName:gamefile.packageName];
+    if (success) {
+        UIButton *button = (UIButton *)sender;
+        button.enabled = NO;
+    }
+}
 //点击启动按钮的操作
 -(void)clickStartButtonAction:(id)sender
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
-    NSLog(@"click clickStartButtonAction:%d",selectGameIndex);
+    FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
+    [crackGameInstaller launchAppWithPackageName:gamefile.packageName];
 }
 
 -(void)pushdownloadList

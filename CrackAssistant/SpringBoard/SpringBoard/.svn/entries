@@ -1,0 +1,3696 @@
+10
+
+dir
+0
+https://liun@180.169.20.234/svn/Mobile_Dev_Svn/trunk/MUT-Monitor/iOS/SourceCode/IRDataCollector/IRDataCollector-normal/include/SpringBoard
+https://liun@180.169.20.234/svn/Mobile_Dev_Svn
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e520abac-21be-8b48-a57c-0b0984104ebd
+
+SBBulletinWindow.h
+file
+
+
+
+add
+
+SBOffscreenSwipeGestureRecognizer.h
+file
+
+
+
+add
+
+SBBluetoothController.h
+file
+
+
+
+add
+
+SBTTYPromptAlert.h
+file
+
+
+
+add
+
+UIWindowDelegate-Protocol.h
+file
+
+
+
+add
+
+SBBulletinClearButtonDelegate-Protocol.h
+file
+
+
+
+add
+
+SBIconListView.h
+file
+
+
+
+add
+
+SBBulletinBusyClient-Protocol.h
+file
+
+
+
+add
+
+SBDataPlanUsageAlertItem.h
+file
+
+
+
+add
+
+SBRingerHUDView.h
+file
+
+
+
+add
+
+VolumeControl.h
+file
+
+
+
+add
+
+SBPlatformController.h
+file
+
+
+
+add
+
+SBAwayDateView.h
+file
+
+
+
+add
+
+SBVODController.h
+file
+
+
+
+add
+
+SBUSSDAlertDisplay.h
+file
+
+
+
+add
+
+SBAppSwitcherSlider.h
+file
+
+
+
+add
+
+SBRemoteNotificationNeedIdentityAlert.h
+file
+
+
+
+add
+
+SBAppSwitcherScrollView.h
+file
+
+
+
+add
+
+SBBulletinCellContentView.h
+file
+
+
+
+add
+
+SBAlert.h
+file
+
+
+
+add
+
+SBToAppWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBApplicationPersistence.h
+file
+
+
+
+add
+
+SBHUDWindow.h
+file
+
+
+
+add
+
+SBHostWrapperView.h
+file
+
+
+
+add
+
+SBCardItemsControllerRemoteInterface-Protocol.h
+file
+
+
+
+add
+
+SBMobilityManagementAlert.h
+file
+
+
+
+add
+
+SBDownloadingProgressBar.h
+file
+
+
+
+add
+
+SBReturnToLockscreenWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBDateTimeCache.h
+file
+
+
+
+add
+
+SBIconListPageControl.h
+file
+
+
+
+add
+
+SBNewsstandItemIconLabelImageParameters.h
+file
+
+
+
+add
+
+SBBulletinSystemStateAdapter.h
+file
+
+
+
+add
+
+SBDownloadingIconObserver-Protocol.h
+file
+
+
+
+add
+
+SBTransientSettings.h
+file
+
+
+
+add
+
+SBBannerAndShadowView.h
+file
+
+
+
+add
+
+SBDeviceLockPasscodeEntryAlertDisplay.h
+file
+
+
+
+add
+
+SBSoftwareUpdateController.h
+file
+
+
+
+add
+
+BBBulletinRequest-SBBulletinBannerControllerTest.h
+file
+
+
+
+add
+
+SBCallFailureAlertDisplay.h
+file
+
+
+
+add
+
+SBIconAccessoryImageView.h
+file
+
+
+
+add
+
+SBWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBWorkspaceEventQueue.h
+file
+
+
+
+add
+
+SBSoftwareUpdateAvailableAlertItem.h
+file
+
+
+
+add
+
+SBActivationContext.h
+file
+
+
+
+add
+
+SBApplicationController.h
+file
+
+
+
+add
+
+SBVoiceControlController.h
+file
+
+
+
+add
+
+SBUIAnimationControllerDelegate-Protocol.h
+file
+
+
+
+add
+
+SBNewsstandTilingImageView.h
+file
+
+
+
+add
+
+SBIconModelMemoryStore.h
+file
+
+
+
+add
+
+SBBulletinAttachmentFactory.h
+file
+
+
+
+add
+
+SBPhoneAlertItem.h
+file
+
+
+
+add
+
+SBProxyRemoteView.h
+file
+
+
+
+add
+
+SBPluginManager.h
+file
+
+
+
+add
+
+SBAwayView.h
+file
+
+
+
+add
+
+SBAlertManagerDelegate-Protocol.h
+file
+
+
+
+add
+
+UIScrollViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBBulletinAlertHandlerRegistry.h
+file
+
+
+
+add
+
+SBNewsstandApplicationIcon.h
+file
+
+
+
+add
+
+SBDataPlanFailureAlertItem.h
+file
+
+
+
+add
+
+SBRelativeDateTimer.h
+file
+
+
+
+add
+
+SBIconModelPropertyListFileStore.h
+file
+
+
+
+add
+
+SBLinenFadeContainer.h
+file
+
+
+
+add
+
+SBSoftwareUpdateVerifyingUpdateAlertItem.h
+file
+
+
+
+add
+
+SBSwitcherPopoverWindowController.h
+file
+
+
+
+add
+
+SBDaemonHandler.h
+file
+
+
+
+add
+
+SBVolumeHUDView.h
+file
+
+
+
+add
+
+SBWebAppToWebAppWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBGestureRecognizer.h
+file
+
+
+
+add
+
+SBCompassRecalibrationController.h
+file
+
+
+
+add
+
+SBCornerViewFactory.h
+file
+
+
+
+add
+
+SBFolderIconListView.h
+file
+
+
+
+add
+
+UIImage-SBGraphics.h
+file
+
+
+
+add
+
+SBBulletinHeaderView.h
+file
+
+
+
+add
+
+NSCopying-Protocol.h
+file
+
+
+
+add
+
+SBSearchModel.h
+file
+
+
+
+add
+
+SBUIPluginViewController-Protocol.h
+file
+
+
+
+add
+
+SBCallFailureAlertItem.h
+file
+
+
+
+add
+
+SBRestoreFailureAlertItem.h
+file
+
+
+
+add
+
+SBFolderNotchView.h
+file
+
+
+
+add
+
+SBBulletinAlertHandler-Protocol.h
+file
+
+
+
+add
+
+SBRelativeDateTimerDelegate-Protocol.h
+file
+
+
+
+add
+
+SBBannerController.h
+file
+
+
+
+add
+
+SBAwayCardItemCell.h
+file
+
+
+
+add
+
+SBAppVisibilityPreferences.h
+file
+
+
+
+add
+
+SBBulletinWindowController.h
+file
+
+
+
+add
+
+SBIconViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBUIBannerSourceManager-Protocol.h
+file
+
+
+
+add
+
+SBHomeCentricPopoverController.h
+file
+
+
+
+add
+
+SBAwaySystemAlertFloatingCell.h
+file
+
+
+
+add
+
+MCProfileConnectionObserver-Protocol.h
+file
+
+
+
+add
+
+SBUIAnimationZoomUpApp.h
+file
+
+
+
+add
+
+SBShowcaseControllerOwner-Protocol.h
+file
+
+
+
+add
+
+SBNewsstandIconListModel.h
+file
+
+
+
+add
+
+SBDataPlanExpirationAlertItem.h
+file
+
+
+
+add
+
+SBBaseSoftwareUpdateAlertItem.h
+file
+
+
+
+add
+
+SBBulletinCellContentViewBase.h
+file
+
+
+
+add
+
+SBSMSClass0Alert.h
+file
+
+
+
+add
+
+SBAlertToAppWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBIconGridImage.h
+file
+
+
+
+add
+
+SBConferenceManager.h
+file
+
+
+
+add
+
+SBSheetView.h
+file
+
+
+
+add
+
+CDStructures.h
+file
+
+
+
+add
+
+SBAppDosadoView.h
+file
+
+
+
+add
+
+SBBulletinListView.h
+file
+
+
+
+add
+
+SBCalendarApplicationIcon.h
+file
+
+
+
+add
+
+SBWebApplicationIcon.h
+file
+
+
+
+add
+
+SBAwayListItemCell.h
+file
+
+
+
+add
+
+SBRotationLockHUDController.h
+file
+
+
+
+add
+
+SBDiskSpaceAlertItem.h
+file
+
+
+
+add
+
+SBAppSwitcherUILabel.h
+file
+
+
+
+add
+
+SBNewsstandFolderScrollOffset.h
+file
+
+
+
+add
+
+SBIconImageContainerView.h
+file
+
+
+
+add
+
+SBNewsstandShelfTableView.h
+file
+
+
+
+add
+
+SBBulletinLinenBackedCell.h
+file
+
+
+
+add
+
+UIPopoverControllerDelegate-Protocol.h
+file
+
+
+
+add
+
+SBAwayBulletinTableView.h
+file
+
+
+
+add
+
+SBAppProfileNotTrustedAlertItem.h
+file
+
+
+
+add
+
+SBAlertImageView.h
+file
+
+
+
+add
+
+SBVoiceDisabledBundles.h
+file
+
+
+
+add
+
+SBUIAnimationZoomDownApp.h
+file
+
+
+
+add
+
+SBSIMLockEntryAlert.h
+file
+
+
+
+add
+
+SBNowPlayingBar.h
+file
+
+
+
+add
+
+SBBulletinLinenFadeView.h
+file
+
+
+
+add
+
+SBBulletinClearButton.h
+file
+
+
+
+add
+
+SBSystemLocalNotificationAlertDelegate-Protocol.h
+file
+
+
+
+add
+
+SBUIPluginHost.h
+file
+
+
+
+add
+
+SBWorkspaceEvent.h
+file
+
+
+
+add
+
+SBAppSwitcherBarViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBFolderView.h
+file
+
+
+
+add
+
+UIGestureRecognizerDelegate-Protocol.h
+file
+
+
+
+add
+
+SBPowerDownViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBLineFragment.h
+file
+
+
+
+add
+
+SBBulletinDateLabel-Protocol.h
+file
+
+
+
+add
+
+SBFolder.h
+file
+
+
+
+add
+
+SpringBoard.h
+file
+
+
+
+add
+
+SUManagerClientDelegate-Protocol.h
+file
+
+
+
+add
+
+SBUIPluginManager.h
+file
+
+
+
+add
+
+SBSwitchAppGestureView.h
+file
+
+
+
+add
+
+SBEdgeActivationAlertItem.h
+file
+
+
+
+add
+
+SBBannerDismissOverdueContext.h
+file
+
+
+
+add
+
+SBAlertManager.h
+file
+
+
+
+add
+
+SBBulletinWindowClient-Protocol.h
+file
+
+
+
+add
+
+UIAlertViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBIconsIntoFolderAnimationContext.h
+file
+
+
+
+add
+
+SBSearchController.h
+file
+
+
+
+add
+
+SBWeeAppDelegate-Protocol.h
+file
+
+
+
+add
+
+SBLockdownManager.h
+file
+
+
+
+add
+
+SBModelessSyncController.h
+file
+
+
+
+add
+
+NSDateComponents-SBTimeUtilities.h
+file
+
+
+
+add
+
+SBUserNotificationAlert.h
+file
+
+
+
+add
+
+SBApplicationActivationAssertion.h
+file
+
+
+
+add
+
+SBUISlideAppTransitionController.h
+file
+
+
+
+add
+
+SBSyncController.h
+file
+
+
+
+add
+
+SBBatteryReflectionView.h
+file
+
+
+
+add
+
+SBUIAnimationController.h
+file
+
+
+
+add
+
+SBNewsstandSashImage.h
+file
+
+
+
+add
+
+SBUIFullscreenAlertAdapter.h
+file
+
+
+
+add
+
+SBUISound-CompletionSupport.h
+file
+
+
+
+add
+
+SBSoundController.h
+file
+
+
+
+add
+
+SBDownloadMetadataCache.h
+file
+
+
+
+add
+
+SBActivateAppUnderLockScreenWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBAutoPurgingImageView.h
+file
+
+
+
+add
+
+SBDefaultImageInfo.h
+file
+
+
+
+add
+
+SBDaemonRequest.h
+file
+
+
+
+add
+
+SBResetManager.h
+file
+
+
+
+add
+
+SBAssistantController.h
+file
+
+
+
+add
+
+SBCalendarController.h
+file
+
+
+
+add
+
+SBThermalWarningSuppressionAssertionDelegate-Protocol.h
+file
+
+
+
+add
+
+SBIconView.h
+file
+
+
+
+add
+
+SBHUDController.h
+file
+
+
+
+add
+
+.DS_Store
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+SBSwitcherPopoverWindowControllerDelegate-Protocol.h
+file
+
+
+
+add
+
+SBUIActiveOrientationObserver-Protocol.h
+file
+
+
+
+add
+
+UIStatusBarStyleDelegate-Protocol.h
+file
+
+
+
+add
+
+SBNewsstandFolderView.h
+file
+
+
+
+add
+
+SBAlertWindow.h
+file
+
+
+
+add
+
+SBAwaySwipeGestureRecognizer.h
+file
+
+
+
+add
+
+SBFolderRotationAnimationContext.h
+file
+
+
+
+add
+
+SSDownload-SpringBoardMetadata.h
+file
+
+
+
+add
+
+SPDaemonQueryDelegate-Protocol.h
+file
+
+
+
+add
+
+SBSoftwareUpdateDownloadFailedAlertItem.h
+file
+
+
+
+add
+
+SBOrderedRequesters.h
+file
+
+
+
+add
+
+SBNowPlayingBarView.h
+file
+
+
+
+add
+
+SBSheetController.h
+file
+
+
+
+add
+
+SBIconListPageControlDelegate-Protocol.h
+file
+
+
+
+add
+
+SBShowcaseController.h
+file
+
+
+
+add
+
+SBEventObserverRegistry.h
+file
+
+
+
+add
+
+SBSMSApplication.h
+file
+
+
+
+add
+
+SBFakeStatusBarView.h
+file
+
+
+
+add
+
+SBUIFullscreenAnimationView.h
+file
+
+
+
+add
+
+SBLinenNotchView.h
+file
+
+
+
+add
+
+UILabel-SBStringDrawing.h
+file
+
+
+
+add
+
+SBIconIndexMutableListObserver-Protocol.h
+file
+
+
+
+add
+
+SBAppSwitcherScrollViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBFolderScrollOffset.h
+file
+
+
+
+add
+
+SBUIAnimationWindow.h
+file
+
+
+
+add
+
+UINavigationControllerDelegate-Protocol.h
+file
+
+
+
+add
+
+SBSlidingAlertDisplay.h
+file
+
+
+
+add
+
+SBSIMLockAlertItem.h
+file
+
+
+
+add
+
+SBAppExitedWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBIconModel.h
+file
+
+
+
+add
+
+SBRootFolder.h
+file
+
+
+
+add
+
+SBBulletinModalAlert.h
+file
+
+
+
+add
+
+SBBuddyLockScreenDismissOnlyAlertItem.h
+file
+
+
+
+add
+
+SBHostRequesterInfo.h
+file
+
+
+
+add
+
+UIView-SpringBoardAdditions.h
+file
+
+
+
+add
+
+SBCarrierDebuggingAlert.h
+file
+
+
+
+add
+
+SBAwayChargingView.h
+file
+
+
+
+add
+
+SBTTYPromptAlertDisplay.h
+file
+
+
+
+add
+
+SBLinenView.h
+file
+
+
+
+add
+
+SBBulletinBannerController.h
+file
+
+
+
+add
+
+RadiosPreferencesDelegate-Protocol.h
+file
+
+
+
+add
+
+NSDictionary-CTHelpers.h
+file
+
+
+
+add
+
+APSConnectionDelegate-Protocol.h
+file
+
+
+
+add
+
+SBFluidSlideGestureRecognizer.h
+file
+
+
+
+add
+
+SBApplicationIcon.h
+file
+
+
+
+add
+
+SBRemoteViewsController.h
+file
+
+
+
+add
+
+SBNetworkReselectionAlert.h
+file
+
+
+
+add
+
+SBBulletinCellSelectionView.h
+file
+
+
+
+add
+
+SBFakeNewsstandApplication.h
+file
+
+
+
+add
+
+SBThermalWarningSuppressionAssertion.h
+file
+
+
+
+add
+
+SBNewsstandIconGridImage.h
+file
+
+
+
+add
+
+SBBuddyLogoZoomView.h
+file
+
+
+
+add
+
+SBRemoteNotificationServer.h
+file
+
+
+
+add
+
+SBNoResultsView.h
+file
+
+
+
+add
+
+UITextFieldDelegate-Protocol.h
+file
+
+
+
+add
+
+SBPushStore.h
+file
+
+
+
+add
+
+SBOrientationLockManager.h
+file
+
+
+
+add
+
+NSDictionary-SBTypeSafety.h
+file
+
+
+
+add
+
+SBAppSwitcherNewsstandItemIconView.h
+file
+
+
+
+add
+
+SBFlippyAlertItem.h
+file
+
+
+
+add
+
+SBIconViewMapDelegate-Protocol.h
+file
+
+
+
+add
+
+SBCallFailureAlert.h
+file
+
+
+
+add
+
+WhiteBorderedTextField.h
+file
+
+
+
+add
+
+SBBulletinHeaderViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBBulletinLockBar.h
+file
+
+
+
+add
+
+SBDataPlanActivationAlertItem.h
+file
+
+
+
+add
+
+SBNewsstandShelfView.h
+file
+
+
+
+add
+
+SBUIFullscreenAnimationViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBAppToAppTransitionView.h
+file
+
+
+
+add
+
+SBPlaceholderIcon.h
+file
+
+
+
+add
+
+BBSectionInfo-SBUtilities.h
+file
+
+
+
+add
+
+SBBulletinListTouchEater.h
+file
+
+
+
+add
+
+SBBulletinListSection.h
+file
+
+
+
+add
+
+SBTelephonyManager.h
+file
+
+
+
+add
+
+SBNewsstandFolder.h
+file
+
+
+
+add
+
+SBNewsstandIcon.h
+file
+
+
+
+add
+
+SBFolderSlidingView.h
+file
+
+
+
+add
+
+SBUnsupportedURLAlertItem.h
+file
+
+
+
+add
+
+SBUIBannerSource-Protocol.h
+file
+
+
+
+add
+
+SBAwayBuddyBackgroundView.h
+file
+
+
+
+add
+
+SBFolderTextField.h
+file
+
+
+
+add
+
+SBDataPlanCompletionAlertItem.h
+file
+
+
+
+add
+
+SBUserNotificationCenter.h
+file
+
+
+
+add
+
+SBRelaunchAppWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBIconViewObserver-Protocol.h
+file
+
+
+
+add
+
+SBNowPlayingBarMediaControlsView.h
+file
+
+
+
+add
+
+SBIconController.h
+file
+
+
+
+add
+
+SBNetworkReselectionAlertItem.h
+file
+
+
+
+add
+
+SBWorkspaceEventQueueLockAssertion.h
+file
+
+
+
+add
+
+SBUSSDAlert.h
+file
+
+
+
+add
+
+SBAppWindow.h
+file
+
+
+
+add
+
+SBApplicationDataLookupOperation.h
+file
+
+
+
+add
+
+SBDaemonContext.h
+file
+
+
+
+add
+
+SBUIRootView.h
+file
+
+
+
+add
+
+SBSlidingViewHighlight.h
+file
+
+
+
+add
+
+SBAlertItemsController.h
+file
+
+
+
+add
+
+SBWeeApp.h
+file
+
+
+
+add
+
+SBBulletinLinenSegmentView.h
+file
+
+
+
+add
+
+SBIconModelStore-Protocol.h
+file
+
+
+
+add
+
+SBVideoPermissionAlertItem.h
+file
+
+
+
+add
+
+SBScreenShotter.h
+file
+
+
+
+add
+
+BBBulletin-SBUtilities.h
+file
+
+
+
+add
+
+SBFolderIconObserver-Protocol.h
+file
+
+
+
+add
+
+SBMappedImageCache.h
+file
+
+
+
+add
+
+SBIconObserver-Protocol.h
+file
+
+
+
+add
+
+SBNewsstandSwitcherSashImage.h
+file
+
+
+
+add
+
+SBAlertView.h
+file
+
+
+
+add
+
+SBBulletinDateLabelFactory.h
+file
+
+
+
+add
+
+SBSpringBoardMetaHostingWindow.h
+file
+
+
+
+add
+
+SBReorderInfoAlert.h
+file
+
+
+
+add
+
+SBNewsstandIconListView.h
+file
+
+
+
+add
+
+SBNewsstand.h
+file
+
+
+
+add
+
+SBDateLabelDelegate-Protocol.h
+file
+
+
+
+add
+
+SBWeeAppPresentationView.h
+file
+
+
+
+add
+
+SBIconSashImage.h
+file
+
+
+
+add
+
+SBAppSwitcherModel.h
+file
+
+
+
+add
+
+SBBulletinImageView.h
+file
+
+
+
+add
+
+SBResetView.h
+file
+
+
+
+add
+
+SBDownloadingIcon.h
+file
+
+
+
+add
+
+SBPowerDownView.h
+file
+
+
+
+add
+
+SBNowPlayingPushButton.h
+file
+
+
+
+add
+
+SBPolygon.h
+file
+
+
+
+add
+
+SBUIUserAgent-Protocol.h
+file
+
+
+
+add
+
+SBNewsstandCardView.h
+file
+
+
+
+add
+
+SBDataPlanAlertItem.h
+file
+
+
+
+add
+
+SBBulletinListTabView.h
+file
+
+
+
+add
+
+SBWorkspace.h
+file
+
+
+
+add
+
+SBSystemLocalNotificationAlert.h
+file
+
+
+
+add
+
+SBAwayLockBar.h
+file
+
+
+
+add
+
+SBShowcaseWindow.h
+file
+
+
+
+add
+
+SBManualKeyboardTextField.h
+file
+
+
+
+add
+
+SBIconAccessoryImage.h
+file
+
+
+
+add
+
+SBSearchTableViewCell.h
+file
+
+
+
+add
+
+SBRelativeDateLabel.h
+file
+
+
+
+add
+
+NSMutableArray-PrefsNotifications.h
+file
+
+
+
+add
+
+SBWallpaperNotchView.h
+file
+
+
+
+add
+
+SBIconLabelImageParameters.h
+file
+
+
+
+add
+
+SBCardItemsController.h
+file
+
+
+
+add
+
+SBDeleteIconAlertItem.h
+file
+
+
+
+add
+
+SBLockScreenAudioRoutesAlertItem.h
+file
+
+
+
+add
+
+SBUISound-SBUtilities.h
+file
+
+
+
+add
+
+SBNewsstandItemIconViewBase.h
+file
+
+
+
+add
+
+SBAwayDateViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBDataLookupResults.h
+file
+
+
+
+add
+
+SBBulletinSoundController.h
+file
+
+
+
+add
+
+SBShowcaseViewControllerProtocol-Protocol.h
+file
+
+
+
+add
+
+SBNewsstandShelfFrameView.h
+file
+
+
+
+add
+
+SBBulletinListViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBBrightnessHUDView.h
+file
+
+
+
+add
+
+SBDataPlanAccountAlertItem.h
+file
+
+
+
+add
+
+SBAwayBulletinListItem.h
+file
+
+
+
+add
+
+SBDeviceLockViewOwner-Protocol.h
+file
+
+
+
+add
+
+SBAppSwitcherVolumeSlider.h
+file
+
+
+
+add
+
+SBIconIndexMutableList.h
+file
+
+
+
+add
+
+SBDisplayProtocol-Protocol.h
+file
+
+
+
+add
+
+NSDictionary-SBOptimizedCombination.h
+file
+
+
+
+add
+
+SPSearchAgentDelegate-Protocol.h
+file
+
+
+
+add
+
+SBWaveView.h
+file
+
+
+
+add
+
+SBStringMetrics.h
+file
+
+
+
+add
+
+SBAwayCardItemFloatingCell.h
+file
+
+
+
+add
+
+SBDateLabelStringFormatCache.h
+file
+
+
+
+add
+
+SBCancelableBlockOperation.h
+file
+
+
+
+add
+
+SBDeviceLockController.h
+file
+
+
+
+add
+
+SBTouchTemplate.h
+file
+
+
+
+add
+
+SBAwayBulletinFloatingCell.h
+file
+
+
+
+add
+
+SBMiniAlertController.h
+file
+
+
+
+add
+
+SBNewsstandApplication.h
+file
+
+
+
+add
+
+SBDefaultIconModelStore.h
+file
+
+
+
+add
+
+UIPopoverControllerDelegatePrivate-Protocol.h
+file
+
+
+
+add
+
+SBSIMLockManager.h
+file
+
+
+
+add
+
+SBRemoteNotificationClient.h
+file
+
+
+
+add
+
+SBRemoteNotificationPermissionAlert.h
+file
+
+
+
+add
+
+BBWeeAppController-Protocol.h
+file
+
+
+
+add
+
+SBUIAnimationZoomDownAppToPhone.h
+file
+
+
+
+add
+
+SBBulletinListCell.h
+file
+
+
+
+add
+
+SBHUDView.h
+file
+
+
+
+add
+
+SBLeafIcon.h
+file
+
+
+
+add
+
+SBIconViewMap.h
+file
+
+
+
+add
+
+SBIconImageView.h
+file
+
+
+
+add
+
+SBShowcaseClippingView.h
+file
+
+
+
+add
+
+SBStretchTransformer.h
+file
+
+
+
+add
+
+SBSearchView.h
+file
+
+
+
+add
+
+SBAwayBulletinCell.h
+file
+
+
+
+add
+
+SBRemoteViewInfo.h
+file
+
+
+
+add
+
+SSDownloadQueueObserver-Protocol.h
+file
+
+
+
+add
+
+UIApplicationDelegate-Protocol.h
+file
+
+
+
+add
+
+NSDate-SBTimeUtilities.h
+file
+
+
+
+add
+
+SBAppToAppWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBBookmarkIcon.h
+file
+
+
+
+add
+
+SBRemoteNotificationEnableSystemwideAlert.h
+file
+
+
+
+add
+
+SBBulletinBannerItem.h
+file
+
+
+
+add
+
+SBIconLabelImageView.h
+file
+
+
+
+add
+
+SBIcon.h
+file
+
+
+
+add
+
+SBIconLabelImage.h
+file
+
+
+
+add
+
+SBCountedMapValue-Protocol.h
+file
+
+
+
+add
+
+SBNewsstandShelfHeaderView.h
+file
+
+
+
+add
+
+UISearchBarDelegate-Protocol.h
+file
+
+
+
+add
+
+SBAwaySystemAlertCell.h
+file
+
+
+
+add
+
+SBCompassRecalibrationView.h
+file
+
+
+
+add
+
+SBIconScrollView.h
+file
+
+
+
+add
+
+SBBulletinBlurredShadowLabel.h
+file
+
+
+
+add
+
+SBAppSwitcherBarView.h
+file
+
+
+
+add
+
+SBSoundPreferences.h
+file
+
+
+
+add
+
+XPCProxyTarget-Protocol.h
+file
+
+
+
+add
+
+SBScaleGestureRecognizer.h
+file
+
+
+
+add
+
+NSCoding-Protocol.h
+file
+
+
+
+add
+
+SBBulletinListController.h
+file
+
+
+
+add
+
+SBWeeAppCell.h
+file
+
+
+
+add
+
+UITableViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBCallPermissionAlertItem.h
+file
+
+
+
+add
+
+SBUIPluginControllerHost-Protocol.h
+file
+
+
+
+add
+
+BBObserverDelegate-Protocol.h
+file
+
+
+
+add
+
+NSArray-AlertItemsAdditions.h
+file
+
+
+
+add
+
+SBNewsstandIconRotationContainer.h
+file
+
+
+
+add
+
+SBUISlideAppTransitionView.h
+file
+
+
+
+add
+
+SBEmergencyCallView.h
+file
+
+
+
+add
+
+SBIconRotationContainer.h
+file
+
+
+
+add
+
+SBSoftwareUpdateForcedInstallAlertItem.h
+file
+
+
+
+add
+
+SBAppContextHostManager.h
+file
+
+
+
+add
+
+SBAwayMediaControlsView.h
+file
+
+
+
+add
+
+SBClippedZoomView.h
+file
+
+
+
+add
+
+NSString-SBAdditions.h
+file
+
+
+
+add
+
+BBBulletin-SBBulletinBanner.h
+file
+
+
+
+add
+
+SBAlertToAlertWorkspaceTransaction.h
+file
+
+
+
+add
+
+NSMutableArray-SBArrayStackAdditions.h
+file
+
+
+
+add
+
+SBFolderNotchHighlightView.h
+file
+
+
+
+add
+
+SBBulletinAlertHandlerRegistry-Protocol.h
+file
+
+
+
+add
+
+SBFullscreenZoomView.h
+file
+
+
+
+add
+
+UIScrollView-Centerable.h
+file
+
+
+
+add
+
+SBPasscodeController.h
+file
+
+
+
+add
+
+SBUIAnimationZoomUpAppFromPhone.h
+file
+
+
+
+add
+
+SBDownloadController.h
+file
+
+
+
+add
+
+SBUINullAnimationController.h
+file
+
+
+
+add
+
+SBSoftwareUpdateVerificationFailedAlertItem.h
+file
+
+
+
+add
+
+SBIconBadgeImage.h
+file
+
+
+
+add
+
+SBDockIconLabelImageParameters.h
+file
+
+
+
+add
+
+SBWallpaperView.h
+file
+
+
+
+add
+
+UIPeripheralHost-SBSearchView.h
+file
+
+
+
+add
+
+SBAwayInCallController.h
+file
+
+
+
+add
+
+SBUIStaticAnimationController.h
+file
+
+
+
+add
+
+SBNewsstandItemIconView.h
+file
+
+
+
+add
+
+SBAppSwitcherController.h
+file
+
+
+
+add
+
+SBAwayBulletinListController.h
+file
+
+
+
+add
+
+SBPasscodeComplianceAlertItem.h
+file
+
+
+
+add
+
+BKSWorkspaceDelegate-Protocol.h
+file
+
+
+
+add
+
+SBPanGestureRecognizer.h
+file
+
+
+
+add
+
+UITableViewDataSource-Protocol.h
+file
+
+
+
+add
+
+SBDockIconListModel.h
+file
+
+
+
+add
+
+SBFolderTitleLabel.h
+file
+
+
+
+add
+
+SBUIFullscreenAlertViewAdapter.h
+file
+
+
+
+add
+
+SBFolderIcon.h
+file
+
+
+
+add
+
+SBIconIndexNode-Protocol.h
+file
+
+
+
+add
+
+SBSystemLocalNotificationAlertSheet.h
+file
+
+
+
+add
+
+SBAppShuffleView.h
+file
+
+
+
+add
+
+SBAppProfileExpiredAlertItem.h
+file
+
+
+
+add
+
+SBPluginBundleController-Protocol.h
+file
+
+
+
+add
+
+SBHarmonicOscillator.h
+file
+
+
+
+add
+
+SBScreenFlash.h
+file
+
+
+
+add
+
+SBWoodNotchView.h
+file
+
+
+
+add
+
+SBBulletinModalController.h
+file
+
+
+
+add
+
+SBAppToAlertWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBSlidingAlertDisplayDelegate-Protocol.h
+file
+
+
+
+add
+
+SBSIMLockEntryAlertDisplay.h
+file
+
+
+
+add
+
+NSCalendar-SBTimeUtilities.h
+file
+
+
+
+add
+
+SBApplication.h
+file
+
+
+
+add
+
+SBRotationLockHUDView.h
+file
+
+
+
+add
+
+SBDisabledIconLabelImageParameters.h
+file
+
+
+
+add
+
+SBHostView-Protocol.h
+file
+
+
+
+add
+
+SBPasscodeAlertItem.h
+file
+
+
+
+add
+
+SBBatteryChargingView.h
+file
+
+
+
+add
+
+SBPrintStatusIcon.h
+file
+
+
+
+add
+
+SBDockIconListView.h
+file
+
+
+
+add
+
+SBAwayBulletinListViewDelegate-Protocol.h
+file
+
+
+
+add
+
+SBActivationInfoAlertItem.h
+file
+
+
+
+add
+
+SBContext.h
+file
+
+
+
+add
+
+SBDeviceLockDisableAssertion.h
+file
+
+
+
+add
+
+SBAwayListCellButtonHandler-Protocol.h
+file
+
+
+
+add
+
+SBGestureViewVendor.h
+file
+
+
+
+add
+
+NSString-Formatting.h
+file
+
+
+
+add
+
+SBIconIndexNodeObserver-Protocol.h
+file
+
+
+
+add
+
+SBKeybagNonsenseWorkspaceTransaction.h
+file
+
+
+
+add
+
+SBWebApplication.h
+file
+
+
+
+add
+
+SBAwayCardListItem.h
+file
+
+
+
+add
+
+SBHomeCentricPopoverControllerDelegate-Protocol.h
+file
+
+
+
+add
+
+SBPathWaveView.h
+file
+
+
+
+add
+
+SBBulletinFadeOverlayOwner-Protocol.h
+file
+
+
+
+add
+
+SBBrightnessController.h
+file
+
+
+
+add
+
+SBAppContextHostView.h
+file
+
+
+
+add
+
+SBSIMLockPUKEntryAlertDisplay.h
+file
+
+
+
+add
+
+SBShowcaseContext.h
+file
+
+
+
+add
+
+SBRenderImage.h
+file
+
+
+
+add
+
+SBBannerTransitionContext.h
+file
+
+
+
+add
+
+SBAwayBulletinListView.h
+file
+
+
+
+add
+
+SBThermalWarningAlertItem.h
+file
+
+
+
+add
+
+SBModelessSyncStubs.h
+file
+
+
+
+add
+
+SBAppSwitcherLabel.h
+file
+
+
+
+add
+
+SBVoiceControlAlert.h
+file
+
+
+
+add
+
+BBWeeAppControllerHost-Protocol.h
+file
+
+
+
+add
+
+UIPrintStatusDelegate-Protocol.h
+file
+
+
+
+add
+
+SBIconModelDelegate-Protocol.h
+file
+
+
+
+add
+
+SBUserNotificationAlertSheet.h
+file
+
+
+
+add
+
+SBDownloadingIconView.h
+file
+
+
+
+add
+
+SBAwayBulletinFloatingContentView.h
+file
+
+
+
+add
+
+SBUserInstalledApplicationIcon.h
+file
+
+
+
+add
+
+SBShowcaseViewController.h
+file
+
+
+
+add
+
+SBDataPlanDisableAlertItem.h
+file
+
+
+
+add
+
+SBAirPlayBarView.h
+file
+
+
+
+add
+
+SBThermalWarningAlertItemDelegate-Protocol.h
+file
+
+
+
+add
+
+SBSoftwareUpdateUnableToInstallAlertItem.h
+file
+
+
+
+add
+
+SBHandMotionExtractor.h
+file
+
+
+
+add
+
+SBWorkspaceTransactionDelegate-Protocol.h
+file
+
+
+
+add
+
+SBThermalController.h
+file
+
+
+
+add
+
+SBFolderIconListModel.h
+file
+
+
+
+add
+
+SBAppToAppTransitionController.h
+file
+
+
+
+add
+
+SBGestureViewCacheNode.h
+file
+
+
+
+add
+
+SBPrintStatusController.h
+file
+
+
+
+add
+
+SBGameDeletionAlertItem.h
+file
+
+
+
+add
+
+SBIconListModel.h
+file
+
+
+
+add
+
+SBAwayController.h
+file
+
+
+
+add
+
+SBAwaySystemAlertItem.h
+file
+
+
+
+add
+
+SBIconContentView.h
+file
+
+
+
+add
+
+SBZoomView.h
+file
+
+
+
+add
+
+SBFolderIconView.h
+file
+
+
+
+add
+
+SBBulletinTableView.h
+file
+
+
+
+add
+
+SBDefaultDateLabel.h
+file
+
+
+
+add
+
+SUNetworkObserver-Protocol.h
+file
+
+
+
+add
+
+SBDismissOnlyAlertItem.h
+file
+
+
+
+add
+
+SBThermalLockoutView.h
+file
+
+
+
+add
+
+SBPowerDownController.h
+file
+
+
+
+add
+
+SBWeatherApplicationIcon.h
+file
+
+
+
+add
+
+SBStatusBarDataManager.h
+file
+
+
+
+add
+
+SBCountedMap.h
+file
+
+
+
+add
+
+SBAwayListActionContext.h
+file
+
+
+
+add
+
+NSIndexPath-SBIconIndex.h
+file
+
+
+
+add
+
+SBDeviceLockPasscodeEntryAlert.h
+file
+
+
+
+add
+
+NSMutableSet-SBApplicationAdditions.h
+file
+
+
+
+add
+
+SBApplicationUninstallationOperation.h
+file
+
+
+
+add
+
+SBNewsstandIconView.h
+file
+
+
+
+add
+
+UIPageControl-SBIconListNumberOffset.h
+file
+
+
+
+add
+
+SBActivationFailedAlertItem.h
+file
+
+
+
+add
+
+SBRelaunchBuddyWorkspaceTransaction.h
+file
+
+
+
+add
+
+NSFastEnumeration-Protocol.h
+file
+
+
+
+add
+
+SBUIController.h
+file
+
+
+
+add
+
+SBLaunchAlertItem.h
+file
+
+
+
+add
+
+NSObject-Protocol.h
+file
+
+
+
+add
+
+SBAnimationStepper.h
+file
+
+
+
+add
+
+SBMediaController.h
+file
+
+
+
+add
+
+SBLowPowerAlertItem.h
+file
+
+
+
+add
+
+SBRingerHUDController.h
+file
+
+
+
+add
+
+SBUserAgent.h
+file
+
+
+
+add
+
+SBBulletinBannerView.h
+file
+
+
+
+add
+
+SBResetProgressView.h
+file
+
+
+
+add
+

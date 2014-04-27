@@ -87,34 +87,17 @@
     return success;
 }
 
-+(void)moveFile:(NSString *)sourcefileName toDir:(NSString *)dirName
++(BOOL)copyFile:(NSString *)sourcefilePath toDir:(NSString *)dirPath
 {
     BOOL success;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *dirPath = [NSString stringWithFormat:@"%@/%@",documentsDirectory,dirName];
-    //目录是否存在
-    
-     NSError *error;
-     BOOL isDir = YES;
-     success =  [fileManager fileExistsAtPath:dirPath isDirectory:&isDir];
-     if (!success) {
-         success = [fileManager createDirectoryAtPath:dirPath withIntermediateDirectories:NO attributes:nil error:&error];
-     if (!success) {
-         NSLog(@"create Dir error:%@",error);
-         return;
-        }
-     }
-    
-    NSString *sourcefilePath = [FZFileUitils getFullPath:sourcefileName];
-    NSString *targetfilePath = [NSString stringWithFormat:@"%@/%@",dirPath,sourcefileName];
-    success =  [fileManager moveItemAtPath:sourcefilePath toPath:targetfilePath error:&error];
+    NSError *error;
+    success =  [fileManager copyItemAtPath:sourcefilePath toPath:dirPath error:&error];
     if (!success) {
-        NSLog(@"move file error:%@",[error description]);
-    } ;
+        NSLog(@"copy file error:%@",[error description]);
+    }
+    return success;
 }
 
 
@@ -143,6 +126,23 @@
     return textFileContents;
 }
 
++(void)makeDirIfNotExist:(NSString *)dirPath
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    BOOL success;
+
+    BOOL isDir = YES;
+    success =  [fileManager fileExistsAtPath:dirPath isDirectory:&isDir];
+    if (!success) {
+        success = [fileManager createDirectoryAtPath:dirPath withIntermediateDirectories:NO attributes:nil error:&error];
+        if (!success) {
+            NSLog(@"create Dir error:%@",error);
+            return;
+        }
+    }
+}
+
 +(NSArray *)getAllZipFiles
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -161,6 +161,13 @@
     }else{
         return NO;
     }
+}
+
++(BOOL)fileExisit:(NSString *)filePath
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isExists = [fileManager fileExistsAtPath:filePath];
+    return isExists;
 }
 
 @end

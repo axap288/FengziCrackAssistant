@@ -49,12 +49,18 @@
  */
 +(NSString *)readContentFromFile:(NSString *)filePath;
 /**
- *  移动文件到指定的文件夹
+ *  使用绝对路径，将目标文件复制到指定的文件夹
  *
- *  @param sourcefileName 原路径
+ *  @param sourcefilePath 原路径
  *  @param dirName        目标路径
  */
-+(void)moveFile:(NSString *)sourcefileName toDir:(NSString *)dirName;
++(BOOL)copyFile:(NSString *)sourcefilePath toDir:(NSString *)dirPath;
+/**
+ *  如果目录不存在则创建一个目录
+ *
+ *  @param dirPath <#dirPath description#>
+ */
++(void)makeDirIfNotExist:(NSString *)dirPath;
 
 //+(NSArray *)getAllZipFiles;
 /**
@@ -65,5 +71,14 @@
  *  @return <#return value description#>
  */
 +(BOOL)isEmptyDir:(NSString *)dirName;
+
+/**
+ *  判断一个文件是否存在
+ *
+ *  @param filePath 文件路径
+ *
+ *  @return
+ */
++(BOOL)fileExisit:(NSString *)filePath;
 
 @end
