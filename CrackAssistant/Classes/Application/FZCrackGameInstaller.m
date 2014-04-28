@@ -15,8 +15,6 @@
 #import "ASIHTTPRequest.h"
 #import "ZipArchive.h"
 #import  "SSZipArchive.h"
-#import "SBUIController.h"
-#import "SBApplicationController.h"
 //#import "SBApplication.h"
 
 #define SPRINGBOARDPATH "/System/Library/PrivateFrameworks/SpringBoardServices.framework/SpringBoardServices"
@@ -312,10 +310,6 @@
     
     dlclose(sbserv);
 }
-
-
-
-
 
 
 -(NSString *)getProcessIDByPackageName:(NSString *)packageName

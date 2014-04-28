@@ -36,6 +36,7 @@
 		1F80568618F5326A00BF39A7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80568518F5326A00BF39A7 /* XCTest.framework */; };
 		1F80568718F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80568818F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
+		1F90E5EF190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */; };
 		1FCE70FB1906B355000206DB /* fz_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F31906B355000206DB /* fz_placeholder@2x.png */; };
 		1FE95AF0190BBFC500880549 /* FZFileUitils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE95AEF190BBFC500880549 /* FZFileUitils.m */; };
 		1FFC7146190D7A62003A4C28 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC7145190D7A62003A4C28 /* Entitlements.plist */; };
@@ -144,6 +145,7 @@
 		1F80567E18F5326A00BF39A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CrackAssistant/Images.xcassets; sourceTree = "<group>"; };
 		1F80568418F5326A00BF39A7 /* CrackAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrackAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F80568518F5326A00BF39A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_recover_disable@2x.png"; sourceTree = "<group>"; };
 		1FCE70F31906B355000206DB /* fz_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_placeholder@2x.png"; sourceTree = "<group>"; };
 		1FCE70F41906B355000206DB /* 关于按钮的效果图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于按钮的效果图.png"; sourceTree = "<group>"; };
 		1FCE70F51906B355000206DB /* 破解_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_19.png"; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 		1F2DF3AD1903E1DC00E457B0 /* crackViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */,
 				1F2DF3AE1903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png */,
 				1F2DF3AF1903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png */,
 				1F2DF3B01903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png */,
@@ -793,6 +796,7 @@
 				4E677A1518FC18E600E238A4 /* InfoPlist.strings in Resources */,
 				4E5C4DAE18FD74E700667B23 /* fz_tabbar_search_bg@2x.png in Resources */,
 				4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */,
+				1F90E5EF190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png in Resources */,
 				1FFC7146190D7A62003A4C28 /* Entitlements.plist in Resources */,
 				1F29BA14190809B3008441A6 /* postinst in Resources */,
 				1F2DF3BD1903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png in Resources */,

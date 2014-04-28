@@ -27,6 +27,7 @@
 #define Cell_button_crack_image [UIImage imageNamed:@"fz_crackview_cell_button_crack.png"]
 #define Cell_button_start_image [UIImage imageNamed:@"fz_crackview_cell_button_start.png"]
 #define Cell_button_recover_image [UIImage imageNamed:@"fz_crackview_cell_button_recover.png"]
+#define Cell_button_recover_disable_image [UIImage imageNamed:@"fz_crackview_cell_button_recover_disable.png"]
 #define crackVerButton_bg_image [UIImage imageNamed:@"fz_crackview_button_bg_crackVer.png"]
 #define generalVerButton_bg_image [UIImage imageNamed:@"fz_crackview_button_bg_ generalVer.png"]
 
@@ -224,12 +225,12 @@
     return nil;
 }
 
--(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 41.0f;
 }
 
--(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 68.0f;
 }
@@ -273,19 +274,12 @@
                 scoreLabel.text = [NSString stringWithFormat:@"下载次数 %@",model.downloadNum];
                 detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@M |",model.version,@"64.67"];
                 
-                //此label仅作为传参数用
-                UILabel *parameter = [[UILabel alloc] init];
-                parameter.tag = 4444;
-                parameter.text = [NSString stringWithFormat:@"%d",indexPath.row];
-                [openPulldownButton addSubview:parameter];
-                [openPulldownButton addTarget:self action:@selector(openPullDownCellAction:) forControlEvents:UIControlEventTouchUpInside];
             }else{
                 UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
                 UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
                 [contentView setHidden:YES];
                 [operationPanelView setHidden:NO];
                 
-//                UIButton *crackButton = (UIButton *)[operationPanelView viewWithTag:2008];
                 UIButton *recoverButton = (UIButton *)[operationPanelView viewWithTag:2007];
                 //判断按钮的可点击状态
                 NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
@@ -365,7 +359,9 @@
     openPulldownButton.frame = CGRectMake(263, 11, 52, 52);
     openPulldownButton.tag = 2005;
     [openPulldownButton setImage:Cell_button_close_image forState:UIControlStateNormal];
+    [openPulldownButton addTarget:self action:@selector(openPullDownCellAction:) forControlEvents:UIControlEventTouchUpInside];
     [contentView addSubview:openPulldownButton];
+
     
     return contentView;
 }
@@ -385,6 +381,7 @@
     recoverButton.frame = CGRectMake(148, 14, 25, 25);
     recoverButton.tag = 2007;
     [recoverButton setImage:Cell_button_recover_image forState:UIControlStateNormal];
+    [recoverButton setImage:Cell_button_recover_disable_image forState:UIControlStateDisabled];
     [opView addSubview:recoverButton];
     
     UIButton *startButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -424,7 +421,7 @@
 //无限金币版、普通版 - 视图
 -(void)makeSelectVersionPanelView
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 68)];
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 68)];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -449,23 +446,27 @@
     }
     
     UIButton *button = (UIButton *)sender;
-    UILabel *parameter = (UILabel *)[button viewWithTag:4444];
-    NSUInteger cellIndex = [parameter.text integerValue];
-    
-    if (cellIndex + 1 == selectCellAtlocalGame) {
-        selectCellAtlocalGame = 0;
-    }else{
-        [button setImage:Cell_button_open_image forState:UIControlStateNormal];
-        selectCellAtlocalGame = cellIndex + 1;
-        [self.localGamesArray insertObject:@"operation Panel" atIndex:selectCellAtlocalGame];
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableview];
+    NSIndexPath *indexPath = [self.tableview indexPathForRowAtPoint:buttonPosition];
+    if (indexPath != nil) {
+        NSUInteger cellIndex = indexPath.row;
         
-        NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtlocalGame inSection:0]];
-        [self.tableview beginUpdates];
-        [self.tableview insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
-        [self.tableview endUpdates];
-        
-        selectButtonAtLocalGame = button;
+        if (cellIndex + 1 == selectCellAtlocalGame) {
+            selectCellAtlocalGame = 0;
+        }else{
+            [button setImage:Cell_button_open_image forState:UIControlStateNormal];
+            selectCellAtlocalGame = cellIndex + 1;
+            [self.localGamesArray insertObject:@"operation Panel" atIndex:selectCellAtlocalGame];
+            NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtlocalGame inSection:0]];
+            
+            [self.tableview beginUpdates];
+            [self.tableview insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
+            [self.tableview endUpdates];
+            
+            selectButtonAtLocalGame = button;
+        }
     }
+
 }
 
 //点击破解按钮的操作
