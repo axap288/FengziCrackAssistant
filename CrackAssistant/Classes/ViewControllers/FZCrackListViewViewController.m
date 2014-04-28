@@ -14,6 +14,7 @@
 #import "FZCommonUitils.h"
 #import "FZInterfaceServer.h"
 #import "JSONKit.h"
+#import "FZCrackGameInstaller.h"
 #import "UIImageView+WebCache.h"
 
 
@@ -33,6 +34,7 @@
 @interface FZCrackListViewViewController ()
 {
     FZDownloadManager *downloadManager;
+    FZCrackGameInstaller *crackGameInstaller;
     NSUInteger selectCellAtlocalGame;
     UIButton *selectButtonAtLocalGame;
     FZInterfaceServer *interfaceServer;
@@ -54,6 +56,7 @@
         selectCellAtlocalGame = 0;
         downloadManager = [FZDownloadManager getShareInstance];
         interfaceServer = [FZInterfaceServer getShareInstance];
+        crackGameInstaller = [FZCrackGameInstaller getShareInstance];
 
     }
     return self;
@@ -95,6 +98,9 @@
     [interfaceServer loadUsefulGameSaveFile:dic withSuccessBlock:^(id responseObject) {
         NSDictionary *responseDict = [responseObject objectFromJSONString];
         NSArray *result = [responseDict allValues];
+        
+        NSLog(@"resul:%@",result);
+        
         [result enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSDictionary *content = obj;
             
@@ -103,6 +109,8 @@
             fzGame.version = [content objectForKey:@"version"];
             fzGame.downloadNum = [content objectForKey:@"loadnum"];
             fzGame.thumbnail = [content objectForKey:@"thumb"];
+            fzGame.packageName = [content objectForKey:@"bundleId"];
+            fzGame.crackFileUrl = [content objectForKey:@"attach"];
             NSLog(@"%@",fzGame.name);
 //            [temp addObject:fzGame];
             [self.localGamesArray addObject:fzGame];
@@ -261,7 +269,6 @@
 
                 FZGameFile *model = [self.localGamesArray objectAtIndex:[indexPath row]];
                 gameTitle.text = model.name;
-//                thumbnailView.image = [UIImage image];
                 [thumbnailView setImageWithURL:[NSURL URLWithString:model.thumbnail] placeholderImage:[UIImage imageNamed:@"fz_placeholder.png"]];
                 scoreLabel.text = [NSString stringWithFormat:@"下载次数 %@",model.downloadNum];
                 detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@M |",model.version,@"64.67"];
@@ -277,6 +284,18 @@
                 UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
                 [contentView setHidden:YES];
                 [operationPanelView setHidden:NO];
+                
+//                UIButton *crackButton = (UIButton *)[operationPanelView viewWithTag:2008];
+                UIButton *recoverButton = (UIButton *)[operationPanelView viewWithTag:2007];
+                //判断按钮的可点击状态
+                NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
+                FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
+                BOOL isCrack = [crackGameInstaller checkIsCrackWithPackageName:gamefile.packageName];
+                if (isCrack) {
+                    recoverButton.enabled = YES;
+                }else{
+                    recoverButton.enabled = NO;
+                }
             }
 
         }
@@ -374,6 +393,10 @@
     [startButton setImage:Cell_button_start_image forState:UIControlStateNormal];
     [opView addSubview:startButton];
     
+    [crackButton addTarget:self action:@selector(clickCrackButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [recoverButton addTarget:self action:@selector(clickRecoverButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [startButton addTarget:self action:@selector(clickStartButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     UILabel *crackButtonTitle = [[UILabel alloc] initWithFrame:CGRectMake(60, 42, 34, 21)];
     crackButtonTitle.backgroundColor = [UIColor clearColor];
     crackButtonTitle.textColor = [UIColor redColor];
@@ -443,6 +466,32 @@
         
         selectButtonAtLocalGame = button;
     }
+}
+
+//点击破解按钮的操作
+-(void)clickCrackButtonAction:(id)sender
+{
+    NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
+    FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
+    [crackGameInstaller installCrackFile:gamefile.crackFileUrl toAPP:gamefile.packageName];
+}
+//点击恢复按钮的操作
+-(void)clickRecoverButtonAction:(id)sender
+{
+    NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
+    FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
+    BOOL success = [crackGameInstaller recoverCrackWithPackageName:gamefile.packageName];
+    if (success) {
+        UIButton *button = (UIButton *)sender;
+        button.enabled = NO;
+    }
+}
+//点击启动按钮的操作
+-(void)clickStartButtonAction:(id)sender
+{
+    NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
+    FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
+    [crackGameInstaller launchAppWithPackageName:gamefile.packageName];
 }
 
 -(void)pushdownloadList
