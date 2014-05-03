@@ -36,19 +36,19 @@
 /**
  *  备份原始文件
  *
- *  @param package 包名
+ *  @param Identifier
  *
  *  @return
  */
--(BOOL)backupSourceAppFilesWithPackageName:(NSString *)packageId;
+-(BOOL)backupSourceAppFilesByIdentifier:(NSString *)Identifier;
 /**
  *  杀掉一个运行的APP
  *
- *  @param packageId
+ *  @param Identifier
  *
  *  @return
  */
--(void)killAppProcessWithPackageName:(NSString *)packageName;
+-(void)killAppProcessByIdentifier:(NSString *)Identifier;
 /**
  *  根据包名获取到进程ID
  *
@@ -56,7 +56,7 @@
  *
  *  @return 进程id
  */
--(NSString *)getProcessIDByPackageName:(NSString *)packageName;
+-(NSString *)getProcessIDByIdentifier:(NSString *)Identifier;
 
 
 
@@ -65,7 +65,7 @@
 
 @implementation FZCrackGameInstaller
 {
-    NSDictionary *allAppPackage;
+    NSDictionary *allAppIdentifier;
 }
 
 +(FZCrackGameInstaller *)getShareInstance
@@ -88,27 +88,45 @@
     return self;
 }
 
--(BOOL)installCrackFile:(NSString *)savefileUrl toAPP:(NSString *)appPackage
+-(BOOL)installCrackFile:(NSString *)savefileUrl toAPP:(NSString *)Identifier
 {
     BOOL success = NO;
     
-    success = [self backupSourceAppFilesWithPackageName:appPackage];
+    //判断是否有此目录
+    NSString *destinationPath = [self getAppHomePathByIdentifier:Identifier];
+    BOOL result = [FZFileUitils fileExisit:destinationPath];
+    if (!result) {
+        if (_delegate != nil && [_delegate respondsToSelector:@selector(crackFailure:)]) {
+            [_delegate crackFailure:Identifier];
+        }
+        return NO;
+    }
+
+    success = [self backupSourceAppFilesByIdentifier:Identifier];
     
     if (success) {
         
         //先杀掉运行中的游戏进程
-        [self killAppProcessWithPackageName:appPackage];
+        [self killAppProcessByIdentifier:Identifier];
         
         //破解操作
         NSString* zipfilePath = [self downloadFile:savefileUrl];
         NSLog(@"zipfilePath:%@",zipfilePath);
-        NSString *destinationPath = [self getAppHomePathWithPackage:appPackage];
+
+
         BOOL unzipsuccess = [SSZipArchive unzipFileAtPath:zipfilePath toDestination:destinationPath];
         if (unzipsuccess) {
             NSLog(@"破解成功");
+            if (_delegate != nil && [_delegate respondsToSelector:@selector(crackSuccess:)]) {
+                [_delegate crackSuccess:Identifier];
+            }
             success = YES;
         }else{
             NSLog(@"破解失败");
+            if (_delegate != nil && [_delegate respondsToSelector:@selector(crackFailure:)]) {
+                [_delegate crackFailure:Identifier];
+            }
+
             success = NO;
         }
         
@@ -118,17 +136,17 @@
     return success;
 }
 
--(BOOL)recoverCrackWithPackageName:(NSString *)appPackage
+-(BOOL)recoverCrackByIdentifier:(NSString *)Identifier
 {
     __block BOOL success = YES;
-    BOOL iscrack = [self checkIsCrackWithPackageName:appPackage];
+    BOOL iscrack = [self checkIsCrackByIdentifier:Identifier];
     if (iscrack) {
         //先杀掉运行中的游戏进程
-        [self killAppProcessWithPackageName:appPackage];
+        [self killAppProcessByIdentifier:Identifier];
         
         
         
-        NSString *destinationPath = [self getAppHomePathWithPackage:appPackage];
+        NSString *destinationPath = [self getAppHomePathByIdentifier:Identifier];
         NSString *backupzipPath = [destinationPath stringByAppendingPathComponent:backupZipFile];
         
         
@@ -187,18 +205,18 @@
     return destinationPath;
 }
 
--(NSString *)getAppHomePathWithPackage:(NSString *)package
+-(NSString *)getAppHomePathByIdentifier:(NSString *)Identifier
 {
-    if (allAppPackage == nil) {
+    if (allAppIdentifier == nil) {
         [self scanAllUserInstallAPP];
     }
     
     __block NSString *appHomePath;
     //根据包名查找app的绝对路径
-    [[allAppPackage allKeys] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [[allAppIdentifier allKeys] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSString *p = obj;
-        if ([p isEqualToString:package]) {
-            NSDictionary *dic = [allAppPackage objectForKey:package];
+        if ([p isEqualToString:Identifier]) {
+            NSDictionary *dic = [allAppIdentifier objectForKey:Identifier];
             NSString *appPath = [dic objectForKey:@"Path"];
             //转向上一级目录
             appHomePath = [appPath stringByDeletingLastPathComponent];
@@ -208,11 +226,11 @@
     return appHomePath;
 }
 
--(BOOL)backupSourceAppFilesWithPackageName:(NSString *)package
+-(BOOL)backupSourceAppFilesByIdentifier:(NSString *)Identifier
 {
     __block BOOL success = YES;
     
-    NSString *appHomePath = [self getAppHomePathWithPackage:package];
+    NSString *appHomePath = [self getAppHomePathByIdentifier:Identifier];
     
     if (appHomePath) {
         //需要备份到的目录
@@ -255,12 +273,12 @@
 
 -(void)scanAllUserInstallAPP
 {
-    allAppPackage = [NSDictionary dictionary];
+    allAppIdentifier = [NSDictionary dictionary];
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:InStallationPlistPath];
     if (!dic) {
         NSLog(@"dic is nil");
     }else{
-        allAppPackage = [dic objectForKey:@"User"];
+        allAppIdentifier = [dic objectForKey:@"User"];
         /*
         for (NSString *package in [appPackage allKeys]) {
             
@@ -279,21 +297,21 @@
     }
 }
 
--(BOOL)checkIsCrackWithPackageName:(NSString *)appPackage
+-(BOOL)checkIsCrackByIdentifier:(NSString *)Identifier
 {
     if (![self isJailbroken]) {
         return NO;
     }
     //根据备份文件是否存在判断是否破解过
-    NSString *appHomePath = [self getAppHomePathWithPackage:appPackage];
+    NSString *appHomePath = [self getAppHomePathByIdentifier:Identifier];
     NSString *backupzipPath = [appHomePath stringByAppendingPathComponent:backupZipFile];
     BOOL result = [FZFileUitils fileExisit:backupzipPath];
     return result;
 }
 
--(void)killAppProcessWithPackageName:(NSString *)packageName
+-(void)killAppProcessByIdentifier:(NSString *)Identifier
 {
-    NSString *appProcessId = [self getProcessIDByPackageName:packageName];
+    NSString *appProcessId = [self getProcessIDByIdentifier:Identifier];
     if (appProcessId) {
         NSString *commandStr = [NSString stringWithFormat:@"kill %@",appProcessId];
         const char *command = [commandStr cStringUsingEncoding:NSUTF8StringEncoding];
@@ -301,18 +319,18 @@
     }
 }
 
--(void)launchAppWithPackageName:(NSString *)packageName
+-(void)launchAppByIdentifier:(NSString *)Identifier
 {
-    NSLog(@"packageName:%@",packageName);
+    NSLog(@"Identifier:%@",Identifier);
     void *sbserv = dlopen(SPRINGBOARDPATH, RTLD_LAZY);
      int (*SBSLaunchApplicationWithIdentifier)(CFStringRef identifier, Boolean suspended) = dlsym(sbserv, "SBSLaunchApplicationWithIdentifier");
-     int result = SBSLaunchApplicationWithIdentifier((__bridge CFStringRef)packageName, FALSE);
+     SBSLaunchApplicationWithIdentifier((__bridge CFStringRef)Identifier, FALSE);
     
     dlclose(sbserv);
 }
 
 
--(NSString *)getProcessIDByPackageName:(NSString *)packageName
+-(NSString *)getProcessIDByIdentifier:(NSString *)Identifier
 {
     mach_port_t *port;
     void *sbserv = dlopen(SPRINGBOARDPATH, RTLD_LAZY);
@@ -357,7 +375,7 @@
                     intID=process[i].kp_proc.p_pid;
                     SBDisplayIdentifierForPID(port,intID,appid);
                     NSString * appId=[NSString stringWithUTF8String:appid];
-                    if ([packageName isEqualToString:appId]) {
+                    if ([Identifier isEqualToString:appId]) {
                         processid = [NSString stringWithFormat:@"%d",process[i].kp_proc.p_pid];
                         break;
                     }

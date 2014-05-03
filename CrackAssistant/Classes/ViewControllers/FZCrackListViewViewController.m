@@ -14,7 +14,7 @@
 #import "FZCommonUitils.h"
 #import "FZInterfaceServer.h"
 #import "JSONKit.h"
-#import "FZCrackGameInstaller.h"
+#import "SVProgressHUD.h"
 #import "UIImageView+WebCache.h"
 
 
@@ -58,6 +58,7 @@
         downloadManager = [FZDownloadManager getShareInstance];
         interfaceServer = [FZInterfaceServer getShareInstance];
         crackGameInstaller = [FZCrackGameInstaller getShareInstance];
+        crackGameInstaller.delegate = self;
 
     }
     return self;
@@ -71,7 +72,7 @@
     [self getRemoteCrackGames];
     [self findlocalGames];
     
-    CGRect tableviewCgrect = self.view.frame;
+    CGRect tableviewCgrect = CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height -  49 );
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
     {
          tableviewCgrect = CGRectMake(0, 20, self.view.frame.size.width,self.view.frame.size.height - 20 - 49);//tabbar高度：40
@@ -275,19 +276,24 @@
                 detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@M |",model.version,@"64.67"];
                 
             }else{
+    
+                cell.selectionStyle=UITableViewCellSelectionStyleNone;
                 UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
                 UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
                 [contentView setHidden:YES];
                 [operationPanelView setHidden:NO];
                 
+                UIButton *crackButton = (UIButton *)[operationPanelView viewWithTag:2006];
                 UIButton *recoverButton = (UIButton *)[operationPanelView viewWithTag:2007];
                 //判断按钮的可点击状态
                 NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
                 FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-                BOOL isCrack = [crackGameInstaller checkIsCrackWithPackageName:gamefile.packageName];
+                BOOL isCrack = [crackGameInstaller checkIsCrackByIdentifier:gamefile.packageName];
                 if (isCrack) {
+                    crackButton.enabled = NO;
                     recoverButton.enabled = YES;
                 }else{
+                    crackButton.enabled = YES;
                     recoverButton.enabled = NO;
                 }
             }
@@ -426,6 +432,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     /*
     FZGameFile *model = [[array objectAtIndex:indexPath.row] copy];
     [downloadManager addDownloadToList:model];
@@ -474,17 +481,27 @@
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-    [crackGameInstaller installCrackFile:gamefile.crackFileUrl toAPP:gamefile.packageName];
+    BOOL success = [crackGameInstaller installCrackFile:gamefile.crackFileUrl toAPP:gamefile.packageName];
+    if (success) {
+//        UIButton *crackbutton = (UIButton *)sender;
+//        crackbutton.enabled = NO;
+        [self.tableview reloadData];
+        
+        //使恢复按钮变成可用
+//        UITableViewCell *cell = [self.tableview cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:selectGameIndex]];
+//        UIView *operationView = cell.subviews[1];
+//        UIButton *recoverButton = (UIButton *)[operationView viewWithTag:2007];
+//        recoverButton.enabled = YES;
+    }
 }
 //点击恢复按钮的操作
 -(void)clickRecoverButtonAction:(id)sender
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-    BOOL success = [crackGameInstaller recoverCrackWithPackageName:gamefile.packageName];
+    BOOL success = [crackGameInstaller recoverCrackByIdentifier:gamefile.packageName];
     if (success) {
-        UIButton *button = (UIButton *)sender;
-        button.enabled = NO;
+        [self.tableview reloadData];
     }
 }
 //点击启动按钮的操作
@@ -492,8 +509,23 @@
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-    [crackGameInstaller launchAppWithPackageName:gamefile.packageName];
+    [crackGameInstaller launchAppByIdentifier:gamefile.packageName];
 }
+
+#pragma  mark FZCrackGameInstallDelegate
+
+//破解成功
+-(void)crackSuccess:(NSString *)Identifier
+{
+    [SVProgressHUD showSuccessWithStatus:@"破解成功!"];
+}
+//破解失败
+-(void)crackFailure:(NSString *)Identifier
+{
+    [SVProgressHUD showErrorWithStatus:@"破解失败了..."];
+}
+
+
 
 -(void)pushdownloadList
 {

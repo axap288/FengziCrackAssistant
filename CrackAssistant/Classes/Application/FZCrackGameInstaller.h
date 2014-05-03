@@ -8,9 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+
+@protocol FZCrackGameInstallDelegate <NSObject>
+
+//破解成功
+-(void)crackSuccess:(NSString *)Identifier;
+//破解失败
+-(void)crackFailure:(NSString *)Identifier;
+
+@end
+
 @interface FZCrackGameInstaller : NSObject
 
-
+@property(assign) id<FZCrackGameInstallDelegate> delegate;
 
 +(FZCrackGameInstaller *)getShareInstance;
 
@@ -23,7 +33,7 @@
  *
  *  @return
  */
--(BOOL)installCrackFile:(NSString *)savefileUrl toAPP:(NSString *)appPackage;
+-(BOOL)installCrackFile:(NSString *)savefileUrl toAPP:(NSString *)Identifier;
 /**
  *  恢复操作
  *
@@ -31,7 +41,7 @@
  *
  *  @return
  */
--(BOOL)recoverCrackWithPackageName:(NSString *)appPackage;
+-(BOOL)recoverCrackByIdentifier:(NSString *)Identifier;
 /**
  *  安装本地已下载的APP
  *
@@ -47,13 +57,13 @@
  *
  *  @return YES:已破解
  */
--(BOOL)checkIsCrackWithPackageName:(NSString *)appPackage;
+-(BOOL)checkIsCrackByIdentifier:(NSString *)Identifier;
 /**
  *  启动应用
  *
  *  @param packageName
  */
--(void)launchAppWithPackageName:(NSString *)packageName;
+-(void)launchAppByIdentifier:(NSString *)Identifier;
 
 
 

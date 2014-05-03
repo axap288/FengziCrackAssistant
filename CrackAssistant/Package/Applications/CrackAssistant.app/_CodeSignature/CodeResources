@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Entitlements.plist</key>
+		<data>
+		2T4laaUniVjSI07mzv9uTgDdWyQ=
+		</data>
 		<key>Localizable.strings</key>
 		<data>
 		k8K7ecjlKD4fzObDrCZ6julC0EQ=
@@ -28,6 +32,10 @@
 		<data>
 		bsnH0mTXMKgCiM75bjX4+3ARVAs=
 		</data>
+		<key>embedded.mobileprovision</key>
+		<data>
+		3fF4MUhLnbLV9FKk6KYQgbMQWZ8=
+		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
 		zmV6UqBSo6r1NOz798vd5O4zTBA=
@@ -39,6 +47,10 @@
 		<key>fz_crackview_cell_button_recover@2x.png</key>
 		<data>
 		P12+TwB1iVgLRNeLf7vVj1/V6Jk=
+		</data>
+		<key>fz_crackview_cell_button_recover_disable@2x.png</key>
+		<data>
+		ua9qG2vy7CROWyP7PH8AeGrnbl4=
 		</data>
 		<key>fz_crackview_cell_button_start@2x.png</key>
 		<data>
@@ -99,6 +111,10 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Entitlements.plist</key>
+		<data>
+		2T4laaUniVjSI07mzv9uTgDdWyQ=
+		</data>
 		<key>Localizable.strings</key>
 		<data>
 		k8K7ecjlKD4fzObDrCZ6julC0EQ=
@@ -123,6 +139,10 @@
 		<data>
 		bsnH0mTXMKgCiM75bjX4+3ARVAs=
 		</data>
+		<key>embedded.mobileprovision</key>
+		<data>
+		3fF4MUhLnbLV9FKk6KYQgbMQWZ8=
+		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
 		zmV6UqBSo6r1NOz798vd5O4zTBA=
@@ -134,6 +154,10 @@
 		<key>fz_crackview_cell_button_recover@2x.png</key>
 		<data>
 		P12+TwB1iVgLRNeLf7vVj1/V6Jk=
+		</data>
+		<key>fz_crackview_cell_button_recover_disable@2x.png</key>
+		<data>
+		ua9qG2vy7CROWyP7PH8AeGrnbl4=
 		</data>
 		<key>fz_crackview_cell_button_start@2x.png</key>
 		<data>

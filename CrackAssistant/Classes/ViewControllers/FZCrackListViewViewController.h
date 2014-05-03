@@ -7,7 +7,9 @@
 //
 
 #import "FZBaseTableViewController.h"
+#import "FZCrackGameInstaller.h"
 
-@interface FZCrackListViewViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+@interface FZCrackListViewViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,FZCrackGameInstallDelegate>
 
 @end
