@@ -49,6 +49,7 @@
     NSUInteger selectCellAtlocalGame;
     NSUInteger selectCellAtInstallGame;
     UIButton *selectButtonAtLocalGame;
+    UIButton *selectButtonAtInstallGame;
     FZInterfaceServer *interfaceServer;
 }
 @property (strong,nonatomic) UITableView *tableview;
@@ -63,7 +64,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.localGamesArray = [NSMutableArray array];
+//        self.localGamesArray = [NSMutableArray array];
         self.crackGamesArray = [NSMutableArray array];
         
         selectCellAtlocalGame = 0;
@@ -111,6 +112,7 @@
     
     //接口调用
     [interfaceServer loadUsefulGameSaveFile:dic withSuccessBlock:^(id responseObject) {
+        self.localGamesArray = [NSMutableArray array];
         NSDictionary *responseDict = [responseObject objectFromJSONString];
         NSArray *result = [responseDict allValues];
         
@@ -130,6 +132,7 @@
 //            [temp addObject:fzGame];
             [self.localGamesArray addObject:fzGame];
     }];
+        
     [self.tableview reloadData];
     } withFailureBlock:^(NSString *errorMessage) {
         NSLog(@"errorMessage:%@",errorMessage);
@@ -180,6 +183,12 @@
     }else if (section == 1){
         rowsNumber = [self.crackGamesArray count];
     }
+    
+    //都没有数据的情况留出一个cell显示结果
+    if (rowsNumber == 0) {
+        rowsNumber = 1;
+    }
+    
     return rowsNumber;
 }
 
@@ -265,10 +274,39 @@
         [cell.contentView addSubview:installAPPPanelView];
     }
     
+    cell.textLabel.text = nil;
     switch (indexPath.section) {
         //设备中
         case 0:
         {
+            //没有数据显示一个空白的cell
+            if (self.localGamesArray == nil) {
+                UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
+                UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
+                UIView *installAPPPanelView = [[cell.contentView subviews] objectAtIndex:2];
+                
+                [contentView setHidden:YES];
+                [operationPanelView setHidden:YES];
+                [installAPPPanelView setHidden:YES];
+                
+                cell.textLabel.text = @"正在加载中";
+                return cell;
+
+            }
+            
+            if ([self.localGamesArray count] == 0) {
+                UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
+                UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
+                UIView *installAPPPanelView = [[cell.contentView subviews] objectAtIndex:2];
+                
+                [contentView setHidden:YES];
+                [operationPanelView setHidden:YES];
+                [installAPPPanelView setHidden:YES];
+                
+                cell.textLabel.text = @"没有发现可破解的游戏!";
+                return cell;
+            }
+            
             if ([[self.localGamesArray objectAtIndex:[indexPath row]] isKindOfClass:[FZGameFile class]]) {
                 
                 UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
@@ -326,6 +364,20 @@
         //游戏列表
         case 1:
         {
+            //没有数据显示一个空白的cell
+            if ([self.crackGamesArray count] == 0) {
+                UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
+                UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
+                UIView *installAPPPanelView = [[cell.contentView subviews] objectAtIndex:2];
+                
+                [contentView setHidden:YES];
+                [operationPanelView setHidden:YES];
+                [installAPPPanelView setHidden:YES];
+                
+                cell.textLabel.text = @"没有发现可破解的游戏!";
+                return cell;
+            }
+
             
             if ([[self.crackGamesArray objectAtIndex:[indexPath row]] isKindOfClass:[FZGameFile class]]) {
                 UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
@@ -484,14 +536,15 @@
     installCrackGameButton.frame = CGRectMake(62, 22, 75, 23);
     installCrackGameButton.tag = 2009;
     [installCrackGameButton setImage:Cell_button_installCrackAPP_normal_image forState:UIControlStateNormal];
-    [installCrackGameButton setImage:Cell_button_installCrackAPP_selected_image forState:UIControlStateSelected];
+    [installCrackGameButton setImage:Cell_button_installCrackAPP_selected_image forState:UIControlStateHighlighted];
+    [installCrackGameButton addTarget:self action:@selector(clickInstallCrackGameButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [opView addSubview:installCrackGameButton];
     
     UIButton *installGeneralGameButton = [UIButton buttonWithType:UIButtonTypeCustom];
     installGeneralGameButton.frame = CGRectMake(181, 22, 75, 23);
     installGeneralGameButton.tag = 2010;
     [installGeneralGameButton setImage:Cell_button_installAPP_normal_image forState:UIControlStateNormal];
-    [installGeneralGameButton setImage:Cell_button_installAPP_selected_image forState:UIControlStateSelected];
+    [installGeneralGameButton setImage:Cell_button_installAPP_selected_image forState:UIControlStateHighlighted];
 
     [opView addSubview:installGeneralGameButton];
     
@@ -556,12 +609,12 @@
          case 1:
         {
             if (selectCellAtInstallGame) {
-                [self.localGamesArray removeObjectAtIndex:selectCellAtlocalGame];
-                NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtlocalGame inSection:1]];
+                [self.crackGamesArray removeObjectAtIndex:selectCellAtInstallGame];
+                NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtInstallGame inSection:1]];
                 [self.tableview beginUpdates];
-                [self.tableview deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
+                [self.tableview deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
                 [self.tableview endUpdates];
-                [selectButtonAtLocalGame setImage:Cell_button_install_close_image forState:UIControlStateNormal];
+                [selectButtonAtInstallGame setImage:Cell_button_install_close_image forState:UIControlStateNormal];
             }
             
             
@@ -579,7 +632,7 @@
                 [self.tableview insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
                 [self.tableview endUpdates];
                 
-                selectButtonAtLocalGame = button;
+                selectButtonAtInstallGame = button;
             }
 
         }
@@ -623,6 +676,17 @@
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
     [crackGameInstaller launchAppByIdentifier:gamefile.packageName];
+}
+
+-(void)clickInstallCrackGameButtonAction:(id)sender
+{
+    //安装测试
+//    BOOL success = [crackGameInstaller installCrackGameFile:@"CL1024.ipa"];
+    BOOL success = [crackGameInstaller installCrackGameFile:@"bxqy-1.6.0.ipa"];
+
+        if (success) {
+        [SVProgressHUD showSuccessWithStatus:@"安装成功!"];
+    }
 }
 
 #pragma  mark FZCrackGameInstallDelegate

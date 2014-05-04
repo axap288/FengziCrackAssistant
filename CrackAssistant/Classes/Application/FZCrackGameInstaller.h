@@ -49,7 +49,7 @@
  *
  *  @return <#return value description#>
  */
--(BOOL)installCrackGameFile:(NSURL*)localGamefile;
+-(BOOL)installCrackGameFile:(NSString*)localGamefile;
 /**
  * 判断是否破结果
  *

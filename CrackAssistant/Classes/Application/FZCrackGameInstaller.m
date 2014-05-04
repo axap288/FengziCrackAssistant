@@ -184,10 +184,29 @@
 
 
 
--(BOOL)installCrackGameFile:(NSURL*)localGamefile
+-(BOOL)installCrackGameFile:(NSString*)localGamefile
 {
     BOOL success = NO;
-#warning 未完成
+    
+    //首先判断安装文件是否存在
+    NSString *gamefilePath =   [FZFileUitils getFullPath:localGamefile];
+    NSLog(@"gamefilePath:%@",gamefilePath);
+    if (![FZFileUitils fileExisit:gamefilePath]) {
+        return success;
+    }
+    
+    void *lib = dlopen("/System/Library/PrivateFrameworks/MobileInstallation.framework/MobileInstallation", RTLD_LAZY);
+    if (lib)
+    {
+        int (*MobileInstallationInstall)(NSString *path, NSDictionary *dict, void *na, NSString *path2_equal_path_maybe_no_use) = dlsym(lib, "MobileInstallationInstall");
+        int ret = MobileInstallationInstall(gamefilePath, [NSDictionary dictionaryWithObject:@"User" forKey:@"ApplicationType"], nil, gamefilePath);
+        dlclose(lib);
+        
+        NSLog(@"ret:%d",ret);
+        if (ret == 0) {
+            success = YES;
+        }
+    }
     return success;
 }
 
