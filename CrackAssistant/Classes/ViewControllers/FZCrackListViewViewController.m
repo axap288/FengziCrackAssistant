@@ -31,12 +31,23 @@
 #define crackVerButton_bg_image [UIImage imageNamed:@"fz_crackview_button_bg_crackVer.png"]
 #define generalVerButton_bg_image [UIImage imageNamed:@"fz_crackview_button_bg_ generalVer.png"]
 
+#define Cell_button_installCrackAPP_normal_image [UIImage imageNamed:@"fz_crackview_cell_installButton1_normal.png"]
+#define Cell_button_installCrackAPP_selected_image [UIImage imageNamed:@"fz_crackview_cell_installButton1_selected.png"]
+
+#define Cell_button_installAPP_normal_image [UIImage imageNamed:@"fz_crackview_cell_installButton_normal.png"]
+#define Cell_button_installAPP_selected_image [UIImage imageNamed:@"fz_crackview_cell_installButton_selected.png"]
+
+#define Cell_button_install_close_image [UIImage imageNamed:@"fz_crackview_cell_install_close.png"]
+#define Cell_button_install_open_image [UIImage imageNamed:@"fz_crackview_cell_install_open.png"]
+
+
 
 @interface FZCrackListViewViewController ()
 {
     FZDownloadManager *downloadManager;
     FZCrackGameInstaller *crackGameInstaller;
     NSUInteger selectCellAtlocalGame;
+    NSUInteger selectCellAtInstallGame;
     UIButton *selectButtonAtLocalGame;
     FZInterfaceServer *interfaceServer;
 }
@@ -54,7 +65,9 @@
     if (self) {
         self.localGamesArray = [NSMutableArray array];
         self.crackGamesArray = [NSMutableArray array];
+        
         selectCellAtlocalGame = 0;
+        selectCellAtInstallGame = 0;
         downloadManager = [FZDownloadManager getShareInstance];
         interfaceServer = [FZInterfaceServer getShareInstance];
         crackGameInstaller = [FZCrackGameInstaller getShareInstance];
@@ -244,11 +257,12 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         UIView *Contentview = [self makeContentCellView];
-        
         UIView *operationPanelView = [self makeOperationPanelView];
+        UIView *installAPPPanelView = [self makeAppInstallPanelView];
  
         [cell.contentView addSubview:Contentview];
         [cell.contentView addSubview:operationPanelView];
+        [cell.contentView addSubview:installAPPPanelView];
     }
     
     switch (indexPath.section) {
@@ -259,15 +273,22 @@
                 
                 UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
                 UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
+                UIView *installAPPPanelView = [[cell.contentView subviews] objectAtIndex:2];
+
                 
                 UIImageView *thumbnailView = (UIImageView *)[contentView viewWithTag:2001];
                 UILabel *gameTitle = (UILabel *)[contentView viewWithTag:2002];
                 UILabel *scoreLabel = (UILabel *)[contentView viewWithTag:2003];
                 UILabel *detailLabel = (UILabel *)[contentView viewWithTag:2004];
                 UIButton *openPulldownButton = (UIButton *)[contentView viewWithTag:2005];
+                UIButton *openInstallCellButton = (UIButton *)[contentView viewWithTag:2006];
+
                 [openPulldownButton setHidden:NO];
                 [contentView setHidden:NO];
                 [operationPanelView setHidden:YES];
+                [installAPPPanelView setHidden:YES];
+                [openInstallCellButton setHidden:YES];
+
 
                 FZGameFile *model = [self.localGamesArray objectAtIndex:[indexPath row]];
                 gameTitle.text = model.name;
@@ -280,8 +301,10 @@
                 cell.selectionStyle=UITableViewCellSelectionStyleNone;
                 UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
                 UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
+                UIView *installAPPPanelView = [[cell.contentView subviews] objectAtIndex:2];
                 [contentView setHidden:YES];
                 [operationPanelView setHidden:NO];
+                [installAPPPanelView setHidden:YES];
                 
                 UIButton *crackButton = (UIButton *)[operationPanelView viewWithTag:2006];
                 UIButton *recoverButton = (UIButton *)[operationPanelView viewWithTag:2007];
@@ -303,23 +326,42 @@
         //游戏列表
         case 1:
         {
-            UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
-            UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
-            UIImageView *thumbnailView = (UIImageView *)[contentView viewWithTag:2001];
-            UILabel *gameTitle = (UILabel *)[contentView viewWithTag:2002];
-            UILabel *scoreLabel = (UILabel *)[contentView viewWithTag:2003];
-            UILabel *detailLabel = (UILabel *)[contentView viewWithTag:2004];
-            UIButton *openPulldownButton = (UIButton *)[contentView viewWithTag:2005];
-            [openPulldownButton setHidden:YES];
-            [contentView setHidden:NO];
-            [operationPanelView setHidden:YES];
-
             
-            FZGameFile *model = [self.crackGamesArray objectAtIndex:[indexPath row]];
-            gameTitle.text = model.name;
-            [thumbnailView setImageWithURL:[NSURL URLWithString:model.thumbnail] placeholderImage:[UIImage imageNamed:@"fz_placeholder.png"]];
-            scoreLabel.text = [NSString stringWithFormat:@"得分 %@分",@"2.3"];
-            detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@ |",model.version,model.fileSize];
+            if ([[self.crackGamesArray objectAtIndex:[indexPath row]] isKindOfClass:[FZGameFile class]]) {
+                UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
+                UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
+                UIView *installAPPPanelView = [[cell.contentView subviews] objectAtIndex:2];
+                
+                UIImageView *thumbnailView = (UIImageView *)[contentView viewWithTag:2001];
+                UILabel *gameTitle = (UILabel *)[contentView viewWithTag:2002];
+                UILabel *scoreLabel = (UILabel *)[contentView viewWithTag:2003];
+                UILabel *detailLabel = (UILabel *)[contentView viewWithTag:2004];
+                UIButton *openPulldownButton = (UIButton *)[contentView viewWithTag:2005];
+                UIButton *openInstallCellButton = (UIButton *)[contentView viewWithTag:2006];
+                
+                [contentView setHidden:NO];
+                [operationPanelView setHidden:YES];
+                [installAPPPanelView setHidden:YES];
+                
+                [openPulldownButton setHidden:YES];
+                [openInstallCellButton setHidden:NO];
+                
+                FZGameFile *model = [self.crackGamesArray objectAtIndex:[indexPath row]];
+                gameTitle.text = model.name;
+                [thumbnailView setImageWithURL:[NSURL URLWithString:model.thumbnail] placeholderImage:[UIImage imageNamed:@"fz_placeholder.png"]];
+                scoreLabel.text = [NSString stringWithFormat:@"得分 %@分",@"2.3"];
+                detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@ |",model.version,model.fileSize];
+            }else{
+                cell.selectionStyle=UITableViewCellSelectionStyleNone;
+                UIView *operationPanelView = [[cell.contentView subviews] objectAtIndex:1];
+                UIView *contentView = [[cell.contentView subviews] objectAtIndex:0];
+                UIView *installAPPPanelView = [[cell.contentView subviews] objectAtIndex:2];
+                [contentView setHidden:YES];
+                [operationPanelView setHidden:YES];
+                [installAPPPanelView setHidden:NO];
+
+            }
+           
         }
             break;
         default:
@@ -367,6 +409,15 @@
     [openPulldownButton setImage:Cell_button_close_image forState:UIControlStateNormal];
     [openPulldownButton addTarget:self action:@selector(openPullDownCellAction:) forControlEvents:UIControlEventTouchUpInside];
     [contentView addSubview:openPulldownButton];
+    
+    //下拉框的按钮
+    UIButton *openInstallCellButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    openInstallCellButton.frame = CGRectMake(263, 11, 52, 52);
+    openInstallCellButton.tag = 2006;
+    [openInstallCellButton setImage:Cell_button_install_open_image forState:UIControlStateNormal];
+    [openInstallCellButton addTarget:self action:@selector(openPullDownCellAction:) forControlEvents:UIControlEventTouchUpInside];
+    [contentView addSubview:openInstallCellButton];
+
 
     
     return contentView;
@@ -424,6 +475,29 @@
     return opView;
 }
 
+//破解游戏安装 -
+-(UIView *)makeAppInstallPanelView
+{
+    UIView *opView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 68)];
+    
+    UIButton *installCrackGameButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    installCrackGameButton.frame = CGRectMake(62, 22, 75, 23);
+    installCrackGameButton.tag = 2009;
+    [installCrackGameButton setImage:Cell_button_installCrackAPP_normal_image forState:UIControlStateNormal];
+    [installCrackGameButton setImage:Cell_button_installCrackAPP_selected_image forState:UIControlStateSelected];
+    [opView addSubview:installCrackGameButton];
+    
+    UIButton *installGeneralGameButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    installGeneralGameButton.frame = CGRectMake(181, 22, 75, 23);
+    installGeneralGameButton.tag = 2010;
+    [installGeneralGameButton setImage:Cell_button_installAPP_normal_image forState:UIControlStateNormal];
+    [installGeneralGameButton setImage:Cell_button_installAPP_selected_image forState:UIControlStateSelected];
+
+    [opView addSubview:installGeneralGameButton];
+    
+    return opView;
+}
+
 //无限金币版、普通版 - 视图
 -(void)makeSelectVersionPanelView
 {
@@ -442,36 +516,75 @@
 //下拉弹出cell
 -(void)openPullDownCellAction:(id)sender
 {
-    if (selectCellAtlocalGame) {
-        [self.localGamesArray removeObjectAtIndex:selectCellAtlocalGame];
-        NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtlocalGame inSection:0]];
-        [self.tableview beginUpdates];
-        [self.tableview deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
-        [self.tableview endUpdates];
-        
-        [selectButtonAtLocalGame setImage:Cell_button_close_image forState:UIControlStateNormal];
-    }
     
     UIButton *button = (UIButton *)sender;
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableview];
     NSIndexPath *indexPath = [self.tableview indexPathForRowAtPoint:buttonPosition];
-    if (indexPath != nil) {
-        NSUInteger cellIndex = indexPath.row;
-        
-        if (cellIndex + 1 == selectCellAtlocalGame) {
-            selectCellAtlocalGame = 0;
-        }else{
-            [button setImage:Cell_button_open_image forState:UIControlStateNormal];
-            selectCellAtlocalGame = cellIndex + 1;
-            [self.localGamesArray insertObject:@"operation Panel" atIndex:selectCellAtlocalGame];
-            NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtlocalGame inSection:0]];
+    
+    switch (indexPath.section) {
+        case 0:
+        {
+            if (selectCellAtlocalGame) {
+                [self.localGamesArray removeObjectAtIndex:selectCellAtlocalGame];
+                NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtlocalGame inSection:0]];
+                [self.tableview beginUpdates];
+                [self.tableview deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
+                [self.tableview endUpdates];
+                
+                [selectButtonAtLocalGame setImage:Cell_button_close_image forState:UIControlStateNormal];
+            }
             
-            [self.tableview beginUpdates];
-            [self.tableview insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
-            [self.tableview endUpdates];
+            NSUInteger cellIndex = indexPath.row;
             
-            selectButtonAtLocalGame = button;
+            if (cellIndex + 1 == selectCellAtlocalGame) {
+                selectCellAtlocalGame = 0;
+            }else{
+                [button setImage:Cell_button_open_image forState:UIControlStateNormal];
+                selectCellAtlocalGame = cellIndex + 1;
+                [self.localGamesArray insertObject:@"operation Panel" atIndex:selectCellAtlocalGame];
+                NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtlocalGame inSection:0]];
+                
+                [self.tableview beginUpdates];
+                [self.tableview insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
+                [self.tableview endUpdates];
+                
+                selectButtonAtLocalGame = button;
+            }
+
         }
+            break;
+         case 1:
+        {
+            if (selectCellAtInstallGame) {
+                [self.localGamesArray removeObjectAtIndex:selectCellAtlocalGame];
+                NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtlocalGame inSection:1]];
+                [self.tableview beginUpdates];
+                [self.tableview deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
+                [self.tableview endUpdates];
+                [selectButtonAtLocalGame setImage:Cell_button_install_close_image forState:UIControlStateNormal];
+            }
+            
+            
+            NSUInteger cellIndex = indexPath.row;
+            
+            if (cellIndex + 1 == selectCellAtInstallGame) {
+                selectCellAtInstallGame = 0;
+            }else{
+                [button setImage:Cell_button_install_open_image forState:UIControlStateNormal];
+                selectCellAtInstallGame = cellIndex + 1;
+                [self.crackGamesArray insertObject:@"operation Panel" atIndex:selectCellAtInstallGame];
+                NSArray *indexPaths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:selectCellAtInstallGame inSection:1]];
+                
+                [self.tableview beginUpdates];
+                [self.tableview insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
+                [self.tableview endUpdates];
+                
+                selectButtonAtLocalGame = button;
+            }
+
+        }
+        default:
+            break;
     }
 
 }

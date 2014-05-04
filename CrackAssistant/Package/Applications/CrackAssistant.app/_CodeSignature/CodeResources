@@ -32,10 +32,6 @@
 		<data>
 		bsnH0mTXMKgCiM75bjX4+3ARVAs=
 		</data>
-		<key>embedded.mobileprovision</key>
-		<data>
-		3fF4MUhLnbLV9FKk6KYQgbMQWZ8=
-		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
 		zmV6UqBSo6r1NOz798vd5O4zTBA=
@@ -59,6 +55,30 @@
 		<key>fz_crackview_cell_close@2x.png</key>
 		<data>
 		pwp13UsMqkZ64/mmaBTbNgf57O8=
+		</data>
+		<key>fz_crackview_cell_installButton1_normal@2x.png</key>
+		<data>
+		a9ARIzWL9DLIg6htMBJUdRfmFtQ=
+		</data>
+		<key>fz_crackview_cell_installButton1_selected@2x.png</key>
+		<data>
+		urjUxo/UMSQz9NiL+Rl8XbN+dNA=
+		</data>
+		<key>fz_crackview_cell_installButton_normal@2x.png</key>
+		<data>
+		wgTnRaX3G4UDK7cDf/wCUyFgIz0=
+		</data>
+		<key>fz_crackview_cell_installButton_selected@2x.png</key>
+		<data>
+		jQ6l3CEroGoAkip+Y5DCls/1XOw=
+		</data>
+		<key>fz_crackview_cell_install_close@2x.png</key>
+		<data>
+		KjYDbU655yE2j9la4bM3Lx62YiQ=
+		</data>
+		<key>fz_crackview_cell_install_open@2x.png</key>
+		<data>
+		jAq5kgk4A629jtfemRGYSP7XUGI=
 		</data>
 		<key>fz_crackview_cell_open@2x.png</key>
 		<data>
@@ -139,10 +159,6 @@
 		<data>
 		bsnH0mTXMKgCiM75bjX4+3ARVAs=
 		</data>
-		<key>embedded.mobileprovision</key>
-		<data>
-		3fF4MUhLnbLV9FKk6KYQgbMQWZ8=
-		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
 		zmV6UqBSo6r1NOz798vd5O4zTBA=
@@ -166,6 +182,30 @@
 		<key>fz_crackview_cell_close@2x.png</key>
 		<data>
 		pwp13UsMqkZ64/mmaBTbNgf57O8=
+		</data>
+		<key>fz_crackview_cell_installButton1_normal@2x.png</key>
+		<data>
+		a9ARIzWL9DLIg6htMBJUdRfmFtQ=
+		</data>
+		<key>fz_crackview_cell_installButton1_selected@2x.png</key>
+		<data>
+		urjUxo/UMSQz9NiL+Rl8XbN+dNA=
+		</data>
+		<key>fz_crackview_cell_installButton_normal@2x.png</key>
+		<data>
+		wgTnRaX3G4UDK7cDf/wCUyFgIz0=
+		</data>
+		<key>fz_crackview_cell_installButton_selected@2x.png</key>
+		<data>
+		jQ6l3CEroGoAkip+Y5DCls/1XOw=
+		</data>
+		<key>fz_crackview_cell_install_close@2x.png</key>
+		<data>
+		KjYDbU655yE2j9la4bM3Lx62YiQ=
+		</data>
+		<key>fz_crackview_cell_install_open@2x.png</key>
+		<data>
+		jAq5kgk4A629jtfemRGYSP7XUGI=
 		</data>
 		<key>fz_crackview_cell_open@2x.png</key>
 		<data>

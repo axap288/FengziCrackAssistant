@@ -37,6 +37,12 @@
 		1F80568718F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80568818F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
 		1F90E5EF190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */; };
+		1FCD61DF191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */; };
+		1FCD61E0191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DC191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png */; };
+		1FCD61E1191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DD191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png */; };
+		1FCD61E2191649A0009012C2 /* fz_crackview_cell_installButton1_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DE191649A0009012C2 /* fz_crackview_cell_installButton1_normal@2x.png */; };
+		1FCD61E51916520A009012C2 /* fz_crackview_cell_install_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61E31916520A009012C2 /* fz_crackview_cell_install_close@2x.png */; };
+		1FCD61E61916520A009012C2 /* fz_crackview_cell_install_open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61E41916520A009012C2 /* fz_crackview_cell_install_open@2x.png */; };
 		1FCE70FB1906B355000206DB /* fz_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F31906B355000206DB /* fz_placeholder@2x.png */; };
 		1FE95AF0190BBFC500880549 /* FZFileUitils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE95AEF190BBFC500880549 /* FZFileUitils.m */; };
 		1FFC7146190D7A62003A4C28 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC7145190D7A62003A4C28 /* Entitlements.plist */; };
@@ -146,6 +152,12 @@
 		1F80568418F5326A00BF39A7 /* CrackAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrackAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F80568518F5326A00BF39A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_recover_disable@2x.png"; sourceTree = "<group>"; };
+		1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton_selected@2x.png"; sourceTree = "<group>"; };
+		1FCD61DC191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton1_selected@2x.png"; sourceTree = "<group>"; };
+		1FCD61DD191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton_normal@2x.png"; sourceTree = "<group>"; };
+		1FCD61DE191649A0009012C2 /* fz_crackview_cell_installButton1_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton1_normal@2x.png"; sourceTree = "<group>"; };
+		1FCD61E31916520A009012C2 /* fz_crackview_cell_install_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_install_close@2x.png"; sourceTree = "<group>"; };
+		1FCD61E41916520A009012C2 /* fz_crackview_cell_install_open@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_install_open@2x.png"; sourceTree = "<group>"; };
 		1FCE70F31906B355000206DB /* fz_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_placeholder@2x.png"; sourceTree = "<group>"; };
 		1FCE70F41906B355000206DB /* 关于按钮的效果图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于按钮的效果图.png"; sourceTree = "<group>"; };
 		1FCE70F51906B355000206DB /* 破解_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_19.png"; sourceTree = "<group>"; };
@@ -333,6 +345,12 @@
 		1F2DF3AD1903E1DC00E457B0 /* crackViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1FCD61E31916520A009012C2 /* fz_crackview_cell_install_close@2x.png */,
+				1FCD61E41916520A009012C2 /* fz_crackview_cell_install_open@2x.png */,
+				1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */,
+				1FCD61DC191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png */,
+				1FCD61DD191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png */,
+				1FCD61DE191649A0009012C2 /* fz_crackview_cell_installButton1_normal@2x.png */,
 				1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */,
 				1F2DF3AE1903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png */,
 				1F2DF3AF1903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png */,
@@ -790,9 +808,11 @@
 			files = (
 				1F2DF3B81903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png in Resources */,
 				4E5C4DAB18FD74E700667B23 /* fz_tabbar_download_bg@2x.png in Resources */,
+				1FCD61E61916520A009012C2 /* fz_crackview_cell_install_open@2x.png in Resources */,
 				4E677A6F18FC196400E238A4 /* SVProgressHUD.bundle in Resources */,
 				1FCE70FB1906B355000206DB /* fz_placeholder@2x.png in Resources */,
 				1F2DF3BC1903E1DC00E457B0 /* fz_crackview_sectionview_logo1@2x.png in Resources */,
+				1FCD61E51916520A009012C2 /* fz_crackview_cell_install_close@2x.png in Resources */,
 				4E677A1518FC18E600E238A4 /* InfoPlist.strings in Resources */,
 				4E5C4DAE18FD74E700667B23 /* fz_tabbar_search_bg@2x.png in Resources */,
 				4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */,
@@ -801,14 +821,18 @@
 				1F29BA14190809B3008441A6 /* postinst in Resources */,
 				1F2DF3BD1903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png in Resources */,
 				4E5C4DAD18FD74E700667B23 /* fz_tabbar_more_bg@2x.png in Resources */,
+				1FCD61E0191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png in Resources */,
+				1FCD61DF191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png in Resources */,
 				1F2DF3BA1903E1DC00E457B0 /* fz_crackview_cell_open@2x.png in Resources */,
 				4E677A7C18FC1A2700E238A4 /* Localizable.strings in Resources */,
+				1FCD61E1191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png in Resources */,
 				4E5C4DAA18FD74E700667B23 /* fz_tabbar_crack_bg@2x.png in Resources */,
 				1F2DF3BB1903E1DC00E457B0 /* fz_crackview_sectionview_bg@2x.png in Resources */,
 				1F2DF3B71903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png in Resources */,
 				1F2DF3B61903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png in Resources */,
 				1F2DF3B91903E1DC00E457B0 /* fz_crackview_cell_close@2x.png in Resources */,
 				4E5C4DAC18FD74E700667B23 /* fz_tabbar_home_bg@2x.png in Resources */,
+				1FCD61E2191649A0009012C2 /* fz_crackview_cell_installButton1_normal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1007,7 +1031,7 @@
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.3;
+				iOSOpenDevDevice = 192.168.2.2;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -1032,7 +1056,7 @@
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.3;
+				iOSOpenDevDevice = 192.168.2.2;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
