@@ -6,7 +6,7 @@
 	<dict>
 		<key>Entitlements.plist</key>
 		<data>
-		rkeyChSEfUjeCFozE7dzliyc3io=
+		3a17zivgWQZOkuOy22juasb2UuU=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -31,6 +31,10 @@
 		<key>SVProgressHUD.bundle/success@2x.png</key>
 		<data>
 		bsnH0mTXMKgCiM75bjX4+3ARVAs=
+		</data>
+		<key>embedded.mobileprovision</key>
+		<data>
+		kCIV31zRGApgpt/3aQGr19igQ7k=
 		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
@@ -133,7 +137,7 @@
 	<dict>
 		<key>Entitlements.plist</key>
 		<data>
-		rkeyChSEfUjeCFozE7dzliyc3io=
+		3a17zivgWQZOkuOy22juasb2UuU=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -158,6 +162,10 @@
 		<key>SVProgressHUD.bundle/success@2x.png</key>
 		<data>
 		bsnH0mTXMKgCiM75bjX4+3ARVAs=
+		</data>
+		<key>embedded.mobileprovision</key>
+		<data>
+		kCIV31zRGApgpt/3aQGr19igQ7k=
 		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>

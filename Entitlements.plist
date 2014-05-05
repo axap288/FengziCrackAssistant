@@ -7,6 +7,8 @@
 		<string>Install</string>
 		<string>Browse</string>
 		<string>Uninstall</string>
+		<string>Archive</string>
+		<string>RemoveArchive</string>
 	</array>
 	<key>com.apple.springboard.launchapplications</key>
 	<true/>

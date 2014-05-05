@@ -779,7 +779,7 @@
 				ORGANIZATIONNAME = "疯子";
 				TargetAttributes = {
 					1F80566818F5326A00BF39A7 = {
-						DevelopmentTeam = YZS74N84JH;
+						DevelopmentTeam = H4TG7H4M52;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 0;
@@ -1039,7 +1039,7 @@
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.3;
+				iOSOpenDevDevice = 192.168.2.2;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -1064,7 +1064,7 @@
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.3;
+				iOSOpenDevDevice = 192.168.2.2;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;

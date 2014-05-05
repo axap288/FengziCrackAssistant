@@ -682,7 +682,7 @@
 {
     //安装测试
 //    BOOL success = [crackGameInstaller installCrackGameFile:@"CL1024.ipa"];
-    BOOL success = [crackGameInstaller installCrackGameFile:@"bxqy-1.6.0.ipa"];
+    BOOL success = [crackGameInstaller installCrackGameFile:@"test.ipa"];
 
         if (success) {
         [SVProgressHUD showSuccessWithStatus:@"安装成功!"];
