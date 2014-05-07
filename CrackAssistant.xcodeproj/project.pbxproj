@@ -91,6 +91,10 @@
 		4E677A9B18FC25CA00E238A4 /* FZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A9418FC25CA00E238A4 /* FZMainViewController.m */; };
 		4E677A9C18FC25CA00E238A4 /* FZmoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A9618FC25CA00E238A4 /* FZmoreViewController.m */; };
 		4E677A9D18FC25CA00E238A4 /* FZSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A9818FC25CA00E238A4 /* FZSearchViewController.m */; };
+		4E6FEC911919E01B00E79420 /* FZHomeScrollImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6FEC901919E01B00E79420 /* FZHomeScrollImageView.m */; };
+		4E6FEC98191A25A500E79420 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6FEC95191A25A500E79420 /* UIScrollView+SVInfiniteScrolling.m */; };
+		4E6FEC99191A25A500E79420 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6FEC97191A25A500E79420 /* UIScrollView+SVPullToRefresh.m */; };
+		4E6FEC9B191A298900E79420 /* fz_refresh_arraw_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6FEC9A191A298900E79420 /* fz_refresh_arraw_up@2x.png */; };
 		4E8FA9F01917860B00D3DA17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8FA9ED1917860B00D3DA17 /* Default-568h@2x.png */; };
 		4E8FA9F11917860B00D3DA17 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8FA9EE1917860B00D3DA17 /* Default.png */; };
 		4E8FA9F21917860B00D3DA17 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8FA9EF1917860B00D3DA17 /* Default@2x.png */; };
@@ -267,6 +271,14 @@
 		4E677A9618FC25CA00E238A4 /* FZmoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZmoreViewController.m; sourceTree = "<group>"; };
 		4E677A9718FC25CA00E238A4 /* FZSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZSearchViewController.h; sourceTree = "<group>"; };
 		4E677A9818FC25CA00E238A4 /* FZSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZSearchViewController.m; sourceTree = "<group>"; };
+		4E6FEC8F1919E01B00E79420 /* FZHomeScrollImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZHomeScrollImageView.h; sourceTree = "<group>"; };
+		4E6FEC901919E01B00E79420 /* FZHomeScrollImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZHomeScrollImageView.m; sourceTree = "<group>"; };
+		4E6FEC93191A25A500E79420 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		4E6FEC94191A25A500E79420 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		4E6FEC95191A25A500E79420 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		4E6FEC96191A25A500E79420 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		4E6FEC97191A25A500E79420 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		4E6FEC9A191A298900E79420 /* fz_refresh_arraw_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_refresh_arraw_up@2x.png"; sourceTree = "<group>"; };
 		4E8FA9ED1917860B00D3DA17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4E8FA9EE1917860B00D3DA17 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4E8FA9EF1917860B00D3DA17 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -363,6 +375,7 @@
 		1F2DF3AD1903E1DC00E457B0 /* crackViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4E6FEC9A191A298900E79420 /* fz_refresh_arraw_up@2x.png */,
 				1FCD61E31916520A009012C2 /* fz_crackview_cell_install_close@2x.png */,
 				1FCD61E41916520A009012C2 /* fz_crackview_cell_install_open@2x.png */,
 				1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */,
@@ -538,6 +551,7 @@
 		4E677A1B18FC196400E238A4 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				4E6FEC92191A25A500E79420 /* SVPullToRefresh */,
 				1F263A9B190B928000A4A15F /* SSZipArchive */,
 				4E677A1C18FC196400E238A4 /* ASIHTTPRequst */,
 				4E677A3518FC196400E238A4 /* JSONKit */,
@@ -691,6 +705,8 @@
 		4E677A5A18FC196400E238A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4E6FEC8F1919E01B00E79420 /* FZHomeScrollImageView.h */,
+				4E6FEC901919E01B00E79420 /* FZHomeScrollImageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -746,6 +762,18 @@
 				4E5C4DA018FD65FA00667B23 /* FZTabBarController.m */,
 			);
 			path = FZCustomUI;
+			sourceTree = "<group>";
+		};
+		4E6FEC92191A25A500E79420 /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				4E6FEC93191A25A500E79420 /* SVPullToRefresh.h */,
+				4E6FEC94191A25A500E79420 /* UIScrollView+SVInfiniteScrolling.h */,
+				4E6FEC95191A25A500E79420 /* UIScrollView+SVInfiniteScrolling.m */,
+				4E6FEC96191A25A500E79420 /* UIScrollView+SVPullToRefresh.h */,
+				4E6FEC97191A25A500E79420 /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
 		4E8FA9EC1917860B00D3DA17 /* system */ = {
@@ -855,6 +883,7 @@
 				4E677A6F18FC196400E238A4 /* SVProgressHUD.bundle in Resources */,
 				1FCE70FB1906B355000206DB /* fz_placeholder@2x.png in Resources */,
 				4E8FA9F01917860B00D3DA17 /* Default-568h@2x.png in Resources */,
+				4E6FEC9B191A298900E79420 /* fz_refresh_arraw_up@2x.png in Resources */,
 				1F2DF3BC1903E1DC00E457B0 /* fz_crackview_sectionview_logo1@2x.png in Resources */,
 				4E8FA9FB191786FF00D3DA17 /* icon29X29.png in Resources */,
 				1FCD61E51916520A009012C2 /* fz_crackview_cell_install_close@2x.png in Resources */,
@@ -921,9 +950,11 @@
 				4E677A7218FC196400E238A4 /* FZInterfaceServer.m in Sources */,
 				1F7FFF5918FE29A700A3C5EE /* FZGame.m in Sources */,
 				4E677A6C18FC196400E238A4 /* SDWebImagePrefetcher.m in Sources */,
+				4E6FEC911919E01B00E79420 /* FZHomeScrollImageView.m in Sources */,
 				4E677A6418FC196400E238A4 /* Reachability.m in Sources */,
 				4E677A7118FC196400E238A4 /* FZBaseServerRequest.m in Sources */,
 				1F263A9A190B8EA100A4A15F /* FZCrackGameInstaller.m in Sources */,
+				4E6FEC99191A25A500E79420 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				4E677A6E18FC196400E238A4 /* UIImageView+WebCache.m in Sources */,
 				1F7FFF6418FE570400A3C5EE /* FZDownloadListCell.m in Sources */,
 				4E677A5C18FC196400E238A4 /* ASIAuthenticationDialog.m in Sources */,
@@ -944,6 +975,7 @@
 				4E677A8E18FC20FB00E238A4 /* FZBaseTableViewController.m in Sources */,
 				4E677A9B18FC25CA00E238A4 /* FZMainViewController.m in Sources */,
 				4E677A1218FC18BB00E238A4 /* main.m in Sources */,
+				4E6FEC98191A25A500E79420 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				1F263AAB190B928000A4A15F /* mztools.c in Sources */,
 				1FE95AF0190BBFC500880549 /* FZFileUitils.m in Sources */,
 				4E677A5E18FC196400E238A4 /* ASIDataDecompressor.m in Sources */,

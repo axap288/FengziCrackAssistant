@@ -233,4 +233,43 @@
                             failureBlock:failureBlock];
 }
 
+/**
+ *  首页banner图片列表接口
+ *
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadHomeBannerWithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                           withFailureBlock:(WSInterfaceFailureBlock)failureBlock
+{
+    NSString *parameterStr = @"m=ios&c=index&a=banner_index";
+    return [self sendBaseRequestWithPara:[NSMutableDictionary dictionary]
+                               uriString:parameterStr
+                            successBlock:successBlock
+                            failureBlock:failureBlock];
+}
+
+/**
+ *  首页游戏推荐列表接口
+ *
+ *  @param pageNum      页数
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadHomeGameListWithPage:(NSString *)pageNum
+                     WithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                     withFailureBlock:(WSInterfaceFailureBlock)failureBlock
+{
+
+    NSString *parameterStr = [NSString stringWithFormat:@"m=ios&c=index&a=gindex&page=%@", pageNum];
+    return [self sendBaseRequestWithPara:[NSMutableDictionary dictionary]
+                               uriString:parameterStr
+                            successBlock:successBlock
+                            failureBlock:failureBlock];
+}
+
 @end

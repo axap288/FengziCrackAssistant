@@ -26,3 +26,4 @@
 
 #define UIColorFromRGB(r,g,b) [UIColor colorWithRed:(float)r/255.0 green:(float)g/255.0 blue:(float)b/255.0 alpha:1.0]
 
+#define kStopPullToRefreshAfterTimeDelay 0.5f

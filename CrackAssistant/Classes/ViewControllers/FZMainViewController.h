@@ -11,4 +11,6 @@
 
 @interface FZMainViewController : FZBaseTableViewController
 
+@property (nonatomic, strong) NSMutableArray *gameListArray;
+
 @end

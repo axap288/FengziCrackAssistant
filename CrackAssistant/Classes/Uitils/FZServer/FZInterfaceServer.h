@@ -53,6 +53,7 @@ typedef void(^WSInterfaceFailureBlock)(NSString *errorMessage);
 -(NSString *)loadUsefulGameSaveFile:(NSDictionary *)allLocalPackage
              withSuccessBlock:(WSInterfaceSuccessBlock)successBlock
              withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
+
 /**
  *  游戏栏目列表
  *
@@ -66,6 +67,30 @@ typedef void(^WSInterfaceFailureBlock)(NSString *errorMessage);
 -(NSString *)loadGamesListWithCatgoryId:(NSString *)cid withPage:(NSString *)pageNum
                  withSuccessBlock:(WSInterfaceSuccessBlock)successBlock
                  withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
+
+/**
+ *  首页banner图片列表接口
+ *
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadHomeBannerWithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                           withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
+
+/**
+ *  首页游戏推荐列表接口
+ *
+ *  @param pageNum      页数
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadHomeGameListWithPage:(NSString *)pageNum
+                     WithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                     withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
 
 
 

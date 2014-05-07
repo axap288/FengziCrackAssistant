@@ -8,3 +8,9 @@
 
 /*   共通提示文字   */
 "alertMessageNetworkUnavailable" = "请确认网络连接";
+
+/*   下拉刷新   */
+"Pull to refresh..." = "下拉刷新...";
+"Release to refresh..." = "释放刷新...";
+"Loading..." = "正在刷新...";
+"GetMore..." = "加载中...";
