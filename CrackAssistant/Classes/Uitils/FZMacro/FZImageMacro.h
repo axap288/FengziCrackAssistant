@@ -28,3 +28,13 @@
 #define Cell_button_install_close_image [UIImage imageNamed:@"fz_crackview_cell_install_close.png"]
 #define Cell_button_install_open_image [UIImage imageNamed:@"fz_crackview_cell_install_open.png"]
 
+// Home
+#define Home_button_game_normal_bg [UIImage imageNamed:@"fz_game_normal_bt_bg.png"]
+#define Home_button_game_selected_bg [UIImage imageNamed:@"fz_game_selected_bt_bg.png"]
+
+#define Home_button_information_normal_bg [UIImage imageNamed:@"fz_information_normal_bt_bg.png"]
+#define Home_button_information_selected_bg [UIImage imageNamed:@"fz_information_selected_bt_bg.png"]
+
+#define Home_button_plugin_normal_bg [UIImage imageNamed:@"fz_plugin_normal_bt_bg.png"]
+#define Home_button_plugin_selected_bg [UIImage imageNamed:@"fz_plugin_selected_bt_bg.png"]
+

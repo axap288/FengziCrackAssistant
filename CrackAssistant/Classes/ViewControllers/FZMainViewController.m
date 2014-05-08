@@ -42,13 +42,34 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.baseTableView.frame = CGRectMake(0, yOffectStatusBar + 44, 320, 416 + yOffect - 49);
+    self.baseTableView.frame = CGRectMake(0, yOffectStatusBar + 35, 320, 425 + yOffect - 49);
     
     if (isIOS7) {
         UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, yOffectStatusBar)];
         statusBarView.backgroundColor = UIColorFromRGB(219, 83, 42);
         [self.view addSubview:statusBarView];
     }
+    
+    UIButton *gameButton = [[UIButton alloc] initWithFrame:CGRectMake(0, yOffectStatusBar, 106, 35)];
+    [gameButton setBackgroundImage:Home_button_game_normal_bg
+                          forState:UIControlStateNormal];
+    [gameButton setBackgroundImage:Home_button_game_selected_bg
+                          forState:UIControlStateHighlighted];
+    [self.view addSubview:gameButton];
+    
+    UIButton *infoButton = [[UIButton alloc] initWithFrame:CGRectMake(106, yOffectStatusBar, 107, 35)];
+    [infoButton setBackgroundImage:Home_button_information_normal_bg
+                          forState:UIControlStateNormal];
+    [infoButton setBackgroundImage:Home_button_information_selected_bg
+                          forState:UIControlStateHighlighted];
+    [self.view addSubview:infoButton];
+    
+    UIButton *pluginButton = [[UIButton alloc] initWithFrame:CGRectMake(213, yOffectStatusBar, 107, 35)];
+    [pluginButton setBackgroundImage:Home_button_plugin_normal_bg
+                          forState:UIControlStateNormal];
+    [pluginButton setBackgroundImage:Home_button_plugin_selected_bg
+                          forState:UIControlStateHighlighted];
+    [self.view addSubview:pluginButton];
     
     // 下拉刷新
     __unsafe_unretained FZMainViewController *mainViewCtrl = self;
