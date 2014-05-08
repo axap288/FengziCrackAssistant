@@ -54,7 +54,7 @@
         // PageControl
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - 15, kImageViewWidth, 4)];
         self.pageControl.currentPage = 0;
-        self.pageControl.pageIndicatorTintColor = [UIColor blackColor];
+//        self.pageControl.pageIndicatorTintColor = [UIColor blackColor];
         [self addSubview:self.pageControl];
     }
     return self;

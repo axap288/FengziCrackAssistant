@@ -42,6 +42,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.baseTableView.frame = CGRectMake(0, yOffectStatusBar + 44, 320, 416 + yOffect - 49);
+    
+    if (isIOS7) {
+        UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, yOffectStatusBar)];
+        statusBarView.backgroundColor = UIColorFromRGB(219, 83, 42);
+        [self.view addSubview:statusBarView];
+    }
+    
     // 下拉刷新
     __unsafe_unretained FZMainViewController *mainViewCtrl = self;
     [self.baseTableView addPullToRefreshWithActionHandler:^{
@@ -59,6 +67,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
