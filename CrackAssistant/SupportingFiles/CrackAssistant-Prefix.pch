@@ -15,4 +15,5 @@
     #import <Foundation/Foundation.h>
     #import "FZMacro.h"
     #import "JSONKit.h"
+    #import "FZImageMacro.h"
 #endif

@@ -279,6 +279,7 @@
 		4E6FEC96191A25A500E79420 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		4E6FEC97191A25A500E79420 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		4E6FEC9A191A298900E79420 /* fz_refresh_arraw_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_refresh_arraw_up@2x.png"; sourceTree = "<group>"; };
+		4E85F2F1191B2EE000B44FCE /* FZImageMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZImageMacro.h; sourceTree = "<group>"; };
 		4E8FA9ED1917860B00D3DA17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4E8FA9EE1917860B00D3DA17 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4E8FA9EF1917860B00D3DA17 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -492,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				4E2CBA9618FEC07500DF50C0 /* FZMacro.h */,
+				4E85F2F1191B2EE000B44FCE /* FZImageMacro.h */,
 			);
 			path = FZMacro;
 			sourceTree = "<group>";

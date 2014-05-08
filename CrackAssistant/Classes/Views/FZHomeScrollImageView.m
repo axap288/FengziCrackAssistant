@@ -11,8 +11,8 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 
-#define kImageViewWidth 320.0
-#define kImageViewHeight  120
+#define kImageViewWidth 310.0
+#define kImageViewHeight  130
 #define kBigNum		1
 #define kBannerChangeTitleTime 5.0f
 #define kBannerAnimationTime 0.5f
@@ -38,12 +38,12 @@
     if (self) {
         // Initialization code
         // ScrollView
-        self.scrollImageView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,
-                                                                              0,
-                                                                              frame.size.width,
-                                                                              frame.size.height)];
+        self.scrollImageView = [[UIScrollView alloc] initWithFrame:CGRectMake(5,
+                                                                              5,
+                                                                              frame.size.width - 10,
+                                                                              frame.size.height - 10)];
         self.scrollImageView.pagingEnabled = YES;
-        self.scrollImageView.backgroundColor = [UIColor grayColor];
+        self.scrollImageView.backgroundColor = [UIColor clearColor];
         self.scrollImageView.showsHorizontalScrollIndicator = NO;
         self.scrollImageView.delegate = self;
         self.scrollImageView.bounces = YES;
@@ -52,7 +52,7 @@
         [self addSubview:self.scrollImageView];
         
         // PageControl
-        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - 10, kImageViewWidth, 4)];
+        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - 15, kImageViewWidth, 4)];
         self.pageControl.currentPage = 0;
         self.pageControl.pageIndicatorTintColor = [UIColor blackColor];
         [self addSubview:self.pageControl];
@@ -80,7 +80,7 @@
         // ScrollView左右各增加一个ImageView，偏移位置为320.
         self.scrollImageView.contentSize = CGSizeMake((imageArray.count) * kImageViewWidth,
                                                       self.scrollImageView.frame.size.height);
-        self.scrollImageView.contentOffset = CGPointMake(kImageViewWidth, 0);
+        self.scrollImageView.contentOffset = CGPointMake(0, 0);
         
         for (int i = 0; i < imageArray.count; i++) {
             
@@ -146,7 +146,7 @@
                          if (contentOffset.x == kImageViewWidth * (self.imageItems.count - 1)) {
                              [self.scrollImageView setContentOffset:CGPointMake(0, 0)];
                          } else {
-                             self.scrollImageView.contentOffset = CGPointMake(contentOffset.x + 320, 0);
+                             self.scrollImageView.contentOffset = CGPointMake(contentOffset.x + kImageViewWidth, 0);
                          }
                          
                      } completion:^(BOOL finished) {
@@ -154,6 +154,7 @@
                          CGPoint offset = _scrollImageView.contentOffset;
                          _cpage = (int)(offset.x / kImageViewWidth);
                          _pageControl.currentPage = _cpage;
+                         
                      }];
 }
 

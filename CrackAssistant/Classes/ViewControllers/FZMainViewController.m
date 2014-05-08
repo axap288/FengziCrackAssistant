@@ -80,7 +80,12 @@
     FZInterfaceServer *interfaceServer = [FZInterfaceServer getShareInstance];
     [interfaceServer loadHomeBannerWithSuccessBlock:^(id responseObject) {
         
-        NSArray *imageArray = [responseObject mutableObjectFromJSONString];
+        NSArray *bannerArray = [responseObject mutableObjectFromJSONString];
+        
+        NSMutableArray *imageArray = [NSMutableArray array];
+        for (NSDictionary *bannerDic in bannerArray) {
+            [imageArray addObject:[bannerDic objectForKey:@"path"]];
+        }
         
         self.baseTableView.tableHeaderView = [self createHomeBannerScrollView:imageArray];
         
@@ -117,7 +122,7 @@
 // 创建首页焦点图
 - (UIView *)createHomeBannerScrollView:(NSArray *)imageArray
 {
-    FZHomeScrollImageView *imageScrollView = [[FZHomeScrollImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 130)];
+    FZHomeScrollImageView *imageScrollView = [[FZHomeScrollImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 140)];
     [imageScrollView setScrollImageViewImage:imageArray];
     
     return imageScrollView;
@@ -184,6 +189,18 @@
         detailLabel.font = [UIFont systemFontOfSize:11];
         detailLabel.tag = 104;
         [cell addSubview:detailLabel];
+        
+        UIButton *openInstallCellButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        openInstallCellButton.frame = CGRectMake(263, 11, 52, 52);
+        openInstallCellButton.tag = 105;
+        [openInstallCellButton setImage:Cell_button_install_open_image
+                               forState:UIControlStateNormal];
+        [openInstallCellButton setImage:Cell_button_install_close_image
+                               forState:UIControlStateHighlighted];
+        
+        // [openInstallCellButton addTarget:self action:@selector(openPullDownCellAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:openInstallCellButton];
+
     }
     
     // Configure the cell...
