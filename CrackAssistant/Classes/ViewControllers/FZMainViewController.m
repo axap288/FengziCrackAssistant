@@ -15,11 +15,15 @@
 #import "SVPullToRefresh.h"
 
 #define kCellHeight 72
+#define kCellOpenHeight 144
+#define kMaxInteger 10000
 
 @interface FZMainViewController ()
 
 @property (nonatomic, assign) BOOL isBannerFinish;
 @property (nonatomic, assign) BOOL isGameListFinish;
+
+@property (nonatomic, assign) NSInteger openRow;
 
 // 获取首页Banner图片
 - (void)getHomeBannerInfo;
@@ -27,11 +31,17 @@
 // 获取首页推荐游戏列表
 - (void)getHomeGameListInfo;
 
+// 创建顶部按钮（游戏，咨询，插件）
+- (void)createTopButtons;
+
 // 创建首页焦点图
 - (UIView *)createHomeBannerScrollView:(NSArray *)imageArray;
 
 // 停止下拉刷新
 - (void)stopPullToRefreshStop;
+
+// 应用安装按钮事件
+- (void)gameInstallButtonClicked:(id)sender;
 
 @end
 
@@ -49,27 +59,7 @@
         statusBarView.backgroundColor = UIColorFromRGB(219, 83, 42);
         [self.view addSubview:statusBarView];
     }
-    
-    UIButton *gameButton = [[UIButton alloc] initWithFrame:CGRectMake(0, yOffectStatusBar, 106, 35)];
-    [gameButton setBackgroundImage:Home_button_game_normal_bg
-                          forState:UIControlStateNormal];
-    [gameButton setBackgroundImage:Home_button_game_selected_bg
-                          forState:UIControlStateHighlighted];
-    [self.view addSubview:gameButton];
-    
-    UIButton *infoButton = [[UIButton alloc] initWithFrame:CGRectMake(106, yOffectStatusBar, 107, 35)];
-    [infoButton setBackgroundImage:Home_button_information_normal_bg
-                          forState:UIControlStateNormal];
-    [infoButton setBackgroundImage:Home_button_information_selected_bg
-                          forState:UIControlStateHighlighted];
-    [self.view addSubview:infoButton];
-    
-    UIButton *pluginButton = [[UIButton alloc] initWithFrame:CGRectMake(213, yOffectStatusBar, 107, 35)];
-    [pluginButton setBackgroundImage:Home_button_plugin_normal_bg
-                          forState:UIControlStateNormal];
-    [pluginButton setBackgroundImage:Home_button_plugin_selected_bg
-                          forState:UIControlStateHighlighted];
-    [self.view addSubview:pluginButton];
+    [self createTopButtons];
     
     // 下拉刷新
     __unsafe_unretained FZMainViewController *mainViewCtrl = self;
@@ -80,6 +70,8 @@
         
         [mainViewCtrl getHomeBannerInfo];
         [mainViewCtrl getHomeGameListInfo];
+        
+        mainViewCtrl.openRow = kMaxInteger;
     }];
     
     [self.baseTableView triggerPullToRefresh];
@@ -149,6 +141,34 @@
                              }];
 }
 
+// 创建顶部按钮（游戏，咨询，插件）
+- (void)createTopButtons
+{
+    // 游戏
+    UIButton *gameButton = [[UIButton alloc] initWithFrame:CGRectMake(0, yOffectStatusBar, 106, 35)];
+    [gameButton setBackgroundImage:Home_button_game_normal_bg
+                          forState:UIControlStateNormal];
+    [gameButton setBackgroundImage:Home_button_game_selected_bg
+                          forState:UIControlStateHighlighted];
+    [self.view addSubview:gameButton];
+    
+    // 资讯
+    UIButton *infoButton = [[UIButton alloc] initWithFrame:CGRectMake(106, yOffectStatusBar, 107, 35)];
+    [infoButton setBackgroundImage:Home_button_information_normal_bg
+                          forState:UIControlStateNormal];
+    [infoButton setBackgroundImage:Home_button_information_selected_bg
+                          forState:UIControlStateHighlighted];
+    [self.view addSubview:infoButton];
+    
+    // 插件
+    UIButton *pluginButton = [[UIButton alloc] initWithFrame:CGRectMake(213, yOffectStatusBar, 107, 35)];
+    [pluginButton setBackgroundImage:Home_button_plugin_normal_bg
+                            forState:UIControlStateNormal];
+    [pluginButton setBackgroundImage:Home_button_plugin_selected_bg
+                            forState:UIControlStateHighlighted];
+    [self.view addSubview:pluginButton];
+}
+
 // 创建首页焦点图
 - (UIView *)createHomeBannerScrollView:(NSArray *)imageArray
 {
@@ -166,6 +186,21 @@
                                                    withObject:nil
                                                    afterDelay:kStopPullToRefreshAfterTimeDelay];
     }
+}
+
+// 应用安装按钮事件
+- (void)gameInstallButtonClicked:(id)sender
+{
+    UIView *view = (UIButton *)sender;
+    while (![view isKindOfClass:[UITableViewCell class]]) {
+        view = [view superview];
+    }
+    UITableViewCell *cell = (UITableViewCell *)view;
+    NSIndexPath *indexPath = [self.baseTableView indexPathForCell:cell];
+    
+    self.openRow = indexPath.row;
+    
+    [self.baseTableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -227,20 +262,35 @@
                                forState:UIControlStateNormal];
         [openInstallCellButton setImage:Cell_button_install_close_image
                                forState:UIControlStateHighlighted];
-        
-        // [openInstallCellButton addTarget:self action:@selector(openPullDownCellAction:) forControlEvents:UIControlEventTouchUpInside];
+        [openInstallCellButton addTarget:self action:@selector(gameInstallButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [cell addSubview:openInstallCellButton];
+        
+        UIButton *installCrackGameButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        installCrackGameButton.frame = CGRectMake(62, 92, 75, 23);
+        installCrackGameButton.tag = 2009;
+        [installCrackGameButton setImage:Cell_button_installCrackAPP_normal_image forState:UIControlStateNormal];
+        [installCrackGameButton setImage:Cell_button_installCrackAPP_selected_image forState:UIControlStateHighlighted];
+        // [installCrackGameButton addTarget:self action:@selector(clickInstallCrackGameButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:installCrackGameButton];
+        
+        UIButton *installGeneralGameButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        installGeneralGameButton.frame = CGRectMake(181, 92, 75, 23);
+        installGeneralGameButton.tag = 2010;
+        [installGeneralGameButton setImage:Cell_button_installAPP_normal_image forState:UIControlStateNormal];
+        [installGeneralGameButton setImage:Cell_button_installAPP_selected_image forState:UIControlStateHighlighted];
+        [cell addSubview:installGeneralGameButton];
 
     }
     
     // Configure the cell...
     NSDictionary *gameInfo = [self.gameListArray objectAtIndex:indexPath.row];
     
+    // 图片
     UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:101];
     [thumbnailView setImageWithURL:[NSURL URLWithString:[gameInfo objectForKey:@"thumb"]]
                      placeholderImage:[UIImage imageNamed:@""]];
     
-    
+    // 名称
     UILabel *gameTitle = (UILabel *)[cell viewWithTag:102];
     gameTitle.text = [gameInfo objectForKey:@"title"];
     
@@ -258,7 +308,12 @@
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return kCellHeight;
+    
+    if (indexPath.row == self.openRow) {
+        return kCellOpenHeight;
+    } else {
+        return kCellHeight;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -56,7 +56,11 @@
 - (void)viewDidLoad
 {
     
-    self.view.backgroundColor = [UIColor orangeColor];
+    if (isIOS7) {
+        UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, yOffectStatusBar)];
+        statusBarView.backgroundColor = UIColorFromRGB(219, 83, 42);
+        [self.view addSubview:statusBarView];
+    }
     
     [self getRemoteCrackGames];
     [self findlocalGames];
