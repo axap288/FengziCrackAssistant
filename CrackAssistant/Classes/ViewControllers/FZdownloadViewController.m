@@ -200,7 +200,7 @@
     UIButton *button = (UIButton *)sender;
     UILabel *value = (UILabel *)[button viewWithTag:4444];
     FZGameFile *gamefile = [downloadList objectAtIndex:[value.text integerValue]];
-    switch (gamefile.state) {
+    switch (gamefile.downloadState) {
         case downloading:
             [downloadManager stopDownloadUseURL:gamefile.downloadUrl];
             break;
@@ -234,7 +234,7 @@
     [controlbutton addSubview:indexlabel];
     [controlbutton addTarget:self action:@selector(clickCellButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    if (gamefile.state == downloading) {
+    if (gamefile.downloadState == downloading) {
         [controlbutton setTitle:@"暂停" forState:UIControlStateNormal];
         [controlbutton setBackgroundColor:[UIColor orangeColor]];
         //downloadStateLabel.text = @"正在下载";
@@ -248,12 +248,12 @@
 
         
     }
-    if (gamefile.state == suspend) {
+    if (gamefile.downloadState == suspend) {
         [controlbutton setTitle:@"继续" forState:UIControlStateNormal];
         [controlbutton setBackgroundColor:[UIColor lightGrayColor]];
         downloadStateLabel.text = @"暂停下载";
     }
-    if (gamefile.state == waitting) {
+    if (gamefile.downloadState == waitting) {
         [controlbutton setTitle:@"移除" forState:UIControlStateNormal];
         [controlbutton setBackgroundColor:[UIColor darkGrayColor]];
         downloadStateLabel.text = @"等待下载";
@@ -302,7 +302,7 @@
             
             if ([downloadList count] !=0) {
                 FZGameFile *obj = (FZGameFile*)[downloadList objectAtIndex:0];
-                NSLog(@"vc downloadList object state:%d",obj.state);
+                NSLog(@"vc downloadList object state:%d",obj.downloadState);
             }
 
         }

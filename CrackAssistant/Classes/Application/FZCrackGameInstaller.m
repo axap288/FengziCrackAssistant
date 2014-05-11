@@ -230,7 +230,7 @@
         [self scanAllUserInstallAPP];
     }
     
-    __block NSString *appHomePath;
+    __block NSString *appHomePath = nil;
     //根据包名查找app的绝对路径
     [[allAppIdentifier allKeys] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSString *p = obj;
@@ -243,6 +243,24 @@
         }
     }];
     return appHomePath;
+}
+
+-(NSString *)getAppVersionByIdentifier:(NSString *)Identifier
+{
+    if (allAppIdentifier == nil) {
+        [self scanAllUserInstallAPP];
+    }
+    
+    __block NSString *appversion = nil;
+    [[allAppIdentifier allKeys] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *p = obj;
+        if ([p isEqualToString:Identifier]) {
+            NSDictionary *dic = [allAppIdentifier objectForKey:Identifier];
+            appversion = [dic objectForKey:@"appVersion"];
+            *stop = YES;
+        }
+    }];
+    return appversion;
 }
 
 -(BOOL)backupSourceAppFilesByIdentifier:(NSString *)Identifier

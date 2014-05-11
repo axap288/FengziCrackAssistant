@@ -53,7 +53,7 @@
 /**
  * 判断是否破结果
  *
- *  @param appPackage 包名
+ *  @param Identifier 唯一标识（包名）
  *
  *  @return YES:已破解
  */
@@ -64,6 +64,23 @@
  *  @param packageName
  */
 -(void)launchAppByIdentifier:(NSString *)Identifier;
+/**
+ *  根据Identifier得到此APP在设备中的绝对路径
+ *
+ *  @param Identifier  唯一标识（包名）
+ *
+ *  @return 路径
+ */
+-(NSString *)getAppHomePathByIdentifier:(NSString *)Identifier;
+/**
+ *  获取设备的版本号
+ *
+ *  @param Identifier
+ *
+ *  @return 版本号
+ */
+-(NSString *)getAppVersionByIdentifier:(NSString *)Identifier;
+
 
 
 

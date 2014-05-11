@@ -95,8 +95,8 @@
          if (requestcount < _maxDownLoad) {
              [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                   FZGameFile *object = obj;
-                 if(object.state == waitting){
-                     object.state = downloading;
+                 if(object.downloadState == waitting){
+                     object.downloadState = downloading;
                      [NSThread detachNewThreadSelector:@selector(createDownloadHttpRequest:) toTarget:self withObject:object];
                      *stop = YES;
                      [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
@@ -140,7 +140,7 @@
     if (isFindInDownloadQueue) {
         
     }else{
-        model.state = waitting;
+        model.downloadState = waitting;
         [_downloadingQueue addObject:model];
     }
 }
@@ -159,7 +159,7 @@
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
         if ([model.downloadUrl isEqualToString:URL]) {
-            model.state = suspend;
+            model.downloadState = suspend;
             *stop = YES;
         }
     }];
@@ -171,7 +171,7 @@
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
         if ([model.downloadUrl isEqualToString:URL]) {
-            model.state = waitting;
+            model.downloadState = waitting;
             *stop = YES;
         }
     }];
@@ -205,7 +205,7 @@
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *model = obj;
         if ([model.downloadUrl isEqualToString:URL]) {
-            model.state = downloading;
+            model.downloadState = downloading;
             [_downloadingQueue removeObject:model];
             *stop = YES;
         }
@@ -227,7 +227,7 @@
         FZGameFile *model = obj;
         if ([model.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
             NSLog(@"%@下载完毕", model.name);
-            model.state = over;
+            model.downloadState = over;
             [_overDownloadQueue addObject:model];
             [_downloadingQueue removeObject:model];
             requestcount --;
@@ -243,7 +243,7 @@
         FZGameFile *model = obj;
         if ([model.downloadUrl isEqualToString:[userinfo objectForKey:request_key]]) {
             NSLog(@"%@下载失败", model.name);
-            model.state = suspend;
+            model.downloadState = suspend;
             requestcount --;
             *stop = YES;
         }
@@ -294,7 +294,7 @@
     //先暂停所有正在下载的任务
     [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         FZGameFile *gamefile = (FZGameFile *)obj;
-        if (gamefile.state == downloading) {
+        if (gamefile.downloadState == downloading) {
             [self stopDownloadUseURL:gamefile.downloadUrl];
         }
     }];
@@ -325,6 +325,32 @@
 {
     NSLog(@"ArchiveFile.....");
     [self writeQueuesToArchiveFile];
+}
+
+-(Boolean)checkIfDownloading:(id)model
+{
+    __block Boolean result = NO;
+    FZGameFile *fzgame = model;
+    [_downloadingQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        FZGameFile *object = obj;
+        if ([object.name isEqualToString:fzgame.name] && [object.downloadUrl isEqualToString:fzgame.downloadUrl]) {
+            result = YES;
+        }
+    }];
+    return result;
+}
+
+-(Boolean)checkifOverDownload:(id)model
+{
+    __block Boolean result = NO;
+    FZGameFile *fzgame = model;
+    [_overDownloadQueue enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        FZGameFile *object = obj;
+        if ([object.name isEqualToString:fzgame.name] && [object.downloadUrl isEqualToString:fzgame.downloadUrl]) {
+            result = YES;
+        }
+    }];
+    return result;
 }
 
 

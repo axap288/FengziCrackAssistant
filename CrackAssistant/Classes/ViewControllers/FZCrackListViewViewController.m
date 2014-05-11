@@ -105,7 +105,7 @@
             fzGame.version = [content objectForKey:@"version"];
             fzGame.downloadNum = [content objectForKey:@"loadnum"];
             fzGame.thumbnail = [content objectForKey:@"thumb"];
-            fzGame.packageName = [content objectForKey:@"bundleId"];
+            fzGame.Identifier = [content objectForKey:@"bundleId"];
             fzGame.crackFileUrl = [content objectForKey:@"attach"];
             NSLog(@"%@",fzGame.name);
 //            [temp addObject:fzGame];
@@ -328,7 +328,7 @@
                 //判断按钮的可点击状态
                 NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
                 FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-                BOOL isCrack = [crackGameInstaller checkIsCrackByIdentifier:gamefile.packageName];
+                BOOL isCrack = [crackGameInstaller checkIsCrackByIdentifier:gamefile.Identifier];
                 if (isCrack) {
                     crackButton.enabled = NO;
                     recoverButton.enabled = YES;
@@ -626,7 +626,7 @@
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-    BOOL success = [crackGameInstaller installCrackFile:gamefile.crackFileUrl toAPP:gamefile.packageName];
+    BOOL success = [crackGameInstaller installCrackFile:gamefile.crackFileUrl toAPP:gamefile.Identifier];
     if (success) {
 //        UIButton *crackbutton = (UIButton *)sender;
 //        crackbutton.enabled = NO;
@@ -644,7 +644,7 @@
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-    BOOL success = [crackGameInstaller recoverCrackByIdentifier:gamefile.packageName];
+    BOOL success = [crackGameInstaller recoverCrackByIdentifier:gamefile.Identifier];
     if (success) {
         [self.tableview reloadData];
     }
@@ -654,7 +654,7 @@
 {
     NSUInteger selectGameIndex = selectCellAtlocalGame - 1;
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
-    [crackGameInstaller launchAppByIdentifier:gamefile.packageName];
+    [crackGameInstaller launchAppByIdentifier:gamefile.Identifier];
 }
 
 -(void)clickInstallCrackGameButtonAction:(id)sender

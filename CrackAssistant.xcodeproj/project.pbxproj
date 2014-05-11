@@ -37,6 +37,7 @@
 		1F80568718F5326A00BF39A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80566C18F5326A00BF39A7 /* Foundation.framework */; };
 		1F80568818F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
 		1F90E5EF190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */; };
+		1F98B2B2191FC10600D5C7E1 /* FZGameAppStateQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98B2B1191FC10600D5C7E1 /* FZGameAppStateQuery.m */; };
 		1FCD61DF191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */; };
 		1FCD61E0191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DC191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png */; };
 		1FCD61E1191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DD191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png */; };
@@ -154,8 +155,8 @@
 		1F623FEC18FE873100D87F16 /* FZCommonUitils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZCommonUitils.m; sourceTree = "<group>"; };
 		1F729A1A18FD3B6A00BDE86F /* FZCrackListViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZCrackListViewViewController.h; sourceTree = "<group>"; };
 		1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZCrackListViewViewController.m; sourceTree = "<group>"; };
-		1F729A1D18FD5A7500BDE86F /* FZDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZDownloadManager.h; sourceTree = "<group>"; };
-		1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZDownloadManager.m; sourceTree = "<group>"; };
+		1F729A1D18FD5A7500BDE86F /* FZDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FZDownloadManager.h; path = ../Uitils/FZDownloadManager.h; sourceTree = "<group>"; };
+		1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FZDownloadManager.m; path = ../Uitils/FZDownloadManager.m; sourceTree = "<group>"; };
 		1F7FFF5718FE29A700A3C5EE /* FZGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGame.h; sourceTree = "<group>"; };
 		1F7FFF5818FE29A700A3C5EE /* FZGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGame.m; sourceTree = "<group>"; };
 		1F7FFF5D18FE513D00A3C5EE /* downloadListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = downloadListCell.xib; sourceTree = "<group>"; };
@@ -171,6 +172,8 @@
 		1F80568418F5326A00BF39A7 /* CrackAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrackAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F80568518F5326A00BF39A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_recover_disable@2x.png"; sourceTree = "<group>"; };
+		1F98B2B0191FC10600D5C7E1 /* FZGameAppStateQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameAppStateQuery.h; sourceTree = "<group>"; };
+		1F98B2B1191FC10600D5C7E1 /* FZGameAppStateQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameAppStateQuery.m; sourceTree = "<group>"; };
 		1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton_selected@2x.png"; sourceTree = "<group>"; };
 		1FCD61DC191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton1_selected@2x.png"; sourceTree = "<group>"; };
 		1FCD61DD191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton_normal@2x.png"; sourceTree = "<group>"; };
@@ -549,6 +552,10 @@
 				4E677A8D18FC20FB00E238A4 /* FZBaseTableViewController.m */,
 				1F263A98190B8EA100A4A15F /* FZCrackGameInstaller.h */,
 				1F263A99190B8EA100A4A15F /* FZCrackGameInstaller.m */,
+				1F729A1D18FD5A7500BDE86F /* FZDownloadManager.h */,
+				1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */,
+				1F98B2B0191FC10600D5C7E1 /* FZGameAppStateQuery.h */,
+				1F98B2B1191FC10600D5C7E1 /* FZGameAppStateQuery.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -674,8 +681,6 @@
 				4E2CBA9518FEC04E00DF50C0 /* FZMacro */,
 				4E677A9E18FC267800E238A4 /* FZCustomUI */,
 				4E677A5218FC196400E238A4 /* FZServer */,
-				1F729A1D18FD5A7500BDE86F /* FZDownloadManager.h */,
-				1F729A1E18FD5A7500BDE86F /* FZDownloadManager.m */,
 				1F623FEB18FE873100D87F16 /* FZCommonUitils.h */,
 				1F623FEC18FE873100D87F16 /* FZCommonUitils.m */,
 			);
@@ -990,6 +995,7 @@
 				1F263A9A190B8EA100A4A15F /* FZCrackGameInstaller.m in Sources */,
 				4E6FEC99191A25A500E79420 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				4E677A6E18FC196400E238A4 /* UIImageView+WebCache.m in Sources */,
+				1F98B2B2191FC10600D5C7E1 /* FZGameAppStateQuery.m in Sources */,
 				1F7FFF6418FE570400A3C5EE /* FZDownloadListCell.m in Sources */,
 				4E677A5C18FC196400E238A4 /* ASIAuthenticationDialog.m in Sources */,
 				4E677A9C18FC25CA00E238A4 /* FZmoreViewController.m in Sources */,
@@ -1122,7 +1128,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang yuan (3M3L2Q3WP4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
@@ -1147,7 +1153,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang yuan (3M3L2Q3WP4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrackAssistant/SupportingFiles/CrackAssistant-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";

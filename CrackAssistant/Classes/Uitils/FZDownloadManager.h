@@ -56,6 +56,22 @@
  *  @param mid 
  */
 -(void)removeOneWaittingUseURL:(NSString *)URL;
+/**
+ *  判断一个app是否在下载队列
+ *
+ *  @param model
+ *
+ *  @return
+ */
+-(Boolean)checkIfDownloading:(id)model;
+/**
+ *  判断一个app是否在下载完队列
+ *
+ *  @param model
+ *
+ *  @return
+ */
+-(Boolean)checkifOverDownload:(id)model;
 
 
 
