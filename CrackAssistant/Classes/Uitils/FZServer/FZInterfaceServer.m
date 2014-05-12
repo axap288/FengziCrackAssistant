@@ -272,4 +272,25 @@
                             failureBlock:failureBlock];
 }
 
+/**
+ *  游戏列表接口
+ *
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadGameListWithClassId:(NSString *)classId
+                            WithPage:(NSString *)pageNum
+                    WithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                    withFailureBlock:(WSInterfaceFailureBlock)failureBlock
+{
+    
+    NSString *parameterStr = [NSString stringWithFormat:@"m=ios&c=index&a=glists&catid=%@&page=%@", classId, pageNum];
+    return [self sendBaseRequestWithPara:[NSMutableDictionary dictionary]
+                               uriString:parameterStr
+                            successBlock:successBlock
+                            failureBlock:failureBlock];
+}
+
 @end

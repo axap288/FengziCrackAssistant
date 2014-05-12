@@ -6,6 +6,12 @@
 //  Copyright (c) 2014年 疯子. All rights reserved.
 //
 
+// Common
+#define Nav_back_button_normal_bg [UIImage imageNamed:@"fz_nav_back_bt_normal_bg.png"]
+#define Nav_back_button_selected_bg [UIImage imageNamed:@"fz_nav_back_bt_selected_bg.png"]
+
+#define Image_plcaeholder_bg [UIImage imageNamed:@"fz_placeholder.png"]
+
 
 #define SectionView_bg_image [UIImage imageNamed:@"fz_crackview_sectionview_bg.png"]
 #define SectionView_logo1_image [UIImage imageNamed:@"fz_crackview_sectionview_logo1.png"]
@@ -37,4 +43,6 @@
 
 #define Home_button_plugin_normal_bg [UIImage imageNamed:@"fz_plugin_normal_bt_bg.png"]
 #define Home_button_plugin_selected_bg [UIImage imageNamed:@"fz_plugin_selected_bt_bg.png"]
+#define Home_game_title_bg [UIImage imageNamed:@"fz_game_title_bg.png"]
+
 

@@ -14,3 +14,6 @@
 "Release to refresh..." = "释放刷新...";
 "Loading..." = "正在刷新...";
 "GetMore..." = "加载中...";
+
+/*   共通   */
+"navBackButtonTitle" = "返回";

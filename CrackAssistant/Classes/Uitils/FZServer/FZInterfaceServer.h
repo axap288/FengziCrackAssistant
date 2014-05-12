@@ -92,6 +92,17 @@ typedef void(^WSInterfaceFailureBlock)(NSString *errorMessage);
                      WithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
                      withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
 
-
+/**
+ *  游戏列表接口
+ *
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadGameListWithClassId:(NSString *)classId
+                            WithPage:(NSString *)pageNum
+                    WithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                    withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
 
 @end

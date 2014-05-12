@@ -47,6 +47,10 @@
 		1FCE70FB1906B355000206DB /* fz_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCE70F31906B355000206DB /* fz_placeholder@2x.png */; };
 		1FE95AF0190BBFC500880549 /* FZFileUitils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE95AEF190BBFC500880549 /* FZFileUitils.m */; };
 		1FFC7146190D7A62003A4C28 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC7145190D7A62003A4C28 /* Entitlements.plist */; };
+		4E4D99A31920985D00C32CBF /* FZGameListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D99A21920985D00C32CBF /* FZGameListViewController.m */; };
+		4E4D99A51920AC5400C32CBF /* fz_game_title_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D99A41920AC5400C32CBF /* fz_game_title_bg@2x.png */; };
+		4E4D99A81920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D99A61920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png */; };
+		4E4D99A91920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D99A71920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png */; };
 		4E4FE7E118FE51D200957AE9 /* FZGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */; };
 		4E5C4DA118FD65FA00667B23 /* FZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA018FD65FA00667B23 /* FZTabBarController.m */; };
 		4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA318FD738000667B23 /* fz_tabbar_gray_bg@2x.png */; };
@@ -181,18 +185,16 @@
 		1FCD61E31916520A009012C2 /* fz_crackview_cell_install_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_install_close@2x.png"; sourceTree = "<group>"; };
 		1FCD61E41916520A009012C2 /* fz_crackview_cell_install_open@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_install_open@2x.png"; sourceTree = "<group>"; };
 		1FCE70F31906B355000206DB /* fz_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_placeholder@2x.png"; sourceTree = "<group>"; };
-		1FCE70F41906B355000206DB /* 关于按钮的效果图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于按钮的效果图.png"; sourceTree = "<group>"; };
-		1FCE70F51906B355000206DB /* 破解_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_19.png"; sourceTree = "<group>"; };
-		1FCE70F61906B355000206DB /* 破解_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_22.png"; sourceTree = "<group>"; };
-		1FCE70F71906B355000206DB /* 破解_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_24.png"; sourceTree = "<group>"; };
-		1FCE70F81906B355000206DB /* 破解_26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_26.png"; sourceTree = "<group>"; };
-		1FCE70F91906B355000206DB /* 破解_28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_28.png"; sourceTree = "<group>"; };
-		1FCE70FA1906B355000206DB /* 破解_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "破解_30.png"; sourceTree = "<group>"; };
 		1FE95AEE190BBFC500880549 /* FZFileUitils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZFileUitils.h; sourceTree = "<group>"; };
 		1FE95AEF190BBFC500880549 /* FZFileUitils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZFileUitils.m; sourceTree = "<group>"; };
 		1FF6F3991903FF6000C5E645 /* crackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = crackCell.xib; sourceTree = "<group>"; };
 		1FFC7145190D7A62003A4C28 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4E2CBA9618FEC07500DF50C0 /* FZMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZMacro.h; sourceTree = "<group>"; };
+		4E4D99A11920985D00C32CBF /* FZGameListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameListViewController.h; sourceTree = "<group>"; };
+		4E4D99A21920985D00C32CBF /* FZGameListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameListViewController.m; sourceTree = "<group>"; };
+		4E4D99A41920AC5400C32CBF /* fz_game_title_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_game_title_bg@2x.png"; sourceTree = "<group>"; };
+		4E4D99A61920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_nav_back_bt_normal_bg@2x.png"; sourceTree = "<group>"; };
+		4E4D99A71920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_nav_back_bt_selected_bg@2x.png"; sourceTree = "<group>"; };
 		4E4FE7DF18FE51D200957AE9 /* FZGameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameDetailViewController.h; sourceTree = "<group>"; };
 		4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameDetailViewController.m; sourceTree = "<group>"; };
 		4E5C4D9F18FD65FA00667B23 /* FZTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZTabBarController.h; sourceTree = "<group>"; };
@@ -492,14 +494,9 @@
 		1FCE70F21906B355000206DB /* common */ = {
 			isa = PBXGroup;
 			children = (
+				4E4D99A61920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png */,
+				4E4D99A71920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png */,
 				1FCE70F31906B355000206DB /* fz_placeholder@2x.png */,
-				1FCE70F41906B355000206DB /* 关于按钮的效果图.png */,
-				1FCE70F51906B355000206DB /* 破解_19.png */,
-				1FCE70F61906B355000206DB /* 破解_22.png */,
-				1FCE70F71906B355000206DB /* 破解_24.png */,
-				1FCE70F81906B355000206DB /* 破解_26.png */,
-				1FCE70F91906B355000206DB /* 破解_28.png */,
-				1FCE70FA1906B355000206DB /* 破解_30.png */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -717,6 +714,8 @@
 				1F729A1B18FD3B6A00BDE86F /* FZCrackListViewViewController.m */,
 				4E4FE7DF18FE51D200957AE9 /* FZGameDetailViewController.h */,
 				4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */,
+				4E4D99A11920985D00C32CBF /* FZGameListViewController.h */,
+				4E4D99A21920985D00C32CBF /* FZGameListViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -799,6 +798,7 @@
 		4E85F2F4191B7A4500B44FCE /* home */ = {
 			isa = PBXGroup;
 			children = (
+				4E4D99A41920AC5400C32CBF /* fz_game_title_bg@2x.png */,
 				4E85F2F5191B7A4500B44FCE /* fz_game_normal_bt_bg@2x.png */,
 				4E85F2F6191B7A4500B44FCE /* fz_game_selected_bt_bg@2x.png */,
 				4E85F2F7191B7A4500B44FCE /* fz_information_normal_bt_bg@2x.png */,
@@ -910,6 +910,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2DF3B81903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png in Resources */,
+				4E4D99A91920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png in Resources */,
 				4E5C4DAB18FD74E700667B23 /* fz_tabbar_download_bg@2x.png in Resources */,
 				4E8FA9F11917860B00D3DA17 /* Default.png in Resources */,
 				1FCD61E61916520A009012C2 /* fz_crackview_cell_install_open@2x.png in Resources */,
@@ -927,11 +928,13 @@
 				4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */,
 				4E85F2FC191B7A4500B44FCE /* fz_game_selected_bt_bg@2x.png in Resources */,
 				4E8FA9F21917860B00D3DA17 /* Default@2x.png in Resources */,
+				4E4D99A51920AC5400C32CBF /* fz_game_title_bg@2x.png in Resources */,
 				1F90E5EF190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png in Resources */,
 				4E8FA9F9191786FF00D3DA17 /* Icon.png in Resources */,
 				4E85F2FE191B7A4500B44FCE /* fz_information_selected_bt_bg@2x.png in Resources */,
 				1FFC7146190D7A62003A4C28 /* Entitlements.plist in Resources */,
 				1F29BA14190809B3008441A6 /* postinst in Resources */,
+				4E4D99A81920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png in Resources */,
 				4E8FA9FA191786FF00D3DA17 /* Icon@2x.png in Resources */,
 				1F2DF3BD1903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png in Resources */,
 				4E5C4DAD18FD74E700667B23 /* fz_tabbar_more_bg@2x.png in Resources */,
@@ -1007,6 +1010,7 @@
 				1F263AAE190B928000A4A15F /* SSZipArchive.m in Sources */,
 				4E677A6218FC196400E238A4 /* ASIInputStream.m in Sources */,
 				1F263AAF190B928000A4A15F /* ZipArchive.mm in Sources */,
+				4E4D99A31920985D00C32CBF /* FZGameListViewController.m in Sources */,
 				4E677A5D18FC196400E238A4 /* ASIDataCompressor.m in Sources */,
 				4E677A6818FC196400E238A4 /* SDImageCache.m in Sources */,
 				1F263AAA190B928000A4A15F /* ioapi.c in Sources */,
@@ -1067,6 +1071,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1085,6 +1090,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1105,7 +1111,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1116,6 +1123,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1134,7 +1142,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
@@ -1159,7 +1167,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;

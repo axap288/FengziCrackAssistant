@@ -14,6 +14,8 @@
 #import "UIImageView+WebCache.h"
 #import "SVPullToRefresh.h"
 
+#import "FZGameListViewController.h"
+
 #define kCellHeight 72
 #define kCellOpenHeight 144
 #define kMaxInteger 10000
@@ -42,6 +44,9 @@
 
 // 应用安装按钮事件
 - (void)gameInstallButtonClicked:(id)sender;
+
+// 展示游戏列表按钮事件
+- (void)showGameListButtonClicked:(id)sender;
 
 @end
 
@@ -77,15 +82,10 @@
     [self.baseTableView triggerPullToRefresh];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
     [self showTabBar:YES withAnimation:YES];
 }
 
@@ -150,6 +150,7 @@
                           forState:UIControlStateNormal];
     [gameButton setBackgroundImage:Home_button_game_selected_bg
                           forState:UIControlStateHighlighted];
+    [gameButton addTarget:self action:@selector(showGameListButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:gameButton];
     
     // 资讯
@@ -201,6 +202,20 @@
     self.openRow = indexPath.row;
     
     [self.baseTableView reloadData];
+}
+
+// 展示游戏列表按钮事件
+- (void)showGameListButtonClicked:(id)sender
+{
+    FZGameListViewController *gameListCtrl = [[FZGameListViewController alloc] init];
+    
+    if (!isIOS7) {
+        gameListCtrl.hidesBottomBarWhenPushed = YES;
+    }
+    
+    [self showTabBar:NO withAnimation:YES];
+    
+    [self.navigationController pushViewController:gameListCtrl animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -267,7 +282,7 @@
         
         UIButton *installCrackGameButton = [UIButton buttonWithType:UIButtonTypeCustom];
         installCrackGameButton.frame = CGRectMake(62, 92, 75, 23);
-        installCrackGameButton.tag = 2009;
+        installCrackGameButton.tag = 106;
         [installCrackGameButton setImage:Cell_button_installCrackAPP_normal_image forState:UIControlStateNormal];
         [installCrackGameButton setImage:Cell_button_installCrackAPP_selected_image forState:UIControlStateHighlighted];
         // [installCrackGameButton addTarget:self action:@selector(clickInstallCrackGameButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -275,7 +290,7 @@
         
         UIButton *installGeneralGameButton = [UIButton buttonWithType:UIButtonTypeCustom];
         installGeneralGameButton.frame = CGRectMake(181, 92, 75, 23);
-        installGeneralGameButton.tag = 2010;
+        installGeneralGameButton.tag = 107;
         [installGeneralGameButton setImage:Cell_button_installAPP_normal_image forState:UIControlStateNormal];
         [installGeneralGameButton setImage:Cell_button_installAPP_selected_image forState:UIControlStateHighlighted];
         [cell addSubview:installGeneralGameButton];
@@ -288,7 +303,7 @@
     // 图片
     UIImageView *thumbnailView = (UIImageView *)[cell viewWithTag:101];
     [thumbnailView setImageWithURL:[NSURL URLWithString:[gameInfo objectForKey:@"thumb"]]
-                     placeholderImage:[UIImage imageNamed:@""]];
+                     placeholderImage:Image_plcaeholder_bg];
     
     // 名称
     UILabel *gameTitle = (UILabel *)[cell viewWithTag:102];
@@ -301,6 +316,17 @@
     detailLabel.text = [NSString stringWithFormat:@"版本 %@ | %@M |",
                       [gameInfo objectForKey:@"version"],
                       [gameInfo objectForKey:@"filesize"]];
+    
+    UIButton *installCrackGameButton = (UIButton *)[cell viewWithTag:106];
+    UIButton *installGeneralGameButton = (UIButton *)[cell viewWithTag:107];
+    
+    if (indexPath.row == self.openRow) {
+        installCrackGameButton.hidden = NO;
+        installGeneralGameButton.hidden = NO;
+    } else {
+        installCrackGameButton.hidden = YES;
+        installGeneralGameButton.hidden = YES;
+    }
     
     return cell;
 }
