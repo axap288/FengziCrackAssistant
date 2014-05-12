@@ -10,7 +10,12 @@
 #define Nav_back_button_normal_bg [UIImage imageNamed:@"fz_nav_back_bt_normal_bg.png"]
 #define Nav_back_button_selected_bg [UIImage imageNamed:@"fz_nav_back_bt_selected_bg.png"]
 
+#define Cell_normal_bg [UIImage imageNamed:@"fz_cell_normal_bg.png"]
+#define Cell_selected_bg [UIImage imageNamed:@"fz_cell_selected_bg.png"]
+
 #define Image_plcaeholder_bg [UIImage imageNamed:@"fz_placeholder.png"]
+
+
 
 
 #define SectionView_bg_image [UIImage imageNamed:@"fz_crackview_sectionview_bg.png"]

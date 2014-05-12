@@ -58,6 +58,7 @@
 	// Do any additional setup after loading the view.
     
     self.baseTableView.frame = CGRectMake(0, yOffectStatusBar + 35, 320, 425 + yOffect - 49);
+    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     if (isIOS7) {
         UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, yOffectStatusBar)];
@@ -240,6 +241,15 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
+        UIImage *cellNormalImage = Cell_normal_bg;
+        cellNormalImage = [cellNormalImage stretchableImageWithLeftCapWidth:0 topCapHeight:2];
+        
+        UIImage *cellSelectedImage = Cell_selected_bg;
+        cellSelectedImage = [cellSelectedImage stretchableImageWithLeftCapWidth:0 topCapHeight:2];
+        
+        cell.backgroundView = [[UIImageView alloc] initWithImage:cellNormalImage];
+        cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:cellSelectedImage];
+        
         //缩略图
         UIImageView *thumbnailView = [[UIImageView alloc] init];
         thumbnailView.frame = CGRectMake(13, 10, 50, 50);

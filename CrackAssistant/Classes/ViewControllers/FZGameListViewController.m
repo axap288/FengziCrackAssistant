@@ -31,8 +31,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:Home_game_title_bg];
+    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 下拉刷新
     __unsafe_unretained FZGameListViewController *gameListViewCtrl = self;
@@ -115,6 +115,15 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+        UIImage *cellNormalImage = Cell_normal_bg;
+        cellNormalImage = [cellNormalImage stretchableImageWithLeftCapWidth:0 topCapHeight:2];
+        
+        UIImage *cellSelectedImage = Cell_selected_bg;
+        cellSelectedImage = [cellSelectedImage stretchableImageWithLeftCapWidth:0 topCapHeight:2];
+        
+        cell.backgroundView = [[UIImageView alloc] initWithImage:cellNormalImage];
+        cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:cellSelectedImage];
         
         //缩略图
         UIImageView *thumbnailView = [[UIImageView alloc] init];

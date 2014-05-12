@@ -51,6 +51,8 @@
 		4E4D99A51920AC5400C32CBF /* fz_game_title_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D99A41920AC5400C32CBF /* fz_game_title_bg@2x.png */; };
 		4E4D99A81920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D99A61920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png */; };
 		4E4D99A91920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D99A71920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png */; };
+		4E4D99AC1920B45400C32CBF /* fz_cell_normal_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D99AA1920B45400C32CBF /* fz_cell_normal_bg@2x.png */; };
+		4E4D99AD1920B45400C32CBF /* fz_cell_selected_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D99AB1920B45400C32CBF /* fz_cell_selected_bg@2x.png */; };
 		4E4FE7E118FE51D200957AE9 /* FZGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */; };
 		4E5C4DA118FD65FA00667B23 /* FZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA018FD65FA00667B23 /* FZTabBarController.m */; };
 		4E5C4DA418FD738000667B23 /* fz_tabbar_gray_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA318FD738000667B23 /* fz_tabbar_gray_bg@2x.png */; };
@@ -195,6 +197,8 @@
 		4E4D99A41920AC5400C32CBF /* fz_game_title_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_game_title_bg@2x.png"; sourceTree = "<group>"; };
 		4E4D99A61920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_nav_back_bt_normal_bg@2x.png"; sourceTree = "<group>"; };
 		4E4D99A71920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_nav_back_bt_selected_bg@2x.png"; sourceTree = "<group>"; };
+		4E4D99AA1920B45400C32CBF /* fz_cell_normal_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_cell_normal_bg@2x.png"; sourceTree = "<group>"; };
+		4E4D99AB1920B45400C32CBF /* fz_cell_selected_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_cell_selected_bg@2x.png"; sourceTree = "<group>"; };
 		4E4FE7DF18FE51D200957AE9 /* FZGameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameDetailViewController.h; sourceTree = "<group>"; };
 		4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameDetailViewController.m; sourceTree = "<group>"; };
 		4E5C4D9F18FD65FA00667B23 /* FZTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZTabBarController.h; sourceTree = "<group>"; };
@@ -494,6 +498,8 @@
 		1FCE70F21906B355000206DB /* common */ = {
 			isa = PBXGroup;
 			children = (
+				4E4D99AA1920B45400C32CBF /* fz_cell_normal_bg@2x.png */,
+				4E4D99AB1920B45400C32CBF /* fz_cell_selected_bg@2x.png */,
 				4E4D99A61920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png */,
 				4E4D99A71920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png */,
 				1FCE70F31906B355000206DB /* fz_placeholder@2x.png */,
@@ -910,6 +916,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2DF3B81903E1DC00E457B0 /* fz_crackview_cell_button_recover@2x.png in Resources */,
+				4E4D99AC1920B45400C32CBF /* fz_cell_normal_bg@2x.png in Resources */,
 				4E4D99A91920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png in Resources */,
 				4E5C4DAB18FD74E700667B23 /* fz_tabbar_download_bg@2x.png in Resources */,
 				4E8FA9F11917860B00D3DA17 /* Default.png in Resources */,
@@ -946,6 +953,7 @@
 				4E85F2FD191B7A4500B44FCE /* fz_information_normal_bt_bg@2x.png in Resources */,
 				4E8FA9FE191786FF00D3DA17 /* Icon120.png in Resources */,
 				4E8FA9FC191786FF00D3DA17 /* icon58X58.png in Resources */,
+				4E4D99AD1920B45400C32CBF /* fz_cell_selected_bg@2x.png in Resources */,
 				1FCD61E1191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png in Resources */,
 				4E5C4DAA18FD74E700667B23 /* fz_tabbar_crack_bg@2x.png in Resources */,
 				1F2DF3BB1903E1DC00E457B0 /* fz_crackview_sectionview_bg@2x.png in Resources */,
