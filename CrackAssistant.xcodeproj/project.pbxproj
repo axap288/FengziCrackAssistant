@@ -38,6 +38,15 @@
 		1F80568818F5326A00BF39A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F80567018F5326A00BF39A7 /* UIKit.framework */; };
 		1F90E5EF190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */; };
 		1F98B2B2191FC10600D5C7E1 /* FZGameAppStateQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98B2B1191FC10600D5C7E1 /* FZGameAppStateQuery.m */; };
+		1F98B2B4192117A500D5C7E1 /* downloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2B3192117A500D5C7E1 /* downloadView.xib */; };
+		1F98B2B81921190900D5C7E1 /* fz_downloadview_topbutton_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2B61921190900D5C7E1 /* fz_downloadview_topbutton_bg@2x.png */; };
+		1F98B2B91921190900D5C7E1 /* fz_downloadview_topbutton_edges@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2B71921190900D5C7E1 /* fz_downloadview_topbutton_edges@2x.png */; };
+		1F98B2C019211D0900D5C7E1 /* fz_downloadview_ actionbutton_click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2BA19211D0900D5C7E1 /* fz_downloadview_ actionbutton_click@2x.png */; };
+		1F98B2C119211D0900D5C7E1 /* fz_downloadview_ actionbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2BB19211D0900D5C7E1 /* fz_downloadview_ actionbutton@2x.png */; };
+		1F98B2C219211D0900D5C7E1 /* fz_downloadview_ allDelbutton_click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2BC19211D0900D5C7E1 /* fz_downloadview_ allDelbutton_click@2x.png */; };
+		1F98B2C319211D0900D5C7E1 /* fz_downloadview_ allDelbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2BD19211D0900D5C7E1 /* fz_downloadview_ allDelbutton@2x.png */; };
+		1F98B2C419211D0900D5C7E1 /* fz_downloadview_ Icon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2BE19211D0900D5C7E1 /* fz_downloadview_ Icon1@2x.png */; };
+		1F98B2C519211D0900D5C7E1 /* fz_downloadview_ Icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2BF19211D0900D5C7E1 /* fz_downloadview_ Icon2@2x.png */; };
 		1FCD61DF191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */; };
 		1FCD61E0191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DC191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png */; };
 		1FCD61E1191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DD191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png */; };
@@ -180,6 +189,15 @@
 		1F90E5EE190E3E5F00187B8A /* fz_crackview_cell_button_recover_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_button_recover_disable@2x.png"; sourceTree = "<group>"; };
 		1F98B2B0191FC10600D5C7E1 /* FZGameAppStateQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameAppStateQuery.h; sourceTree = "<group>"; };
 		1F98B2B1191FC10600D5C7E1 /* FZGameAppStateQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameAppStateQuery.m; sourceTree = "<group>"; };
+		1F98B2B3192117A500D5C7E1 /* downloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = downloadView.xib; sourceTree = "<group>"; };
+		1F98B2B61921190900D5C7E1 /* fz_downloadview_topbutton_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_topbutton_bg@2x.png"; sourceTree = "<group>"; };
+		1F98B2B71921190900D5C7E1 /* fz_downloadview_topbutton_edges@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_topbutton_edges@2x.png"; sourceTree = "<group>"; };
+		1F98B2BA19211D0900D5C7E1 /* fz_downloadview_ actionbutton_click@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_ actionbutton_click@2x.png"; sourceTree = "<group>"; };
+		1F98B2BB19211D0900D5C7E1 /* fz_downloadview_ actionbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_ actionbutton@2x.png"; sourceTree = "<group>"; };
+		1F98B2BC19211D0900D5C7E1 /* fz_downloadview_ allDelbutton_click@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_ allDelbutton_click@2x.png"; sourceTree = "<group>"; };
+		1F98B2BD19211D0900D5C7E1 /* fz_downloadview_ allDelbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_ allDelbutton@2x.png"; sourceTree = "<group>"; };
+		1F98B2BE19211D0900D5C7E1 /* fz_downloadview_ Icon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_ Icon1@2x.png"; sourceTree = "<group>"; };
+		1F98B2BF19211D0900D5C7E1 /* fz_downloadview_ Icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_ Icon2@2x.png"; sourceTree = "<group>"; };
 		1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton_selected@2x.png"; sourceTree = "<group>"; };
 		1FCD61DC191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton1_selected@2x.png"; sourceTree = "<group>"; };
 		1FCD61DD191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton_normal@2x.png"; sourceTree = "<group>"; };
@@ -394,7 +412,7 @@
 			path = DEBIAN;
 			sourceTree = "<group>";
 		};
-		1F2DF3AD1903E1DC00E457B0 /* crackViewController */ = {
+		1F2DF3AD1903E1DC00E457B0 /* crackView */ = {
 			isa = PBXGroup;
 			children = (
 				4E6FEC9A191A298900E79420 /* fz_refresh_arraw_up@2x.png */,
@@ -414,6 +432,7 @@
 				1F2DF3B41903E1DC00E457B0 /* fz_crackview_sectionview_logo1@2x.png */,
 				1F2DF3B51903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png */,
 			);
+			name = crackView;
 			path = crackViewController;
 			sourceTree = "<group>";
 		};
@@ -433,6 +452,7 @@
 			children = (
 				1F7FFF5D18FE513D00A3C5EE /* downloadListCell.xib */,
 				1FF6F3991903FF6000C5E645 /* crackCell.xib */,
+				1F98B2B3192117A500D5C7E1 /* downloadView.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -493,6 +513,22 @@
 				4E677A0F18FC18BB00E238A4 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F98B2B51921190900D5C7E1 /* downloadView */ = {
+			isa = PBXGroup;
+			children = (
+				1F98B2BA19211D0900D5C7E1 /* fz_downloadview_ actionbutton_click@2x.png */,
+				1F98B2BB19211D0900D5C7E1 /* fz_downloadview_ actionbutton@2x.png */,
+				1F98B2BC19211D0900D5C7E1 /* fz_downloadview_ allDelbutton_click@2x.png */,
+				1F98B2BD19211D0900D5C7E1 /* fz_downloadview_ allDelbutton@2x.png */,
+				1F98B2BE19211D0900D5C7E1 /* fz_downloadview_ Icon1@2x.png */,
+				1F98B2BF19211D0900D5C7E1 /* fz_downloadview_ Icon2@2x.png */,
+				1F98B2B61921190900D5C7E1 /* fz_downloadview_topbutton_bg@2x.png */,
+				1F98B2B71921190900D5C7E1 /* fz_downloadview_topbutton_edges@2x.png */,
+			);
+			name = downloadView;
+			path = downloadViewController;
 			sourceTree = "<group>";
 		};
 		1FCE70F21906B355000206DB /* common */ = {
@@ -749,10 +785,11 @@
 		4E677A7518FC19ED00E238A4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1F98B2B51921190900D5C7E1 /* downloadView */,
 				4E85F2F4191B7A4500B44FCE /* home */,
 				4E8FA9EC1917860B00D3DA17 /* system */,
 				1FCE70F21906B355000206DB /* common */,
-				1F2DF3AD1903E1DC00E457B0 /* crackViewController */,
+				1F2DF3AD1903E1DC00E457B0 /* crackView */,
 				4E5C4DA218FD738000667B23 /* tabbar */,
 			);
 			path = Images;
@@ -919,6 +956,7 @@
 				4E4D99AC1920B45400C32CBF /* fz_cell_normal_bg@2x.png in Resources */,
 				4E4D99A91920AF2F00C32CBF /* fz_nav_back_bt_selected_bg@2x.png in Resources */,
 				4E5C4DAB18FD74E700667B23 /* fz_tabbar_download_bg@2x.png in Resources */,
+				1F98B2C119211D0900D5C7E1 /* fz_downloadview_ actionbutton@2x.png in Resources */,
 				4E8FA9F11917860B00D3DA17 /* Default.png in Resources */,
 				1FCD61E61916520A009012C2 /* fz_crackview_cell_install_open@2x.png in Resources */,
 				4E677A6F18FC196400E238A4 /* SVProgressHUD.bundle in Resources */,
@@ -943,26 +981,34 @@
 				1F29BA14190809B3008441A6 /* postinst in Resources */,
 				4E4D99A81920AF2F00C32CBF /* fz_nav_back_bt_normal_bg@2x.png in Resources */,
 				4E8FA9FA191786FF00D3DA17 /* Icon@2x.png in Resources */,
+				1F98B2C419211D0900D5C7E1 /* fz_downloadview_ Icon1@2x.png in Resources */,
 				1F2DF3BD1903E1DC00E457B0 /* fz_crackview_sectionview_logo2@2x.png in Resources */,
 				4E5C4DAD18FD74E700667B23 /* fz_tabbar_more_bg@2x.png in Resources */,
 				1FCD61E0191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png in Resources */,
+				1F98B2C019211D0900D5C7E1 /* fz_downloadview_ actionbutton_click@2x.png in Resources */,
 				4E8FA9FD191786FF00D3DA17 /* icon80X80.png in Resources */,
 				1FCD61DF191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png in Resources */,
+				1F98B2B4192117A500D5C7E1 /* downloadView.xib in Resources */,
 				1F2DF3BA1903E1DC00E457B0 /* fz_crackview_cell_open@2x.png in Resources */,
 				4E677A7C18FC1A2700E238A4 /* Localizable.strings in Resources */,
+				1F98B2B91921190900D5C7E1 /* fz_downloadview_topbutton_edges@2x.png in Resources */,
 				4E85F2FD191B7A4500B44FCE /* fz_information_normal_bt_bg@2x.png in Resources */,
 				4E8FA9FE191786FF00D3DA17 /* Icon120.png in Resources */,
 				4E8FA9FC191786FF00D3DA17 /* icon58X58.png in Resources */,
 				4E4D99AD1920B45400C32CBF /* fz_cell_selected_bg@2x.png in Resources */,
+				1F98B2C219211D0900D5C7E1 /* fz_downloadview_ allDelbutton_click@2x.png in Resources */,
 				1FCD61E1191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png in Resources */,
 				4E5C4DAA18FD74E700667B23 /* fz_tabbar_crack_bg@2x.png in Resources */,
+				1F98B2B81921190900D5C7E1 /* fz_downloadview_topbutton_bg@2x.png in Resources */,
 				1F2DF3BB1903E1DC00E457B0 /* fz_crackview_sectionview_bg@2x.png in Resources */,
 				1F2DF3B71903E1DC00E457B0 /* fz_crackview_cell_button_start@2x.png in Resources */,
 				4E85F2FF191B7A4500B44FCE /* fz_plugin_normal_bt_bg@2x.png in Resources */,
 				1F2DF3B61903E1DC00E457B0 /* fz_crackview_cell_button_crack@2x.png in Resources */,
 				1F2DF3B91903E1DC00E457B0 /* fz_crackview_cell_close@2x.png in Resources */,
+				1F98B2C519211D0900D5C7E1 /* fz_downloadview_ Icon2@2x.png in Resources */,
 				4E5C4DAC18FD74E700667B23 /* fz_tabbar_home_bg@2x.png in Resources */,
 				1FCD61E2191649A0009012C2 /* fz_crackview_cell_installButton1_normal@2x.png in Resources */,
+				1F98B2C319211D0900D5C7E1 /* fz_downloadview_ allDelbutton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1150,7 +1196,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
@@ -1175,7 +1221,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;

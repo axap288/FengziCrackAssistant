@@ -28,7 +28,7 @@
     crackvc.title = @"破解";
     //下载
     FZdownloadViewController *downloadVc = [[FZdownloadViewController alloc] init];
-    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:downloadVc];
+//    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:downloadVc];
     downloadVc.title = @"下载";
     //搜索
     FZSearchViewController *searchvc = [[FZSearchViewController alloc] init];
@@ -40,7 +40,7 @@
     
     // UITabBarController初始化
     self.tabBarController = [[FZTabBarController alloc] init];
-    self.tabBarController.viewControllers = @[mainNavCtrl, crackvc, navigation, searchvc, morevc];
+    self.tabBarController.viewControllers = @[mainNavCtrl, crackvc, downloadVc, searchvc, morevc];
     
    
     

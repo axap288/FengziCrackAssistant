@@ -39,6 +39,19 @@
 #define Cell_button_install_close_image [UIImage imageNamed:@"fz_crackview_cell_install_close.png"]
 #define Cell_button_install_open_image [UIImage imageNamed:@"fz_crackview_cell_install_open.png"]
 
+//download
+#define Download_topbutton_normal_bg [UIImage imageNamed:@"fz_downloadview_topbutton_bg.png"]
+#define Download_actionbutton_normal_bg [UIImage imageNamed:@"fz_downloadview_ actionbutton.png"]
+#define Download_actionbutton_click_bg [UIImage imageNamed:@"fz_downloadview_ actionbutton_click.png"]
+#define Download_allDelbutton_normal_bg [UIImage imageNamed:@"fz_downloadview_ allDelbutton.png"]
+#define Download_allDelbutton_click_bg [UIImage imageNamed:@"fz_downloadview_ allDelbutton_click.png"]
+
+#define Download_usecapacity_icon [UIImage imageNamed:@"fz_downloadview_ Icon1.png"]
+#define Download_usablecapacity_icon  [UIImage imageNamed:@"fz_downloadview_ Icon2.png"]
+
+
+
+
 // Home
 #define Home_button_game_normal_bg [UIImage imageNamed:@"fz_game_normal_bt_bg.png"]
 #define Home_button_game_selected_bg [UIImage imageNamed:@"fz_game_selected_bt_bg.png"]

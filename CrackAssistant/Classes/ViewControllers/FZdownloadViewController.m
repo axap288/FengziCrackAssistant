@@ -21,9 +21,9 @@
     UITableView *tableview;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         downloadManager = [FZDownloadManager getShareInstance];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:RefreshDownloadNotification object:nil];
@@ -33,17 +33,34 @@
     return self;
 }
 
+-(void)loadView
+{
+    [super loadView];
+    
+    if (isIOS7) {
+        UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, yOffectStatusBar)];
+        statusBarView.backgroundColor = UIColorFromRGB(219, 83, 42);
+        [self.view addSubview:statusBarView];
+    }
+    
+    [self createTopButtons];
+    [self createActionButtons];
+     
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     downloadList = [downloadManager.downloadingQueue copy];
     
+    /*
     tableview = [[UITableView alloc] initWithFrame:self.view.frame];
     [tableview setDelegate:self];
     [tableview setDataSource:self];
     [tableview setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.view addSubview: tableview];
+     */
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +72,98 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self refreshTableViewCell:nil];
+}
+
+// 创建顶部按钮
+- (void)createTopButtons
+{
+    //下载中
+    UIButton *downloadingButton = [[UIButton alloc] initWithFrame:CGRectMake(7, yOffectStatusBar + 8, 103, 32)];
+    [downloadingButton setBackgroundImage:Download_topbutton_normal_bg
+                          forState:UIControlStateNormal];
+//    [downloadingButton addTarget:self action:@selector(showGameListButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [downloadingButton setTitle:@"下载中" forState:UIControlStateNormal];
+//    [downloadingButton setTintColor:UIColorFromRGB(57, 57, 57)];
+    downloadingButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [downloadingButton setTitleColor:UIColorFromRGB(57, 57, 57) forState:UIControlStateNormal];
+    downloadingButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [self.view addSubview:downloadingButton];
+    
+    // 已下载
+    UIButton *downloadOverButton = [[UIButton alloc] initWithFrame:CGRectMake(109, yOffectStatusBar +8, 103, 32)];
+    [downloadOverButton setBackgroundImage:Download_topbutton_normal_bg
+                          forState:UIControlStateNormal];
+    downloadOverButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [downloadOverButton setTitle:@"已下载" forState:UIControlStateNormal];
+    [downloadOverButton setTitleColor:UIColorFromRGB(57, 57, 57) forState:UIControlStateNormal];
+    [self.view addSubview:downloadOverButton];
+    
+    // 更新
+    UIButton *updateButton = [[UIButton alloc] initWithFrame:CGRectMake(211, yOffectStatusBar + 8, 103, 32)];
+    [updateButton setBackgroundImage:Download_topbutton_normal_bg
+                            forState:UIControlStateNormal];
+    updateButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [updateButton setTitle:@"更新" forState:UIControlStateNormal];
+    [updateButton  setTitleColor:UIColorFromRGB(57, 57, 57) forState:UIControlStateNormal];
+    [self.view addSubview:updateButton];
+}
+//操作及全部删除按钮
+-(void)createActionButtons
+{
+    UIImageView *useCapacityIcon = [[UIImageView alloc] initWithImage:Download_usecapacity_icon];
+    useCapacityIcon.frame = CGRectMake(8, yOffectStatusBar+58, 8, 8);
+    [self.view addSubview:useCapacityIcon];
+    
+    UIImageView *usablecapacityIcon = [[UIImageView alloc] initWithImage:Download_usablecapacity_icon];
+    usablecapacityIcon.frame = CGRectMake(82, yOffectStatusBar+58, 8, 8);
+    [self.view addSubview:usablecapacityIcon];
+    
+    UILabel *useCapacitylabel = [[UILabel alloc] initWithFrame:CGRectMake(20, yOffectStatusBar + 52, 47, 21)];
+    useCapacityIcon.tintColor = [UIColor blackColor];
+    useCapacitylabel.text = @"已用1.8G";
+    useCapacitylabel.font = [UIFont systemFontOfSize:10];
+    [self.view addSubview:useCapacitylabel];
+    
+    UILabel *usableCapacitylabel = [[UILabel alloc] initWithFrame:CGRectMake(93, yOffectStatusBar + 52, 47, 21)];
+    usableCapacitylabel.font = [UIFont systemFontOfSize:10];
+    usableCapacitylabel.text = @"剩余1.8G";
+    [self.view addSubview:usableCapacitylabel];
+
+    
+    //操作按钮
+    UIButton *actionButton = [[UIButton alloc] initWithFrame:CGRectMake(150, yOffectStatusBar +49, 77, 23)];
+    [actionButton setBackgroundImage:Download_actionbutton_normal_bg
+                                  forState:UIControlStateNormal];
+    [actionButton setBackgroundImage:Download_actionbutton_click_bg
+                            forState:UIControlStateHighlighted];
+    actionButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [actionButton setTitle:@"操作" forState:UIControlStateNormal];
+    [actionButton setTitleColor:UIColorFromRGB(57, 57, 57) forState:UIControlStateNormal];
+    [self.view addSubview:actionButton];
+    //删除按钮
+    UIButton *alldelButton = [[UIButton alloc] initWithFrame:CGRectMake(237, yOffectStatusBar +49, 77, 23)];
+    [alldelButton setBackgroundImage:Download_allDelbutton_normal_bg
+                            forState:UIControlStateNormal];
+    [alldelButton setBackgroundImage:Download_allDelbutton_click_bg
+                            forState:UIControlStateHighlighted];
+    alldelButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [alldelButton setTitle:@"全部删除" forState:UIControlStateNormal];
+    [alldelButton setTitleColor:UIColorFromRGB(255, 255, 255) forState:UIControlStateNormal];
+    [self.view addSubview:alldelButton];
+    
+    //
+    
+
+
+
+
+    
+    
+
+
+    
+    
+
 }
 
 #pragma mark - Table view data source
