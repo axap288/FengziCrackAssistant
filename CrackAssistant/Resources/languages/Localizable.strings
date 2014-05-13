@@ -17,3 +17,6 @@
 
 /*   共通   */
 "navBackButtonTitle" = "返回";
+
+/*   Title   */
+"navTitleGameDetail" = "软件详情";

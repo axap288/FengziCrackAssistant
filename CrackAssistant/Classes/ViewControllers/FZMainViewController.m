@@ -344,7 +344,6 @@
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if (indexPath.row == self.openRow) {
         return kCellOpenHeight;
     } else {
@@ -354,7 +353,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSDictionary *gameDic = [self.gameListArray objectAtIndex:indexPath.row];
     FZGameDetailViewController *gameDetailCtrl = [[FZGameDetailViewController alloc] init];
+    gameDetailCtrl.classId = [gameDic objectForKey:@"catid"];
+    gameDetailCtrl.gameId = [gameDic objectForKey:@"id"];
     
     if (!isIOS7) {
         gameDetailCtrl.hidesBottomBarWhenPushed = YES;

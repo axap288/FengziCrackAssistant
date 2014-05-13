@@ -114,6 +114,7 @@
     [request startAsyncRequest:^(NSString *responseString) {
 
         // 消除网络请求层
+        NSLog(@"%@", responseString);
         
         // 根据request的Hash值，获取该request的成功block
         WSInterfaceSuccessBlock successCallBackBlock = [_successBlockCacheDic objectForKey:[NSString stringWithFormat:@"%d", [request hash]]];
@@ -287,6 +288,28 @@
 {
     
     NSString *parameterStr = [NSString stringWithFormat:@"m=ios&c=index&a=glists&catid=%@&page=%@", classId, pageNum];
+    return [self sendBaseRequestWithPara:[NSMutableDictionary dictionary]
+                               uriString:parameterStr
+                            successBlock:successBlock
+                            failureBlock:failureBlock];
+}
+
+/**
+ *  游戏详情接口
+ *
+ *  @param classId     分类Id
+ *  @param gameId      游戏Id
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadGameDetailWithClassId:(NSString *)classId
+                                gameId:(NSString *)gameId
+                      WithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                      withFailureBlock:(WSInterfaceFailureBlock)failureBlock
+{
+    NSString *parameterStr = [NSString stringWithFormat:@"m=ios&c=index&a=gshow&carid=%@&id=%@", classId, gameId];
     return [self sendBaseRequestWithPara:[NSMutableDictionary dictionary]
                                uriString:parameterStr
                             successBlock:successBlock

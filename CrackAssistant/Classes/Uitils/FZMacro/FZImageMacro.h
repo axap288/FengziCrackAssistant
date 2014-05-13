@@ -63,4 +63,12 @@
 #define Home_button_plugin_selected_bg [UIImage imageNamed:@"fz_plugin_selected_bt_bg.png"]
 #define Home_game_title_bg [UIImage imageNamed:@"fz_game_title_bg.png"]
 
+// Detail
+#define Detail_segment_left_normal_bg [UIImage imageNamed:@"fz_segment_left_normal_bg.png"]
+#define Detail_segment_left_selected_bg [UIImage imageNamed:@"fz_segment_left_selected_bg.png"]
+#define Detail_segment_middle_normal_bg [UIImage imageNamed:@"fz_segment_middle_normal_bg.png"]
+#define Detail_segment_middle_selected_bg [UIImage imageNamed:@"fz_segment_middle_selected_bg.png"]
+#define Detail_segment_right_normal_bg [UIImage imageNamed:@"fz_segment_right_normal_bg.png"]
+#define Detail_segment_right_selected_bg [UIImage imageNamed:@"fz_segment_right_selected_bg.png"]
+
 
