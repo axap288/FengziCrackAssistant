@@ -30,7 +30,9 @@ typedef enum{
 
 @property (strong,nonatomic) NSString *fileName;//文件名
 @property (strong,nonatomic) NSString *crackFileUrl; //此游戏的破解下载地址
-@property (strong,nonatomic) NSString *downloadUrl;//下载URL
+@property (strong,nonatomic) NSString *normalDownloadUrl;//普通版下载URL
+@property (strong,nonatomic) NSString *crackDownloadUrl;//破解版下载URL
+@property (strong,nonatomic) NSString *downloadUrl;//实际下载中的URL
 @property (strong,nonatomic) NSString *fileSize;   //文件实际大小
 @property (strong,nonatomic) NSString *receviedSize;//已下载的大小
 @property (strong,nonatomic) NSString *last_receviedSize;//上次已下载的大小

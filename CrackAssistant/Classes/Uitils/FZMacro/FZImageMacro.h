@@ -49,6 +49,8 @@
 #define Download_usecapacity_icon [UIImage imageNamed:@"fz_downloadview_ Icon1.png"]
 #define Download_usablecapacity_icon  [UIImage imageNamed:@"fz_downloadview_ Icon2.png"]
 
+#define Download_no_download_icon [UIImage imageNamed:@"fz_downloadview_nodownload_icon.png"]
+
 
 
 

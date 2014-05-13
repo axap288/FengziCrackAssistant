@@ -136,8 +136,8 @@
               fzGame.downloadNum = [content objectForKey:@"loadnum"];
               fzGame.thumbnail = [content objectForKey:@"thumb"];
               fzGame.fileSize = [content objectForKey:@"filesize"];
-              NSLog(@"%@",fzGame.name);
-              
+              fzGame.crackDownloadUrl = [content objectForKey:@"attach2"];
+              fzGame.normalDownloadUrl = [content objectForKey:@"attach"];
               [self.crackGamesArray addObject:fzGame];
           }];
         [self.tableview reloadData];
@@ -516,7 +516,9 @@
     installCrackGameButton.tag = 2009;
     [installCrackGameButton setImage:Cell_button_installCrackAPP_normal_image forState:UIControlStateNormal];
     [installCrackGameButton setImage:Cell_button_installCrackAPP_selected_image forState:UIControlStateHighlighted];
-    [installCrackGameButton addTarget:self action:@selector(clickInstallCrackGameButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [installCrackGameButton addTarget:self action:@selector(clickInstallCrackGameButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [installCrackGameButton addTarget:self action:@selector(clickDownloadGameButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [opView addSubview:installCrackGameButton];
     
     UIButton *installGeneralGameButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -524,6 +526,7 @@
     installGeneralGameButton.tag = 2010;
     [installGeneralGameButton setImage:Cell_button_installAPP_normal_image forState:UIControlStateNormal];
     [installGeneralGameButton setImage:Cell_button_installAPP_selected_image forState:UIControlStateHighlighted];
+    [installGeneralGameButton addTarget:self action:@selector(clickDownloadGameButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 
     [opView addSubview:installGeneralGameButton];
     
@@ -656,7 +659,7 @@
     FZGameFile *gamefile = [self.localGamesArray objectAtIndex:selectGameIndex];
     [crackGameInstaller launchAppByIdentifier:gamefile.Identifier];
 }
-
+//点击安装破解游戏
 -(void)clickInstallCrackGameButtonAction:(id)sender
 {
     //安装测试
@@ -666,6 +669,33 @@
         if (success) {
         [SVProgressHUD showSuccessWithStatus:@"安装成功!"];
     }
+}
+
+//点击下载游戏
+-(void)clickDownloadGameButtonAction:(id)sender
+{
+    NSUInteger selectGameIndex = selectCellAtInstallGame - 1;
+    FZGameFile *gamefile = [self.crackGamesArray objectAtIndex:selectGameIndex];
+    
+    UIButton *button = sender;
+    switch (button.tag) {
+        //破解版
+        case 2009:
+            //选择需要真正下载的地址
+            gamefile.downloadUrl = gamefile.crackDownloadUrl;
+            break;
+        //普通版
+        case 2010:
+        {
+            //选择需要真正下载的地址
+            gamefile.downloadUrl = gamefile.normalDownloadUrl;
+        }
+            break;
+        default:
+            break;
+    }
+    //添加一个下载任务到下载管理器
+    [downloadManager addDownloadToList:gamefile];
 }
 
 #pragma  mark FZCrackGameInstallDelegate

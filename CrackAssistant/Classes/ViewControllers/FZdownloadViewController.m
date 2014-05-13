@@ -8,6 +8,7 @@
 
 #import "FZdownloadViewController.h"
 #import "FZCommonUitils.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface FZdownloadViewController ()
@@ -19,6 +20,7 @@
     FZDownloadManager *downloadManager;
     NSArray *downloadList;
     UITableView *tableview;
+    UIView *backgroundView;
 }
 
 - (instancetype)init
@@ -45,7 +47,9 @@
     
     [self createTopButtons];
     [self createActionButtons];
-     
+    [self createTableView];
+    [self createEmprtyDataView];
+    
 }
 
 - (void)viewDidLoad
@@ -151,20 +155,36 @@
     [alldelButton setTitleColor:UIColorFromRGB(255, 255, 255) forState:UIControlStateNormal];
     [self.view addSubview:alldelButton];
     
-    //
-    
-
-
-
-
-    
-    
-
-
-    
-    
-
+    //分割线
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, yOffectStatusBar + 80, 320, 1)];
+    [line setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view addSubview:line];
 }
+
+//创建表格
+-(void)createTableView
+{
+    tableview = [[UITableView alloc] initWithFrame:CGRectMake(7, yOffectStatusBar + 81, 320, 425 + yOffect - 49)];
+    [tableview setDelegate:self];
+    [tableview setDataSource:self];
+    [tableview setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.view addSubview: tableview];
+}
+
+-(void)createEmprtyDataView
+{
+    backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, yOffectStatusBar + 81, 320, 425 + yOffect - 49)];
+    [backgroundView setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [icon setImage:Download_no_download_icon];
+    
+    
+    
+    [self.view addSubview:backgroundView];
+}
+
+
 
 #pragma mark - Table view data source
 
@@ -183,23 +203,8 @@
 
 -(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 77;
+    return 89;
 }
-
-/*
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return @"下载中";
-    }
-    if (section == 1) {
-        return @"等待中";
-    }
-    return nil;
-}
- */
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -211,32 +216,38 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
             //游戏名称
-            UILabel *gameNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(48.f, 16.f, 169.f, 21.f)];
+            UILabel *gameNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(71.f, 23.f, 169.f, 21.f)];
             [gameNameLabel setTag:1101];
             [gameNameLabel setTextColor:[UIColor blackColor]];
             [gameNameLabel setBackgroundColor:[UIColor clearColor]];
-            [gameNameLabel setFont:[UIFont systemFontOfSize:17]];
+            [gameNameLabel setFont:[UIFont systemFontOfSize:12]];
             [cell.contentView addSubview:gameNameLabel];
             //当前下载/文件大小
-            UILabel *downloadRateLabel = [[UILabel alloc] initWithFrame:CGRectMake(48.f, 45.f, 103.f, 21.f)];
+            UILabel *downloadRateLabel = [[UILabel alloc] initWithFrame:CGRectMake(71.f, 45.f, 103.f, 21.f)];
             [downloadRateLabel setTag:1102];
             [downloadRateLabel setTextColor:[UIColor lightGrayColor]];
             [downloadRateLabel setBackgroundColor:[UIColor clearColor]];
-            [downloadRateLabel setFont:[UIFont systemFontOfSize:12]];
+            [downloadRateLabel setFont:[UIFont systemFontOfSize:8]];
             [cell.contentView addSubview:downloadRateLabel];
             //当前状态文字
-            UILabel *downloadStateLabel = [[UILabel alloc] initWithFrame:CGRectMake(169.f, 45.f, 60.f, 21.f)];
+            UILabel *downloadStateLabel = [[UILabel alloc] initWithFrame:CGRectMake(182.f, 45.f, 48.f, 21.f)];
             [downloadStateLabel setTag:1103];
             [downloadStateLabel setTextColor:[UIColor lightGrayColor]];
             [downloadStateLabel setBackgroundColor:[UIColor clearColor]];
-            [downloadStateLabel setFont:[UIFont systemFontOfSize:12]];
+            [downloadStateLabel setFont:[UIFont systemFontOfSize:8]];
             [cell.contentView addSubview:downloadStateLabel];
+            
+            //图标
+            UIImageView *gameIconView = [[UIImageView alloc]initWithFrame:CGRectMake(14, 20, 49, 49)];
+            [gameIconView setTag:1106];
+            [gameIconView setBackgroundColor:[UIColor clearColor]];
+            [cell.contentView addSubview:gameIconView];
 
             //下载进度条
             UIProgressView *downloadProcess = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
             [downloadProcess setTag:1104];
             downloadProcess.progressTintColor = [UIColor orangeColor];
-            downloadProcess.frame = CGRectMake(1.f,74,323.f,3.0f);
+            downloadProcess.frame = CGRectMake(1.f,86,323.f,2.0f);
             downloadProcess.progress=0.0f;
             [cell.contentView addSubview:downloadProcess];
             
@@ -331,6 +342,8 @@
     UILabel *downloadStateLabel = (UILabel *)[cell.contentView viewWithTag:1103];
     UIProgressView *downloadProcess = (UIProgressView *)[cell.contentView viewWithTag:1104];
     UIButton *controlbutton = (UIButton *)[cell.contentView viewWithTag:1105];
+    UIImageView *gameIconView = (UIImageView *)[cell.contentView viewWithTag:1106];
+
     
     FZGameFile *gamefile = [downloadList objectAtIndex:indexPath.row];
     float filesize = [FZCommonUitils getFileSizeNumber:gamefile.fileSize];
@@ -370,7 +383,8 @@
     
     gameNameLabel.text = gamefile.name;
     downloadRateLabel.text = [NSString stringWithFormat:@"%@/%@",[FZCommonUitils getFileSizeString:gamefile.receviedSize],[FZCommonUitils getFileSizeString:gamefile.fileSize]];
-    
+    [gameIconView setImageWithURL:[NSURL URLWithString:gamefile.thumbnail] placeholderImage:[UIImage imageNamed:@"fz_placeholder.png"]];
+
    
     if (filesize == 0 || receivedSize == 0) {
         [downloadProcess setProgress:0];
@@ -411,7 +425,6 @@
             
             if ([downloadList count] !=0) {
                 FZGameFile *obj = (FZGameFile*)[downloadList objectAtIndex:0];
-                NSLog(@"vc downloadList object state:%d",obj.downloadState);
             }
 
         }
