@@ -11,7 +11,13 @@
 #import "ASINetworkQueue.h"
 #import "FZGameFile.h"
 
-#define RefreshDownloadNotification @"RefreshDownloadNotification"
+/**
+ *  下载队列中出现变化时（新增 or 减少）触发此通知
+ */
+#define downloadQueuedidChangeNotification @"didChangeDownloadQueue"
+/**
+ *  下载数据后触发此通知，用于更新进度条的变化
+ */
 #define didReceiverefreshNotification @"didReceiverefreshNotification"
 
 @interface FZDownloadManager : NSObject <ASIHTTPRequestDelegate,ASIProgressDelegate>

@@ -76,7 +76,15 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fz_downloadview_topbutton_edges.png" translatesAutoresizingMaskIntoConstraints="NO" id="D3n-cp-LxY">
-                    <rect key="frame" x="7" y="29" width="103" height="2"/>
+                    <rect key="frame" x="7" y="38" width="103" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fz_downloadview_topbutton_edges.png" translatesAutoresizingMaskIntoConstraints="NO" id="rM3-s1-mJq">
+                    <rect key="frame" x="109" y="38" width="103" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fz_downloadview_topbutton_edges.png" translatesAutoresizingMaskIntoConstraints="NO" id="tMV-85-Gmb">
+                    <rect key="frame" x="211" y="38" width="103" height="2"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T4u-MZ-bkK">

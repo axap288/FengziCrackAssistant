@@ -11,8 +11,9 @@
 #import "FZDownloadManager.h"
 #import "FZGameFile.h"
 #import "FZBaseTableViewController.h"
+#import "FZdownloadLayoutViewController.h"
 
 
-@interface FZdownloadViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface FZdownloadViewController : FZdownloadLayoutViewController
 
 @end

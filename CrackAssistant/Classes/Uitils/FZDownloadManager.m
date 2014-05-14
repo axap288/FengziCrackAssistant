@@ -99,7 +99,7 @@
                      object.downloadState = downloading;
                      [NSThread detachNewThreadSelector:@selector(createDownloadHttpRequest:) toTarget:self withObject:object];
                      *stop = YES;
-                     [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
+                     [[NSNotificationCenter defaultCenter] postNotificationName:downloadQueuedidChangeNotification object:nil userInfo:nil];
                  }
              }];
          }
@@ -163,7 +163,7 @@
             *stop = YES;
         }
     }];
-    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:downloadQueuedidChangeNotification object:nil userInfo:nil];
 }
 
 -(void)restartDownloadUseURL:(NSString *)URL
@@ -186,7 +186,7 @@
             *stop = YES;
         }
     }];
-    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:downloadQueuedidChangeNotification object:nil userInfo:nil];
 }
 
 -(void)removeOneDownloadingUseURL:(NSString *)URL
@@ -216,7 +216,7 @@
         NSFileManager *fileManager = [NSFileManager defaultManager];
         [fileManager removeItemAtPath:tempFilePath error:nil];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:downloadQueuedidChangeNotification object:nil userInfo:nil];
 }
 
 #pragma mark ASIHTTPRequestDelegate
@@ -234,7 +234,7 @@
             *stop = YES;
         }
     }];
-    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:downloadQueuedidChangeNotification object:nil userInfo:nil];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
@@ -248,7 +248,7 @@
             *stop = YES;
         }
     }];
-    [[NSNotificationCenter defaultCenter] postNotificationName:RefreshDownloadNotification object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:downloadQueuedidChangeNotification object:nil userInfo:nil];
 }
 
 - (void)request:(ASIHTTPRequest *)request didReceiveResponseHeaders:(NSDictionary *)responseHeaders

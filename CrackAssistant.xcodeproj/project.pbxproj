@@ -47,6 +47,7 @@
 		1F98B2C319211D0900D5C7E1 /* fz_downloadview_ allDelbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2BD19211D0900D5C7E1 /* fz_downloadview_ allDelbutton@2x.png */; };
 		1F98B2C419211D0900D5C7E1 /* fz_downloadview_ Icon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2BE19211D0900D5C7E1 /* fz_downloadview_ Icon1@2x.png */; };
 		1F98B2C519211D0900D5C7E1 /* fz_downloadview_ Icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F98B2BF19211D0900D5C7E1 /* fz_downloadview_ Icon2@2x.png */; };
+		1F98B2CB1923D26A00D5C7E1 /* FZdownloadLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98B2CA1923D26A00D5C7E1 /* FZdownloadLayoutViewController.m */; };
 		1FCD61DF191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */; };
 		1FCD61E0191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DC191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png */; };
 		1FCD61E1191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCD61DD191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png */; };
@@ -206,6 +207,8 @@
 		1F98B2BD19211D0900D5C7E1 /* fz_downloadview_ allDelbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_ allDelbutton@2x.png"; sourceTree = "<group>"; };
 		1F98B2BE19211D0900D5C7E1 /* fz_downloadview_ Icon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_ Icon1@2x.png"; sourceTree = "<group>"; };
 		1F98B2BF19211D0900D5C7E1 /* fz_downloadview_ Icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_downloadview_ Icon2@2x.png"; sourceTree = "<group>"; };
+		1F98B2C91923D26A00D5C7E1 /* FZdownloadLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZdownloadLayoutViewController.h; sourceTree = "<group>"; };
+		1F98B2CA1923D26A00D5C7E1 /* FZdownloadLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZdownloadLayoutViewController.m; sourceTree = "<group>"; };
 		1FCD61DB191649A0009012C2 /* fz_crackview_cell_installButton_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton_selected@2x.png"; sourceTree = "<group>"; };
 		1FCD61DC191649A0009012C2 /* fz_crackview_cell_installButton1_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton1_selected@2x.png"; sourceTree = "<group>"; };
 		1FCD61DD191649A0009012C2 /* fz_crackview_cell_installButton_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_crackview_cell_installButton_normal@2x.png"; sourceTree = "<group>"; };
@@ -784,6 +787,8 @@
 				4E4FE7E018FE51D200957AE9 /* FZGameDetailViewController.m */,
 				4E4D99A11920985D00C32CBF /* FZGameListViewController.h */,
 				4E4D99A21920985D00C32CBF /* FZGameListViewController.m */,
+				1F98B2C91923D26A00D5C7E1 /* FZdownloadLayoutViewController.h */,
+				1F98B2CA1923D26A00D5C7E1 /* FZdownloadLayoutViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1079,6 +1084,7 @@
 				4E677A7218FC196400E238A4 /* FZInterfaceServer.m in Sources */,
 				1F7FFF5918FE29A700A3C5EE /* FZGame.m in Sources */,
 				4E677A6C18FC196400E238A4 /* SDWebImagePrefetcher.m in Sources */,
+				1F98B2CB1923D26A00D5C7E1 /* FZdownloadLayoutViewController.m in Sources */,
 				4E6FEC911919E01B00E79420 /* FZHomeScrollImageView.m in Sources */,
 				4E677A6418FC196400E238A4 /* Reachability.m in Sources */,
 				4E677A7118FC196400E238A4 /* FZBaseServerRequest.m in Sources */,
@@ -1230,7 +1236,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
@@ -1255,7 +1261,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;

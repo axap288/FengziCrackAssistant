@@ -41,6 +41,8 @@
 
 //download
 #define Download_topbutton_normal_bg [UIImage imageNamed:@"fz_downloadview_topbutton_bg.png"]
+#define Download_topbutton_selected_bg [UIImage imageNamed:@"fz_downloadview_topbutton_bg.png"]
+
 #define Download_actionbutton_normal_bg [UIImage imageNamed:@"fz_downloadview_ actionbutton.png"]
 #define Download_actionbutton_click_bg [UIImage imageNamed:@"fz_downloadview_ actionbutton_click.png"]
 #define Download_allDelbutton_normal_bg [UIImage imageNamed:@"fz_downloadview_ allDelbutton.png"]
@@ -50,6 +52,9 @@
 #define Download_usablecapacity_icon  [UIImage imageNamed:@"fz_downloadview_ Icon2.png"]
 
 #define Download_no_download_icon [UIImage imageNamed:@"fz_downloadview_nodownload_icon.png"]
+#define Download_topbutton_indicatorlight [UIImage imageNamed:@"fz_downloadview_topbutton_edges.png"]
+
+
 
 
 
