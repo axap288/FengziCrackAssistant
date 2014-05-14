@@ -77,6 +77,7 @@
 		4E5C4DAC18FD74E700667B23 /* fz_tabbar_home_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA718FD74E700667B23 /* fz_tabbar_home_bg@2x.png */; };
 		4E5C4DAD18FD74E700667B23 /* fz_tabbar_more_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA818FD74E700667B23 /* fz_tabbar_more_bg@2x.png */; };
 		4E5C4DAE18FD74E700667B23 /* fz_tabbar_search_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C4DA918FD74E700667B23 /* fz_tabbar_search_bg@2x.png */; };
+		4E65B1E719231397003312B3 /* FZGameDetailScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E65B1E619231397003312B3 /* FZGameDetailScreenCell.m */; };
 		4E677A1218FC18BB00E238A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A0F18FC18BB00E238A4 /* main.m */; };
 		4E677A1518FC18E600E238A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E677A1318FC18E600E238A4 /* InfoPlist.strings */; };
 		4E677A5B18FC196400E238A4 /* FZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E677A1918FC196400E238A4 /* FZAppDelegate.m */; };
@@ -241,6 +242,8 @@
 		4E5C4DA718FD74E700667B23 /* fz_tabbar_home_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_tabbar_home_bg@2x.png"; sourceTree = "<group>"; };
 		4E5C4DA818FD74E700667B23 /* fz_tabbar_more_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_tabbar_more_bg@2x.png"; sourceTree = "<group>"; };
 		4E5C4DA918FD74E700667B23 /* fz_tabbar_search_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fz_tabbar_search_bg@2x.png"; sourceTree = "<group>"; };
+		4E65B1E519231397003312B3 /* FZGameDetailScreenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZGameDetailScreenCell.h; sourceTree = "<group>"; };
+		4E65B1E619231397003312B3 /* FZGameDetailScreenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZGameDetailScreenCell.m; sourceTree = "<group>"; };
 		4E677A0A18FC18BB00E238A4 /* CrackAssistant-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "CrackAssistant-Info.plist"; path = "SupportingFiles/CrackAssistant-Info.plist"; sourceTree = "<group>"; };
 		4E677A0B18FC18BB00E238A4 /* CrackAssistant-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CrackAssistant-Prefix.pch"; path = "SupportingFiles/CrackAssistant-Prefix.pch"; sourceTree = "<group>"; };
 		4E677A0F18FC18BB00E238A4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SupportingFiles/main.m; sourceTree = "<group>"; };
@@ -625,6 +628,8 @@
 			children = (
 				1F7FFF6218FE570400A3C5EE /* FZDownloadListCell.h */,
 				1F7FFF6318FE570400A3C5EE /* FZDownloadListCell.m */,
+				4E65B1E519231397003312B3 /* FZGameDetailScreenCell.h */,
+				4E65B1E619231397003312B3 /* FZGameDetailScreenCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1086,6 +1091,7 @@
 				4E677A9C18FC25CA00E238A4 /* FZmoreViewController.m in Sources */,
 				4E677A9D18FC25CA00E238A4 /* FZSearchViewController.m in Sources */,
 				4E677A6318FC196400E238A4 /* ASINetworkQueue.m in Sources */,
+				4E65B1E719231397003312B3 /* FZGameDetailScreenCell.m in Sources */,
 				4E677A7318FC196400E238A4 /* FZNetWorkReachability.m in Sources */,
 				1F729A1C18FD3B6A00BDE86F /* FZCrackListViewViewController.m in Sources */,
 				4E677A5F18FC196400E238A4 /* ASIDownloadCache.m in Sources */,
@@ -1154,7 +1160,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang yuan (3M3L2Q3WP4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1224,7 +1230,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
@@ -1249,7 +1255,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CrackAssistant/SupportingFiles/CrackAssistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "047D5187-C312-4F44-9F34-94EE52A9DECE";
 				WRAPPER_EXTENSION = app;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;

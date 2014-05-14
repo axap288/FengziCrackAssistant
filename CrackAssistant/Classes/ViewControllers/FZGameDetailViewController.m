@@ -9,6 +9,7 @@
 #import "FZGameDetailViewController.h"
 #import "FZInterfaceServer.h"
 #import "UIImageView+WebCache.h"
+#import "FZGameDetailScreenCell.h"
 
 @interface FZGameDetailViewController ()
 
@@ -128,7 +129,7 @@
     [self.gameDetailButton setBackgroundImage:Detail_segment_left_selected_bg forState:UIControlStateNormal];
     [self.gameDetailButton setBackgroundImage:Detail_segment_left_normal_bg forState:UIControlStateHighlighted];
     [self.gameDetailButton setTitleColor:UIColorFromRGB(255, 255, 255) forState:UIControlStateNormal];
-    
+    self.detailType = FZGameDetailTypeDetail;
     return gameInfoView;
 }
 
@@ -222,13 +223,20 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 20;
+    if (self.detailType == FZGameDetailTypeDetail) {
+        return 2;
+    } else {
+        return 20;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifierDetailScreen = @"cellIdentifierDetailScreen";
+    
+    
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierDetailScreen];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
