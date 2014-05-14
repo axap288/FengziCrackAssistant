@@ -13,6 +13,6 @@
 #import "FZBaseTableViewController.h"
 
 
-@interface FZdownloadViewController : UIViewController
+@interface FZdownloadViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
 @end

@@ -47,7 +47,7 @@
     
     [self createTopButtons];
     [self createActionButtons];
-    [self createTableView];
+//    [self createTableView];
     [self createEmprtyDataView];
     
 }
@@ -164,7 +164,8 @@
 //创建表格
 -(void)createTableView
 {
-    tableview = [[UITableView alloc] initWithFrame:CGRectMake(7, yOffectStatusBar + 81, 320, 425 + yOffect - 49)];
+    CGFloat tableHeigh = 487;
+    tableview = [[UITableView alloc] initWithFrame:CGRectMake(7, yOffectStatusBar + 81, 320, tableHeigh - 49)];
     [tableview setDelegate:self];
     [tableview setDataSource:self];
     [tableview setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -173,15 +174,40 @@
 
 -(void)createEmprtyDataView
 {
-    backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, yOffectStatusBar + 81, 320, 425 + yOffect - 49)];
+    CGFloat backgroundViewHeigh = 149;
+    
+    backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, yOffectStatusBar + 81, 320.0f, backgroundViewHeigh - 49)];
     [backgroundView setBackgroundColor:[UIColor lightGrayColor]];
-    
-    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectZero];
-    [icon setImage:Download_no_download_icon];
-    
-    
-    
     [self.view addSubview:backgroundView];
+
+    
+    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 28)];
+    [icon setImage:Download_no_download_icon];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 5, 69, 21)];
+    label.text = @"暂无任何下载";
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:11];
+    
+    UIView *centerDisplayContent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 109, 29)];
+    [centerDisplayContent addSubview:icon];
+    [centerDisplayContent addSubview:label];
+    
+    centerDisplayContent.center = backgroundView.center;
+    NSLog(@"centerDispContent x:%f",centerDisplayContent.frame.origin.x);
+    NSLog(@"centerDispContent y:%f",centerDisplayContent.frame.origin.y);
+    
+    NSLog(@"centerDispContent center:%f",centerDisplayContent.center.x);
+    NSLog(@"centerDispContent center:%f",centerDisplayContent.center.y);
+    
+    NSLog(@"backgroundView width:%f",backgroundView.frame.size.width);
+    NSLog(@"backgroundView height:%f",backgroundView.frame.size.height);
+    
+    NSLog(@"backgroundView center:%f",backgroundView.center.x);
+    NSLog(@"backgroundView center:%f",backgroundView.center.y);
+
+    
+    [backgroundView addSubview:centerDisplayContent];
+    
 }
 
 
