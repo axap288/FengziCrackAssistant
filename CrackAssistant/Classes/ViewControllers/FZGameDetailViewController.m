@@ -11,6 +11,8 @@
 #import "UIImageView+WebCache.h"
 #import "FZGameDetailScreenCell.h"
 
+#define kDetailCellScreenHeight 305
+
 @interface FZGameDetailViewController ()
 
 // 获取游戏详情
@@ -33,6 +35,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = NSLocalizedString(@"navTitleGameDetail", @"");
+    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.baseTableView.frame = CGRectMake(0, 0, 320, 416 + yOffect);
     
     [self getGameDetailInfo];
 }
@@ -55,6 +59,7 @@
                                   self.gameInfoDic = [responseObject mutableObjectFromJSONString];
                                   
                                   self.baseTableView.tableHeaderView = [self createGameInfoView];
+                                  [self.baseTableView reloadData];
                                   
                               } withFailureBlock:^(NSString *errorMessage) {
                                   
@@ -224,7 +229,7 @@
 {
     // Return the number of rows in the section.
     if (self.detailType == FZGameDetailTypeDetail) {
-        return 2;
+        return 3;
     } else {
         return 20;
     }
@@ -234,18 +239,22 @@
 {
     static NSString *CellIdentifierDetailScreen = @"cellIdentifierDetailScreen";
     
-    
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierDetailScreen];
+    FZGameDetailScreenCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierDetailScreen];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[FZGameDetailScreenCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierDetailScreen];
     }
     
     // Configure the cell...
-    cell.textLabel.text = @"abc";
+    [cell setScrollViewImage:[self.gameInfoDic objectForKey:@"screen"]];
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kDetailCellScreenHeight;
 }
 
 @end

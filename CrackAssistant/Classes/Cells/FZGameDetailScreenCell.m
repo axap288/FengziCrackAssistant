@@ -9,8 +9,8 @@
 #import "FZGameDetailScreenCell.h"
 #import "UIImageView+WebCache.h"
 
-#define kLeftMarginWidth 10
-#define kRightMarginWidth 10
+#define kLeftMarginWidth 5
+#define kRightMarginWidth 5
 
 @interface FZGameDetailScreenCell ()
 
@@ -25,8 +25,16 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+        UILabel *gameDetailSrceen = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 190, 15)];
+        gameDetailSrceen.backgroundColor = [UIColor clearColor];
+        gameDetailSrceen.textColor = UIColorFromRGB(14, 14, 14);
+        gameDetailSrceen.font = [UIFont systemFontOfSize:13];
+        gameDetailSrceen.text = @"游戏截图";
+        [self addSubview:gameDetailSrceen];
+        
         // Initialization code
-        self.imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 150)];
+        self.imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, 320, 270)];
         self.imageScrollView.pagingEnabled = NO;
         self.imageScrollView.backgroundColor = [UIColor clearColor];
         self.imageScrollView.showsHorizontalScrollIndicator = NO;
@@ -38,6 +46,15 @@
         
         self.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        UIImage *cellNormalImage = Cell_normal_bg;
+        cellNormalImage = [cellNormalImage stretchableImageWithLeftCapWidth:0 topCapHeight:2];
+        
+        UIImage *cellSelectedImage = Cell_selected_bg;
+        cellSelectedImage = [cellSelectedImage stretchableImageWithLeftCapWidth:0 topCapHeight:2];
+        
+        self.backgroundView = [[UIImageView alloc] initWithImage:cellNormalImage];
+        self.selectedBackgroundView = [[UIImageView alloc] initWithImage:cellSelectedImage];
     }
     return self;
 }
@@ -55,17 +72,17 @@
     
     if (imageArray.count > 0) {
         // 设定图片
-        self.imageScrollView.contentSize = CGSizeMake(80 * imageArray.count + 5 * (imageArray.count - 1) + kLeftMarginWidth + kRightMarginWidth, 80);
+        self.imageScrollView.contentSize = CGSizeMake(180 * imageArray.count + 5 * (imageArray.count - 1) + kLeftMarginWidth + kRightMarginWidth, 240);
         for (int i = 0; i < imageArray.count; i++) {
             
-            UIImageView *productView = [[UIImageView alloc] initWithFrame:CGRectMake(originX, 5, 80, 140)];
+            UIImageView *productView = [[UIImageView alloc] initWithFrame:CGRectMake(originX, 5, 165, 270)];
             
             // 图片
             [productView setImageWithURL:[NSURL URLWithString:[[imageArray objectAtIndex:i] objectForKey:@"url"]]
                                      placeholderImage:nil];
             
 
-            productView.tag = 100 * sectionIndex + i;
+            productView.tag = 100 + i;
             productView.userInteractionEnabled = YES;
             
             [self.imageScrollView addSubview:productView];
@@ -89,13 +106,13 @@
         
         CGPoint scrollEndPoint = scrollView.contentOffset;
         if (scrollEndPoint.x - _scrollStratPoint.x > 0) {
-            int page = (scrollEndPoint.x - kLeftMarginWidth) / 90;
-            int offectX = page * 90 + kLeftMarginWidth + 10;
+            int page = (scrollEndPoint.x - kLeftMarginWidth) / 190;
+            int offectX = page * 190 + kLeftMarginWidth + 10;
             [scrollView setContentOffset:CGPointMake(offectX, 0) animated:YES];
             
         } else {
-            int page = (scrollEndPoint.x - kLeftMarginWidth) / 90 + 1;
-            int offectX = page * 90 - kLeftMarginWidth + 10;
+            int page = (scrollEndPoint.x - kLeftMarginWidth) / 190 + 1;
+            int offectX = page * 190 - kLeftMarginWidth + 10;
             [scrollView setContentOffset:CGPointMake(offectX, 0) animated:YES];
         }
     }
@@ -109,13 +126,13 @@
         
         CGPoint scrollEndPoint = scrollView.contentOffset;
         if (scrollEndPoint.x - _scrollStratPoint.x > 0) {
-            int page = (scrollEndPoint.x - kLeftMarginWidth) / 90;
-            int offectX = page * 90 + kLeftMarginWidth + 10;
+            int page = (scrollEndPoint.x - kLeftMarginWidth) / 190;
+            int offectX = page * 190 + kLeftMarginWidth + 10;
             [scrollView setContentOffset:CGPointMake(offectX, 0) animated:YES];
             
         } else {
-            int page = (scrollEndPoint.x - kLeftMarginWidth) / 90 + 1;
-            int offectX = page * 90 - kLeftMarginWidth + 10;
+            int page = (scrollEndPoint.x - kLeftMarginWidth) / 190 + 1;
+            int offectX = page * 190 - kLeftMarginWidth + 10;
             [scrollView setContentOffset:CGPointMake(offectX, 0) animated:YES];
         }
     }

@@ -192,7 +192,7 @@
     [centerDisplayContent addSubview:icon];
     [centerDisplayContent addSubview:label];
     
-    centerDisplayContent.center = backgroundView.center;
+    centerDisplayContent.center = CGPointMake(backgroundView.center.x, backgroundView.center.y - yOffectStatusBar - 81);
     NSLog(@"centerDispContent x:%f",centerDisplayContent.frame.origin.x);
     NSLog(@"centerDispContent y:%f",centerDisplayContent.frame.origin.y);
     
