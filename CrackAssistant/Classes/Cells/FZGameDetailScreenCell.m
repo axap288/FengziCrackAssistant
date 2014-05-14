@@ -9,8 +9,8 @@
 #import "FZGameDetailScreenCell.h"
 #import "UIImageView+WebCache.h"
 
-#define kLeftMarginWidth 67
-#define kRightMarginWidth 5
+#define kLeftMarginWidth 10
+#define kRightMarginWidth 80
 
 @interface FZGameDetailScreenCell ()
 
@@ -72,10 +72,10 @@
     
     if (imageArray.count > 0) {
         // 设定图片
-        self.imageScrollView.contentSize = CGSizeMake(180 * imageArray.count + 10 * (imageArray.count - 1) + kLeftMarginWidth + kRightMarginWidth, 240);
+        self.imageScrollView.contentSize = CGSizeMake(160 * imageArray.count + 10 * (imageArray.count - 1) + kLeftMarginWidth + kRightMarginWidth, 270);
         for (int i = 0; i < imageArray.count; i++) {
             
-            UIImageView *productView = [[UIImageView alloc] initWithFrame:CGRectMake(originX, 5, 165, 270)];
+            UIImageView *productView = [[UIImageView alloc] initWithFrame:CGRectMake(originX, 5, 160, 270)];
             
             // 图片
             [productView setImageWithURL:[NSURL URLWithString:[[imageArray objectAtIndex:i] objectForKey:@"url"]]
@@ -86,7 +86,7 @@
             productView.userInteractionEnabled = YES;
             
             [self.imageScrollView addSubview:productView];
-            originX = originX + productView.frame.size.width + 5;
+            originX = originX + productView.frame.size.width + 10;
         }
     }
 }
@@ -106,13 +106,13 @@
         
         CGPoint scrollEndPoint = scrollView.contentOffset;
         if (scrollEndPoint.x - _scrollStratPoint.x > 0) {
-            int page = (scrollEndPoint.x - kLeftMarginWidth) / 190;
-            int offectX = page * 190 + kLeftMarginWidth + 10;
+            int page = (scrollEndPoint.x - kLeftMarginWidth) / 170;
+            int offectX = page * 170 + kLeftMarginWidth + 90;
             [scrollView setContentOffset:CGPointMake(offectX, 0) animated:YES];
             
         } else {
-            int page = (scrollEndPoint.x - kLeftMarginWidth) / 190 + 1;
-            int offectX = page * 190 - kLeftMarginWidth + 10;
+            int page = (scrollEndPoint.x - kLeftMarginWidth) / 170 + 1;
+            int offectX = page * 170 - kLeftMarginWidth - 60;
             [scrollView setContentOffset:CGPointMake(offectX, 0) animated:YES];
         }
     }
@@ -126,13 +126,13 @@
         
         CGPoint scrollEndPoint = scrollView.contentOffset;
         if (scrollEndPoint.x - _scrollStratPoint.x > 0) {
-            int page = (scrollEndPoint.x - kLeftMarginWidth) / 190;
-            int offectX = page * 190 + kLeftMarginWidth + 10;
+            int page = (scrollEndPoint.x - kLeftMarginWidth) / 170;
+            int offectX = page * 170 + kLeftMarginWidth + 90;
             [scrollView setContentOffset:CGPointMake(offectX, 0) animated:YES];
             
         } else {
-            int page = (scrollEndPoint.x - kLeftMarginWidth) / 190 + 1;
-            int offectX = page * 190 - kLeftMarginWidth + 10;
+            int page = (scrollEndPoint.x - kLeftMarginWidth) / 170 + 1;
+            int offectX = page * 170 - kLeftMarginWidth - 60;
             [scrollView setContentOffset:CGPointMake(offectX, 0) animated:YES];
         }
     }

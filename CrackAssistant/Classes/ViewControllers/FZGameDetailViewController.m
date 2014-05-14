@@ -307,9 +307,8 @@
         float contentHeight = [FZCommonUitils getContentHeight:[self.gameInfoDic objectForKey:@"content"]
                                                   contentWidth:300
                                                       fontSize:13];
-        return contentHeight + 35;
+        return contentHeight + 30;
     }
-    
 }
 
 @end
