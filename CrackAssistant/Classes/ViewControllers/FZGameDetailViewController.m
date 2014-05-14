@@ -10,8 +10,10 @@
 #import "FZInterfaceServer.h"
 #import "UIImageView+WebCache.h"
 #import "FZGameDetailScreenCell.h"
+#import "FZCommonUitils.h"
 
 #define kDetailCellScreenHeight 305
+#define kDetailCellContentHeight 100
 
 @interface FZGameDetailViewController ()
 
@@ -228,33 +230,86 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if (self.detailType == FZGameDetailTypeDetail) {
-        return 3;
+    if (self.detailType == FZGameDetailTypeDetail && self.gameInfoDic != nil) {
+        return 2;
     } else {
-        return 20;
+        return 0;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifierDetailScreen = @"cellIdentifierDetailScreen";
+    static NSString *CellIdentifierDetailContent = @"cellIdentifierDetailContent";
     
-    FZGameDetailScreenCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierDetailScreen];
+    UITableViewCell *cell = nil;
     
-    if (cell == nil) {
-        cell = [[FZGameDetailScreenCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierDetailScreen];
+    if (indexPath.row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierDetailScreen];
+        
+        if (cell == nil) {
+            cell = [[FZGameDetailScreenCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierDetailScreen];
+        }
+        
+        FZGameDetailScreenCell *gameDetailScreenCell = (FZGameDetailScreenCell *)cell;
+        [gameDetailScreenCell setScrollViewImage:[self.gameInfoDic objectForKey:@"screen"]];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierDetailContent];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierDetailContent];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            UIImage *cellNormalImage = Cell_normal_bg;
+            cellNormalImage = [cellNormalImage stretchableImageWithLeftCapWidth:0 topCapHeight:2];
+            cell.backgroundView = [[UIImageView alloc] initWithImage:cellNormalImage];
+            
+            //内容介绍
+            UILabel *gameDetailContentTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 190, 15)];
+            gameDetailContentTitle.backgroundColor = [UIColor clearColor];
+            gameDetailContentTitle.textColor = UIColorFromRGB(14, 14, 14);
+            gameDetailContentTitle.font = [UIFont systemFontOfSize:13];
+            gameDetailContentTitle.text = @"内容介绍";
+            [cell addSubview:gameDetailContentTitle];
+            
+            UILabel *gameDetailContent = [[UILabel alloc] initWithFrame:CGRectMake(10, 25, 300, 50)];
+            gameDetailContent.backgroundColor = [UIColor clearColor];
+            gameDetailContent.textColor = UIColorFromRGB(112, 112, 112);
+            gameDetailContent.numberOfLines = 0;
+            gameDetailContent.lineBreakMode = NSLineBreakByCharWrapping;
+            gameDetailContent.font = [UIFont systemFontOfSize:13];
+            gameDetailContent.tag = 101;
+            [cell addSubview:gameDetailContent];
+        }
+        
+        UILabel *gameDetailContent = (UILabel *)[cell viewWithTag:101];
+        float contentHeight = [FZCommonUitils getContentHeight:[self.gameInfoDic objectForKey:@"content"]
+                                                  contentWidth:300
+                                                      fontSize:13];
+        
+        CGRect gameDetailContentFrame = gameDetailContent.frame;
+        gameDetailContent.frame = CGRectMake(gameDetailContentFrame.origin.x,
+                                             gameDetailContentFrame.origin.y,
+                                             gameDetailContentFrame.size.width,
+                                             contentHeight);
+        gameDetailContent.text = [self.gameInfoDic objectForKey:@"content"];
     }
-    
-    // Configure the cell...
-    [cell setScrollViewImage:[self.gameInfoDic objectForKey:@"screen"]];
-    
+
     return cell;
 }
 
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return kDetailCellScreenHeight;
+    if (indexPath.row == 0) {
+        return kDetailCellScreenHeight;
+    } else {
+        float contentHeight = [FZCommonUitils getContentHeight:[self.gameInfoDic objectForKey:@"content"]
+                                                  contentWidth:300
+                                                      fontSize:13];
+        return contentHeight + 35;
+    }
+    
 }
 
 @end

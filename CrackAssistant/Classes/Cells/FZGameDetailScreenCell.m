@@ -9,7 +9,7 @@
 #import "FZGameDetailScreenCell.h"
 #import "UIImageView+WebCache.h"
 
-#define kLeftMarginWidth 5
+#define kLeftMarginWidth 67
 #define kRightMarginWidth 5
 
 @interface FZGameDetailScreenCell ()
@@ -50,7 +50,7 @@
         UIImage *cellNormalImage = Cell_normal_bg;
         cellNormalImage = [cellNormalImage stretchableImageWithLeftCapWidth:0 topCapHeight:2];
         
-        UIImage *cellSelectedImage = Cell_selected_bg;
+        UIImage *cellSelectedImage = Cell_normal_bg;
         cellSelectedImage = [cellSelectedImage stretchableImageWithLeftCapWidth:0 topCapHeight:2];
         
         self.backgroundView = [[UIImageView alloc] initWithImage:cellNormalImage];
@@ -72,7 +72,7 @@
     
     if (imageArray.count > 0) {
         // 设定图片
-        self.imageScrollView.contentSize = CGSizeMake(180 * imageArray.count + 5 * (imageArray.count - 1) + kLeftMarginWidth + kRightMarginWidth, 240);
+        self.imageScrollView.contentSize = CGSizeMake(180 * imageArray.count + 10 * (imageArray.count - 1) + kLeftMarginWidth + kRightMarginWidth, 240);
         for (int i = 0; i < imageArray.count; i++) {
             
             UIImageView *productView = [[UIImageView alloc] initWithFrame:CGRectMake(originX, 5, 165, 270)];

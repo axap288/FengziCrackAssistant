@@ -19,4 +19,8 @@
 
 + (FZAppDelegate *)getApplicationDelegate;
 
+// 计算文本高度
++ (CGFloat)getContentHeight:(NSString *)content
+               contentWidth:(CGFloat)width fontSize:(NSInteger)size;
+
 @end

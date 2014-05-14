@@ -57,6 +57,16 @@
     return (FZAppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
-
+// 计算文本高度
++ (CGFloat)getContentHeight:(NSString *)content
+               contentWidth:(CGFloat)width fontSize:(NSInteger)size
+{
+	CGSize constraint = CGSizeMake(width, 2000.0);
+	CGSize contentSize = [content sizeWithFont:[UIFont systemFontOfSize:size]
+                             constrainedToSize:constraint
+                                 lineBreakMode:NSLineBreakByWordWrapping];
+	CGFloat contentHeight = contentSize.height;
+	return contentHeight;
+}
 
 @end
