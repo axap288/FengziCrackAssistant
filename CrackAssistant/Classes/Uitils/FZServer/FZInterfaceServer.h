@@ -120,4 +120,21 @@ typedef void(^WSInterfaceFailureBlock)(NSString *errorMessage);
                       WithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
                       withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
 
+/**
+ *  游戏评论接口
+ *
+ *  @param classId     分类Id
+ *  @param gameId      游戏Id
+ *  @param pageNum     页数
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadGameCommentWithClassId:(NSString *)classId
+                                 gameId:(NSString *)gameId
+                               WithPage:(NSString *)pageNum
+                       WithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                       withFailureBlock:(WSInterfaceFailureBlock)failureBlock;
+
 @end

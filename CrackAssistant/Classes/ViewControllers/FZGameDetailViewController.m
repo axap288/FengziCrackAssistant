@@ -20,6 +20,9 @@
 // 获取游戏详情
 - (void)getGameDetailInfo;
 
+// 获取游戏评论
+- (void)getGameCommentInfo;
+
 // 创建游戏详情视图
 - (UIView *)createGameInfoView;
 
@@ -66,6 +69,20 @@
                               } withFailureBlock:^(NSString *errorMessage) {
                                   
                               }];
+}
+
+// 获取游戏评论
+- (void)getGameCommentInfo
+{
+    FZInterfaceServer *interfaceServer = [FZInterfaceServer getShareInstance];
+    [interfaceServer loadGameCommentWithClassId:self.classId
+                                         gameId:self.gameId
+                                       WithPage:@"1"
+                               WithSuccessBlock:^(id responseObject) {
+                                   
+                               } withFailureBlock:^(NSString *errorMessage) {
+                                   
+                               }];
 }
 
 // 创建游戏详情视图
@@ -169,6 +186,8 @@
     [self.gameRelateButton setBackgroundImage:Detail_segment_right_normal_bg forState:UIControlStateNormal];
     [self.gameRelateButton setBackgroundImage:Detail_segment_right_selected_bg forState:UIControlStateHighlighted];
     [self.gameRelateButton setTitleColor:UIColorFromRGB(135, 135, 135) forState:UIControlStateNormal];
+    
+    [self getGameCommentInfo];
 }
 
 - (void)gameRelateButtonClicked:(id)sender
