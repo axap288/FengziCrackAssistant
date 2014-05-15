@@ -23,6 +23,8 @@ typedef enum FZGameDetailType {
 @property (nonatomic, strong) NSString *gameId;
 
 @property (nonatomic, strong) NSDictionary *gameInfoDic;
+@property (nonatomic, strong) NSMutableArray *userCommentArray;
+@property (nonatomic, strong) NSArray *gameRecommendArray;
 
 @property (nonatomic, assign) FZGameDetailType detailType;
 

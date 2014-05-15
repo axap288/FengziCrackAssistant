@@ -340,4 +340,24 @@
                             failureBlock:failureBlock];
 }
 
+/**
+ *  相关游戏接口
+ *
+ *  @param classId     分类Id
+ *  @param successBlock
+ *  @param failureBlock
+ *
+ *  @return request的Hash值
+ */
+-(NSString *)loadGameRecommendWithClassId:(NSString *)classId
+                         WithSuccessBlock:(WSInterfaceSuccessBlock)successBlock
+                         withFailureBlock:(WSInterfaceFailureBlock)failureBlock
+{
+    NSString *parameterStr = [NSString stringWithFormat:@"m=ios&c=index&a=grelated&catid=%@", classId];
+    return [self sendBaseRequestWithPara:[NSMutableDictionary dictionary]
+                               uriString:parameterStr
+                            successBlock:successBlock
+                            failureBlock:failureBlock];
+}
+
 @end
