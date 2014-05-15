@@ -33,6 +33,7 @@
 	// Do any additional setup after loading the view.
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:Home_game_title_bg];
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.baseTableView.frame = CGRectMake(0, 0, 320, 416 + yOffect);
     
     // 下拉刷新
     __unsafe_unretained FZGameListViewController *gameListViewCtrl = self;
